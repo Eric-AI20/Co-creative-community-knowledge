@@ -1,4 +1,4 @@
-package com.cardiff.community.engagement;
+package com.cardiff;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
