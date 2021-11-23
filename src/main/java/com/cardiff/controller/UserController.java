@@ -33,6 +33,12 @@ public class UserController {
         return "registration";
     }
 
+    @GetMapping("/home")
+    public String showHomePage(WebRequest request, Model model) {
+        //model.addAttribute("user", new UserDto());
+        return "home";
+    }
+
     @PostMapping("/user/registration")
     public ModelAndView registerUserAccount(@ModelAttribute("user") @Valid UserDto userDto, HttpServletRequest request, Errors errors) {
         ModelAndView mav = new ModelAndView("registration");
