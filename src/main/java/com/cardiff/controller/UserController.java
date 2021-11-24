@@ -39,7 +39,6 @@ public class UserController {
         User registered = null;
         try {
             registered = userService.registerNewUserAccount(userDto);
-
             mav.addObject("message",
                     "User registered successfully");
 

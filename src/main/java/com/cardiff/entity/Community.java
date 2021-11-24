@@ -24,6 +24,11 @@ public class Community extends AuditModel {
             cascade = CascadeType.ALL)
     private Set<Activity> activities;
 
+    @OneToMany(mappedBy = "community", fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL)
+    private Set<Project> projects;
+
+
     public Long getId() {
         return id;
     }
@@ -70,5 +75,13 @@ public class Community extends AuditModel {
 
     public void setActivities(Set<Activity> activities) {
         this.activities = activities;
+    }
+
+    public Set<Project> getProjects() {
+        return projects;
+    }
+
+    public void setProjects(Set<Project> projects) {
+        this.projects = projects;
     }
 }

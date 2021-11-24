@@ -11,9 +11,129 @@
 </head>
 <body>
 <div class="wrapper">
-    <div th:replace="sidebar.html :: sidebar"></div>
-    <div th:text="${community.name}">
-    </div>
+    <div id="navbar" th:replace="navbar.html :: navbar"></div>
+    <br>
+
+    <main class="container">
+        <div class="p-4 p-md-5 mb-4 text-white rounded bg-dark">
+            <div class="col-md-6 px-0">
+                <h1 class="display-4 fst-italic">Tir Coed</h1>
+                <p class="lead my-3">Tir coed connects people with land (tir) and woods (coed) by delivering outdoor
+                    training,
+                    learning and wellbeing programmes across carmarthenshire, ceredigion, pembrokeshire and powys.
+                </p>
+            </div>
+        </div>
+        <div class="row g-5">
+            <div class="col-md-8">
+                <h3 class="pb-4 mb-4 fst-italic border-bottom">
+
+                </h3>
+
+                <article class="blog-post">
+                    <h2 class="blog-post-title">Mission</h2>
+
+                    <p>Thriving sustainable rural communities integrated with the natural environment.</p>
+
+                    <p>To unlock the potential of woodlands to provide a community facility, educational and health
+                        activities, and to create job opportunities for disadvantaged individuals in rural Wales. With
+                        the aim to make positive lasting change.</p>
+                    <hr>
+                    <h2 class="blog-post-title">History</h2>
+                    <p>Thriving sustainable rural communities integrated with the natural environment.</p>
+
+                    <p>To unlock the potential of woodlands to provide a community facility, educational and health
+                        activities, and to create job opportunities for disadvantaged individuals in rural Wales. With
+                        the aim to make positive lasting change.</p>
+                    <hr>
+
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="card" style="width: 18rem;">
+                                <img class="card-img-top"
+                                     alt="Card image cap" th:src="@{/images/avatar.png}"/>
+                                <div class="card-body">
+                                    <p>FFION FARNELL, CEO</p>
+                                    <p class="card-text">Some quick example text to build on the card title and make up
+                                                                            the bulk of the card's content.</p>
+                                </div>
+                            </div>
+                        </div><!-- /.col-lg-4 -->
+                        <div class="col-lg-4">
+                            <div class="card" style="width: 18rem;">
+                                <img class="card-img-top"
+                                     alt="Card image cap" th:src="@{/images/avatar.png}"/>
+                                <div class="card-body">
+                                    <p>FFION FARNELL, CEO</p>
+                                                                        <p class="card-text">Some quick example text to build on the card title and make up
+                                                                            the bulk of the card's content.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="card" style="width: 18rem;">
+                                <img class="card-img-top"
+                                     alt="Card image cap" th:src="@{/images/avatar.png}"/>
+                                <div class="card-body">
+                                    <p>FFION FARNELL, CEO</p>
+                                    <p class="card-text">Some quick example text to build on the card title and make up
+                                                                            the bulk of the card's content.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </article>
+
+            </div>
+
+            <div class="col-md-4">
+                <div class="position-sticky" style="top: 2rem;">
+
+                    <div class="p-4">
+                        <h4 class="fst-italic">Projects</h4>
+                        <ol class="list-unstyled mb-0">
+                            <li><a href="#">KESS 2</a></li>
+                            <li><a href="#">ANTIR</a></li>
+                        </ol>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="fst-italic">Case Studies</h4>
+                        <ol class="list-unstyled">
+                            <li><a href="#">Mental health problems</a>
+                            </li>
+                            <li><a href="#">Unemployed : Woodland service worker</a></li>
+                            <li><a href="#">Redundant :Tir coed activity leader</a></li>
+                        </ol>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="fst-italic">Education and Training</h4>
+                        <ol class="list-unstyled mb-0">
+                            <li><a href="#">Progression weeKs</a></li>
+                            <li><a href="#">Accredited training courses</a></li>
+                        </ol>
+                    </div>
+                    <div class="p-4 mb-3 bg-light rounded">
+                        <h4 class="fst-italic">About Us</h4>
+                        <p class="mb-0">Over the past 20 years Tir Coed has developed a comprehensive engagement model
+                            that supports people as they develop,
+                            from first step engagement through to employment.
+                            All of the work carried out by volunteers and trainees improves the health of the woodland
+                            and its accessibility for the benefit of the whole community.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="blog-footer">
+        <p>Copyrights @Co-create
+        </p>
+        <p>
+            <a href="#">Back to top</a>
+        </p>
+    </footer>
 </div>
 </body>
 </html>
