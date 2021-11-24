@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "users")
-public class User {
+public class User extends AuditModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,8 +21,6 @@ public class User {
 
     @Column(name = "last_name", nullable = false, length = 20)
     private String lastName;
-
-    // getters and setters are not shown
 
     public Long getId() {
         return id;

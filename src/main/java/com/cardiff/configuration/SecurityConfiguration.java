@@ -16,8 +16,12 @@ import javax.sql.DataSource;
 @Configuration
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
-    @Autowired
     private DataSource dataSource;
+
+    @Autowired
+    public void setDataSource(DataSource dataSource) {
+        this.dataSource = dataSource;
+    }
 
     @Bean
     public UserDetailsService userDetailsService() {
@@ -52,8 +56,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .formLogin()
                 .usernameParameter("email")
                 .defaultSuccessUrl("/home")
-                .permitAll()
-                .and()
+                .permitAll().and()
                 .logout().logoutSuccessUrl("/").permitAll();
     }
 
