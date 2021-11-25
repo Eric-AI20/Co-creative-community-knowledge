@@ -1,4 +1,4 @@
-package com.cardiff.service;
+package com.cardiff.service.iface;
 
 import com.cardiff.domain.UserDto;
 import com.cardiff.entity.User;

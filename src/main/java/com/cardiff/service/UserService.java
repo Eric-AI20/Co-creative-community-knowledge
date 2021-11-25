@@ -4,6 +4,7 @@ import com.cardiff.domain.UserDto;
 import com.cardiff.entity.User;
 import com.cardiff.exception.UserAlreadyExistException;
 import com.cardiff.repository.UserRepository;
+import com.cardiff.service.iface.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;

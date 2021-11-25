@@ -7,13 +7,13 @@ import javax.persistence.*;
 public class Project extends AuditModel {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @Column(nullable = false, unique = true, length = 45)
     private String name;
 
-    @Column(nullable = false, length = 1000)
+    @Column(length = 1000)
     private String description;
 
     @OneToOne(cascade = CascadeType.ALL)
@@ -21,7 +21,7 @@ public class Project extends AuditModel {
     private Location location;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "community_id", nullable = false)
+    @JoinColumn(name = "community_id", nullable = false, referencedColumnName = "id")
     private Community community;
 
     public void setId(Long id) {

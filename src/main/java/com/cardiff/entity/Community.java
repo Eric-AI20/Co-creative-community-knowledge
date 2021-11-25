@@ -8,17 +8,23 @@ import java.util.Set;
 public class Community extends AuditModel {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @Column(nullable = false, unique = true, length = 45)
     private String name;
 
-    @Column(nullable = false, length = 1000)
+    @Column(length = 1000)
     private String description;
 
     @Column(nullable = false, length = 1000)
     private String aboutUs;
+
+    @Column(nullable = false, length = 1000)
+    private String goal;
+
+    @Column(nullable = false, length = 1000)
+    private String history;
 
     @OneToMany(mappedBy = "community", fetch = FetchType.LAZY,
             cascade = CascadeType.ALL)
@@ -27,7 +33,6 @@ public class Community extends AuditModel {
     @OneToMany(mappedBy = "community", fetch = FetchType.LAZY,
             cascade = CascadeType.ALL)
     private Set<Project> projects;
-
 
     public Long getId() {
         return id;
@@ -83,5 +88,21 @@ public class Community extends AuditModel {
 
     public void setProjects(Set<Project> projects) {
         this.projects = projects;
+    }
+
+    public String getGoal() {
+        return goal;
+    }
+
+    public void setGoal(String goal) {
+        this.goal = goal;
+    }
+
+    public String getHistory() {
+        return history;
+    }
+
+    public void setHistory(String history) {
+        this.history = history;
     }
 }

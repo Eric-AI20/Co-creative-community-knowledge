@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 @Table(name = "locations")
 public class Location extends AuditModel {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @Column(precision = 9, scale = 3)
