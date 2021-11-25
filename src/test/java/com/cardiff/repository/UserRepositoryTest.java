@@ -28,11 +28,8 @@ class UserRepositoryTest {
         user.setPassword("abhijeet2020");
         user.setFirstName("Abhijeet");
         user.setLastName("Ahire");
-
         User savedUser = repo.save(user);
-
         User existUser = entityManager.find(User.class, savedUser.getId());
-
         assertThat(user.getEmail()).isEqualTo(existUser.getEmail());
 
     }

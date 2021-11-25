@@ -8,13 +8,13 @@ import java.time.LocalDateTime;
 public class Activity extends AuditModel {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @Column(nullable = false, unique = true, length = 45)
     private String name;
 
-    @Column(nullable = false, length = 1000)
+    @Column(length = 1000)
     private String description;
 
     @Column(name = "activity_timestamp", columnDefinition = "TIMESTAMP")
@@ -26,6 +26,14 @@ public class Activity extends AuditModel {
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "community_id", nullable = false)
     private Community community;
+
+    public Community getCommunity() {
+        return community;
+    }
+
+    public void setCommunity(Community community) {
+        this.community = community;
+    }
 
     public String getName() {
         return name;
@@ -65,5 +73,9 @@ public class Activity extends AuditModel {
 
     public void setVenue(String venue) {
         this.venue = venue;
+    }
+
+    public String getFormattedActivityDateTime() {
+        return this.getActivityDateAndTime().toString().replace('T', ' ');
     }
 }
