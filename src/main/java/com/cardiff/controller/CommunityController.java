@@ -27,9 +27,9 @@ public class CommunityController {
     }
 
     @GetMapping("/community/{id}")
-    public String getCommunityById(WebRequest request, Model model, @PathVariable String id) {
+    public String getCommunityById(WebRequest request, Model model, @PathVariable Long id) {
         //model.addAttribute("user", new UserDto());
-        Community communityById = communityService.getCommunityById(Long.parseLong(id));
+        Community communityById = communityService.getCommunityById(id);
 
         if (communityById != null) {
             model.addAttribute("community", communityById);
