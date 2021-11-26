@@ -41,7 +41,12 @@ public class Location extends AuditModel {
     }
 
 
+    public Location(BigDecimal latitude, BigDecimal longitude) {
+        this.latitude = latitude;
+        this.longitude = longitude;
+    }
 
-
+    public Location() {
+    }
 }
 
