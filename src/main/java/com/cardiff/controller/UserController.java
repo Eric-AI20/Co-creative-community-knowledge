@@ -3,6 +3,7 @@ package com.cardiff.controller;
 import com.cardiff.domain.UserDto;
 import com.cardiff.entity.User;
 import com.cardiff.exception.UserAlreadyExistException;
+import com.cardiff.repository.CaseStudyRepository;
 import com.cardiff.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,6 +24,9 @@ public class UserController {
     private final UserService userService;
 
     @Autowired
+    private CaseStudyRepository studyRepository;
+
+    @Autowired
     public UserController(UserService userService) {
         this.userService = userService;
     }
@@ -31,6 +35,12 @@ public class UserController {
     public String showRegistrationForm(WebRequest request, Model model) {
         model.addAttribute("user", new UserDto());
         return "registration";
+    }
+
+    @GetMapping("/caseStudyList")
+    public String showCaseStudyList(WebRequest request, Model model) {
+        model.addAttribute("caseStudies", studyRepository.findAll());
+        return "home";
     }
 
     @PostMapping("/user/registration")

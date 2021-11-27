@@ -31,6 +31,7 @@ public class UserService implements IUserService {
         String encodedPassword = passwordEncoder.encode(userDto.getPassword());
         userDto.setPassword(encodedPassword);
         createUserFromDto(userDto);
+        userRepository.findAll();
         return userRepository.save(createUserFromDto(userDto));
     }
 
