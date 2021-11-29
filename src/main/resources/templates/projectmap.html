@@ -12,7 +12,7 @@
 <div class="container">
 
 
-    <h3>My Google Maps Demo</h3>
+    <h3>Project map</h3>
 
     <!--The div element for the map -->
     <div id="map"></div>
@@ -35,11 +35,11 @@
             let locations = [[${locations}]]
             var marker, i;
             for (i = 0; i < locations.length; i++) {
-                 marker = new google.maps.Marker({
+                marker = new google.maps.Marker({
                     position: {lat: locations[i].latitude, lng: locations[i].longitude},
                     map: map,
-                    title: "Main",
-                    url: "http://localhost:8080/home"
+                    title: locations[i].name,
+                    url: "http://localhost:8080/community/6"
                 });
 
                 google.maps.event.addListener(marker, 'click', function () {
@@ -53,6 +53,7 @@
 
 
 </div>
+<div th:replace="fragments.html :: footer"></div>
 
 </body>
 </html>
