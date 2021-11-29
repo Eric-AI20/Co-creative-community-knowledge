@@ -1,25 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
-    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
-    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}"/>
-    <script type="text/javascript" th:src="@{/js/main.js}"></script>
+    <div th:replace="fragments.html :: header"></div>
 </head>
 <body>
-<div id="navbar" th:replace="navbar.html :: navbar"></div>
+<div id="navbar" th:replace="fragments.html :: navbar"></div>
 <br>
-<footer class="blog-footer">
-    <p>Blog template built for <a href="https://getbootstrap.com/">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.
-    </p>
-    <p>
-        <a href="#">Back to top</a>
-    </p>
-</footer>
-
+<div th:replace="fragments.html :: footer"></div>
 
 </body>
 </html>
