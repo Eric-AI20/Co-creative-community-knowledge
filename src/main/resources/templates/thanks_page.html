@@ -1,137 +1,112 @@
-
 <html>
-  <head>
-    <link rel="stylesheet" href="./thanks_page.css">
-  </head>
-  <body>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/thanks_page.css}"/>
+    <script type="text/javascript" th:src="@{/js/main.js}"></script>
+</head>
+<body>
 
-  <div class="head1">
-    <h1 align="center">Thanks<small> for the contributors</small></h1>
-  </div>
+<div class="wrapper">
+    <div id="navbar" th:replace="navbar.html :: navbar"></div>
+    <br>
+</div>
+<div class="head1">
+    <h1 align="center">Key contributors</small></h1>
+</div>
 
-  <div class="p-1">
-    <p>This page is used to thank those who have made great contributions to the community. </p>
-    <p>With their selfless dedication, our community can become better and better, I believe the world will be better because of them.</p>
-  </div>
-
-
-
-
-    <div class="card">
-      <img src="https://static.runoob.com/images/mix/img_avatar.png">
-      <div class="container">
-        <h2><b>name</b></h2> 
-        <p>positon</p>
-        <p>introduction</p>
-      </div>
+<!--修改版后 添加了真实的人物姓名和职位-->
+<div class="mycard">
+    <img src="https://static.runoob.com/images/mix/img_avatar.png">
+    <div class="container">
+        <h2><b>Emma</b></h2>
+        <p>Director of AG design consultants</p>
+        <p>Emma is an urban designer with a background in architecture; she
+            completed her PhD at the University of Nottingham in the subject of
+            social sustainability, engagement and placemaking. Mixing the
+            worlds of practice, academia and local authority, In her position at
+            Nottingham City Council, Laura developed the Design Quality
+            Framework, the first application of the UK National Design Guide at
+            a local level.</p>
     </div>
+</div>
 
-    <div class="card">
-      <img src="https://static.runoob.com/images/mix/img_avatar.png">
-      <div class="container">
-        <h2><b>name</b></h2>
-        <p>positon</p>
-        <p>introduction</p>
-      </div>
+<div class="mycard">
+    <img src="https://static.runoob.com/images/mix/img_avatar.png">
+    <div class="container">
+        <h2><b>Olivia</b></h2>
+        <p>Architect and Founder of TerraLupa</p>
+        <p>Olivia is an Architect and Founder of TerraLupa, a platform for
+        ecological regeneration and re-establishing our
+        connection to
+        nature, encouraging design that promotes positive integration with
+        local ecosystems and communities. She runs the Co-Lab Studio for
+        AWW in Bristol and is a part-time Associate Lecturer at the
+        University of West England.</p>
     </div>
+</div>
 
-    <div class="card">
-      <img src="https://static.runoob.com/images/mix/img_avatar.png">
-      <div class="container">
-        <h2><b>name</b></h2>
-        <p>positon</p>
-        <p>introduction</p>
-      </div>
+<div class="mycard">
+    <img src="https://static.runoob.com/images/mix/img_avatar.png">
+    <div class="container">
+        <h2><b>Isabella</b></h2>
+        <p>CFO</p>
+        <p>introduction3</p>
     </div>
+</div>
 
-    <div class="card">
-      <img src="https://static.runoob.com/images/mix/img_avatar.png">
-      <div class="container">
-        <h2><b>name</b></h2>
-        <p>positon</p>
-        <p>introduction</p>
-      </div>
+<div class="mycard">
+    <img src="https://static.runoob.com/images/mix/img_avatar.png">
+    <div class="container">
+        <h2><b>Amelia</b></h2>
+        <p>HRD</p>
+        <p>introduction3</p>
     </div>
+</div>
 
-    <div class="card">
-      <img src="https://static.runoob.com/images/mix/img_avatar.png">
-      <div class="container">
-        <h2><b>name</b></h2>
-        <p>positon</p>
-        <p>introduction</p>
-      </div>
-    </div>
 
-    <div class="card">
-      <img src="https://static.runoob.com/images/mix/img_avatar.png">
-      <div class="container">
-        <h2><b>name</b></h2>
-        <p>positon</p>
-        <p>introduction</p>
-      </div>
-    </div>
 
-    <div class="card">
-      <img src="https://static.runoob.com/images/mix/img_avatar.png">
-      <div class="container">
-        <h2><b>name</b></h2>
-        <p>positon</p>
-        <p>introduction</p>
-      </div>
-    </div>
 
-    <div class="card">
-      <img src="https://static.runoob.com/images/mix/img_avatar.png">
-      <div class="container">
-        <h2><b>name</b></h2>
-        <p>positon</p>
-        <p>introduction</p>
-      </div>
-    </div>
+<div class="test">
 
-    <div class="card">
-      <img src="https://static.runoob.com/images/mix/img_avatar.png">
-      <div class="container">
-        <h2><b>name</b></h2>
-        <p>positon</p>
-        <p>introduction</p>
-      </div>
-    </div>
+</div>
+</body>
+<script type="application/javascript">
+     // document.getElementsByClassName("test")
+    let re = ""
+    // $.ajax({
+    //     url: "",
+    //     success(data) {
+    //         for (let i = 0; i < data.length; i++) {
+    //             re += '<div class="mycard">\n' +
+    //                 '    <img src="date[i].img">\n' +
+    //                 '    <div class="container">\n' +
+    //                 '        <h2><b>date[i].name</b></h2>\n' +
+    //                 '        <p>positon</p>\n' +
+    //                 '        <p>introduction</p>\n' +
+    //                 '    </div>\n' +
+    //                 '</div>'
+    //         }
+    //         document.writeln(re)
+    //     }
+    // })
 
-    <div class="card">
-      <img src="https://static.runoob.com/images/mix/img_avatar.png">
-      <div class="container">
-        <h2><b>name</b></h2>
-        <p>positon</p>
-        <p>introduction</p>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="https://static.runoob.com/images/mix/img_avatar.png">
-      <div class="container">
-        <h2><b>name</b></h2>
-        <p>positon</p>
-        <p>introduction</p>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="https://static.runoob.com/images/mix/img_avatar.png">
-      <div class="container">
-        <h2><b>name</b></h2>
-        <p>positon</p>
-        <p>introduction</p>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="https://static.runoob.com/images/mix/img_avatar.png">
-      <div class="container">
-        <h2><b>name</b></h2>
-        <p>positon</p>
-        <p>introduction</p>
-      </div>
-    </div>
-  </body>
+    // 修改版前 用for循环来循环出很多个card
+    // for (let i = 0; i < 5; i++) {
+    //     let div = document.getElementsByClassName("test")
+    //     re += '<div class="mycard">\n' +
+    //         '    <img src="https://static.runoob.com/images/mix/img_avatar.png">\n' +
+    //         '    <div class="container">\n' +
+    //         '        <h2><b>name</b></h2>\n' +
+    //         '        <p>positon</p>\n' +
+    //         '        <p>introduction</p>\n' +
+    //         '    </div>\n' +
+    //         '</div>'
+    // }
+    // document.writeln(re)
+</script>
 </html>

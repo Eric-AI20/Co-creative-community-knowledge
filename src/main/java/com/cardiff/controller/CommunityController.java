@@ -37,4 +37,12 @@ public class CommunityController {
         model.addAttribute("communityList", communityService.getAllCommunitiesForNavigation());
         return "community";
     }
+
+
+    @GetMapping("/contributers")
+    public String showRegcoistrationForm(WebRequest request, Model model) {
+        //model.addAttribute("user", new UserDto());
+        return "thanks_page";
+    }
+
 }
