@@ -7,7 +7,5 @@ import java.util.List;
 public interface ICommunityService {
     Community getCommunityById(Long id);
 
-    List<Community> getAllCommunitiesForNavigation();
-
     Community createCommunity(Community community);
 }

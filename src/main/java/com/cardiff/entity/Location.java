@@ -10,6 +10,9 @@ public class Location extends AuditModel {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @Column(nullable = false, unique = true, length = 45)
+    private String name;
+
     @Column(precision = 9, scale = 3)
     private BigDecimal latitude;
 
@@ -41,7 +44,20 @@ public class Location extends AuditModel {
     }
 
 
+    public Location(BigDecimal latitude, BigDecimal longitude) {
+        this.latitude = latitude;
+        this.longitude = longitude;
+    }
 
+    public Location() {
+    }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }
 
