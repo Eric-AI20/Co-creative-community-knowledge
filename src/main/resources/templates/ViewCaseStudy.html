@@ -1,19 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
-    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
-    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}"/>
-    <script type="text/javascript" th:src="@{/js/main.js}"></script>
+    <div th:replace="fragments.html :: header"></div>
 </head>
 <body>
-<div id="navbar" th:replace="sidebar.html :: sidebar"></div>
+<div id="navbar" th:replace="fragments.html :: navbar"></div>
 <br>
 
+
 <main class="container">
+    <h1 th:text="${casestudy.getName()}"></h1>
+    <p th:text="${casestudy.getDescription()}"></p>
     <div class="p-4 p-md-5 mb-4 text-white rounded bg-dark">
         <div class="col-md-6 px-0">
             <h1 class="display-4 fst-italic">Title of the case study</h1>
@@ -73,15 +70,8 @@
 
 </main>
 
-<footer class="CaseStudy-footer">
-
-    <p>this case study was implemented by <a href="#">people or teams</a>.
-    </p>
-    <p>
-        <a href="#">Back to top</a>
-    </p>
-</footer>
 
 
+<div th:replace="fragments.html :: footer"></div>
 </body>
 </html>
