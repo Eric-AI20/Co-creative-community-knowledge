@@ -5,9 +5,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "communities")
-public class Community extends AuditModel {
-
-    public static Object getName;
+public class Community extends AuditModel{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
