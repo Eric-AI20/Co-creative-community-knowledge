@@ -1,15 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-      <meta charset="UTF-8">
-      <title>Title</title>
-      <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
-      <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
-      <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
-      <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}"/>
-      <script type="text/javascript" th:src="@{/js/main.js}"></script>
+      <div th:replace="fragments.html :: header"></div>
   </head>
   <body>
+  <div id="navbar" th:replace="fragments.html :: navbar"></div>
+  <br>
     <h1>Create a case study</h1>
     <div class="container px-5 my-5">
       <form id="contactForm" data-sb-form-api-token="API_TOKEN">
@@ -66,7 +62,7 @@
           </div>
       </form>
   </div>
-
+  <div th:replace="fragments.html :: footer"></div>
   </body>
   
 
