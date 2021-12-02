@@ -236,9 +236,81 @@ h1, h2, h3, h4, h5, h6 {
     text-align: center;
     background-color: #f9f9f9;
     border-top: .05rem solid #e5e5e5;
+
 }
+
 
 .blog-footer p:last-child {
     margin-bottom: 0;
+}
+ /*home.html*/
+
+#homeBody {
+
+    width: 100%;
+    height: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    -webkit-animation: myfirst 1s;
+    animation: myfirst 2s;
+}
+
+@-webkit-keyframes myfirst {
+    from {opacity: 0.8;}
+    to {opacity: 1;}
+}
+
+@keyframes myfirst {
+    from {opacity: 0.8;}
+    to {opacity: 1;}
+}
+.x-colophon.bottom {
+    background-color: chartreuse;
+}
+
+#card-body:hover{
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    opacity: 80%;
+    border-radius: 4px;
+    position: relative;
+    border: 5px black;
+    background:  url("https://thumbs.dreamstime.com/z/human-hand-print-color-background-art-handprint-concept-illustration-kid-education-school-learning-diverse-community-help-119809754.jpg") no-repeat fixed center center;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: .3s;
+}
+
+
+#card-img{
+    border-radius: 5px;
+    shape-rendering: geometricPrecision;
+
+
+}
+#row-heart{
+    height: 33%;
+    align-content: center;
+}
+#row-web{
+    height: 33%;
+    align-content: center;
+}
+#row-join{
+    height: 33%;
+    align-content: center;
+}
+
+
+.card:hover{
+    border-radius: 4px;
+    background: #fff;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: .3s;
+
+
 }
 
