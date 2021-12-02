@@ -1,29 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" th:href="@{/resources/static/css/main.css}">
-    <link rel="stylesheet" type="text/css" th:href="@{/resources/static/css/home.css}">
-    <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}"/>
-    <script type="text/javascript" th:src="@{/js/main.js}"></script>
-    <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.css">
-
-</head>
-<head>
-    <meta charset="UTF-8">
-    <title>Co-Create</title>
-    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
-    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
-    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}"/>
-    <script type="text/javascript" th:src="@{/js/main.js}"></script>
+    <div th:replace="fragments.html :: header"></div>
 </head>
 
 
 <body id="homeBody">
-<div id="navbar" th:replace="navbar.html :: navbar"></div>
+<div id="navbar" th:replace="fragments.html :: navbar"></div>
 <div style="height:10px" aria-hidden="true" class="wp-block-spacer"></div>
 <!-- write here-->
 
@@ -158,17 +141,7 @@
 
 <div style="height:135px" aria-hidden="true" class="wp-block-spacer"></div>
 
-
+<div th:replace="fragments.html :: footer"></div>
 </body>
-<footer class="blog-footer">
-    <p>Blog template built for <a href="https://getbootstrap.com/">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.
-    </p>
-    <p>
-        <a href="#">Back to top</a>
-    </p>
-</footer>
-<script id="js">
-    // let communityList = communityList;
-    // let name = communityList.getName(id)
-</script>
+
 </html>
