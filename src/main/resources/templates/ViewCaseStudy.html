@@ -9,11 +9,11 @@
 
 
 <main class="container">
-    <h1 th:text="${casestudy.getName()}"></h1>
-    <p th:text="${casestudy.getDescription()}"></p>
+
+
     <div class="p-4 p-md-5 mb-4 text-white rounded bg-dark">
         <div class="col-md-6 px-0">
-            <h1 class="display-4 fst-italic">Title of the case study</h1>
+            <h1 th:text="${casestudy.getTitle()}"></h1>
         </div>
     </div>
 
@@ -22,24 +22,24 @@
 
             <article class="caseStudy-Main">
                 <h2 class="caseStudy-Intro">Introduction</h2>
-                <p>this is the introduction of case study </p>
+                <p th:text="${casestudy.getIntroduction()}"></p>
                 <hr>
 
                 <h2 class="caseStudy-Evaluation">Case evaluation</h2>
-                <p> Isolate the sections of the study you want to focus on. In it, explain why something is working or is not working.</p>
+                <p th:text="${casestudy.getCaseEvaluation()}"></p>
                 <hr>
 
                 <h2 class = "caseStudy-Solutions">Case solutions</h2>
-                <p>Offer realistic ways to solve what isn’t working or how to improve its current condition. Explain why these solutions work by offering testable evidence.
+                <p th:text="${casestudy.getCaseSolutions()}"></p>
                 </p>
                 <hr>
 
                 <h2 class="caseStudy-Implementation">Implementations</h2>
-                <p>Explain how to put the strategy into action.</p>
+                <p th:text="${casestudy.getImplementations()}"></p>
                 <hr>
 
                 <h2 class="caseStudy-Conclusion">Conclusion</h2>
-                <p>Summarize the main points from the above sections.</p>
+                <p th:text="${casestudy.getConclusion()}"></p>
                 <hr>
             </article>
         </div>
