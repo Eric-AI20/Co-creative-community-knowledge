@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <div th:replace="fragments.html :: header"></div>
+</head>
+<body>
+<div id="navbar" th:replace="fragments.html :: navbar"></div>
+<br>
+
+<main class="container">
+
+    <div class="row g-5">
+        <div class="col-md-8">
+            <h3 class="pb-4 mb-4 fst-italic border-bottom">
+
+            </h3>
+
+            <article class="blog-post">
+                <h3 class="blog-post-title" th:text="${project.getName()}"></h3>
+
+                <p th:text="${project.getDescription()}">
+                </p>
+
+                <h3 class="blog-post-title"> The key objectives are:</h3>
+                <div th:switch="${project.id}">
+                    <ol th:case="'9'" class="list-group">
+                        <li>
+                            To increase the research capacity of small to medium enterprises (SMEs) by linking with a
+                            PhD /
+                            Research Masters project
+                        </li>
+                        <li>
+                            To encourage SMEs to undertake research and recruit researchers
+                        </li>
+                        <li>
+                            To prepare and train individuals to contribute to research as professionals
+                        </li>
+                        <li>
+                            To support the development of key technologies in the Convergence Area of Wales
+                        </li>
+                        <li>
+                            To promote higher-level skills development
+                        </li>
+                    </ol>
+                    <ol th:case="'10'" class="list-group">
+                        <li>
+                            The Rank Foundation operates a model of engaged philanthropy, combining intellectual, social
+                            and financial capital in order to maximise impact, whilst leveraging additional funding and
+                            support:
+                        </li>
+                        <li>
+                            Financial Capital: flexible funding, long term support
+                        </li>
+                        <li>
+                            Social Capital: networking through RankNet and our Fellowship
+
+                        </li>
+                    </ol>
+                </div>
+            </article>
+
+        </div>
+        <div class="col-md-4">
+            <div class="position-sticky" style="top: 2rem;">
+                <div class="p-4 mb-3 bg-light rounded">
+                    <h4 class="fst-italic"> About the Author</h4>
+                    <h5 class="fst-italic" th:text="${project.getAuthor()}"></h5>
+                    <p class="mb-0" th:text="${project.getAbout()}"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>
+
+<div th:replace="fragments.html :: footer"></div>
+
+</body>
+</html>
