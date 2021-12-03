@@ -1,10 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <div th:replace="fragments.html :: header"></div>
 </head>
 <body>
-$END$
+<div id="navbar" th:replace="fragments.html :: navbar"></div>
+<br>
+
+<!--Write under this-->
+
+<div class="container-lg">
+    <div id="firstRow" class="row" style="width: 50%">
+    </div>
+    <div id="secondRow" class="row" style="width: 50%">
+        <div class="col-lg-6">
+            <form>
+                <div class="form-group">
+                    <label for="nameInput">Community Name</label>
+                    <input type="email" class="form-control" id="nameInput" placeholder="John">
+                </div>
+            </form>
+        </div>
+        <div class="col-lg-6">
+
+        </div>
+    </div>
+
+</div>
+
+
+
+
+<!--<form>-->
+<!--    <div class="form-group">-->
+<!--        <label for="nameInput">Email address</label>-->
+<!--        <input type="email" class="form-control" id="nameInput" placeholder="John">-->
+<!--    </div>-->
+<!--    <div class="form-group">-->
+<!--        <label for="exampleFormControlSelect1">Example select</label>-->
+<!--        <select class="form-control" id="exampleFormControlSelect1">-->
+<!--            <option>1</option>-->
+<!--            <option>2</option>-->
+<!--            <option>3</option>-->
+<!--            <option>4</option>-->
+<!--            <option>5</option>-->
+<!--        </select>-->
+<!--    </div>-->
+<!--    <div class="form-group">-->
+<!--        <label for="exampleFormControlSelect2">Example multiple select</label>-->
+<!--        <select multiple class="form-control" id="exampleFormControlSelect2">-->
+<!--            <option>1</option>-->
+<!--            <option>2</option>-->
+<!--            <option>3</option>-->
+<!--            <option>4</option>-->
+<!--            <option>5</option>-->
+<!--        </select>-->
+<!--    </div>-->
+<!--    <div class="form-group">-->
+<!--        <label for="exampleFormControlTextarea1">Example textarea</label>-->
+<!--        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>-->
+<!--    </div>-->
+<!--</form>-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div th:replace="fragments.html :: footer"></div>
+
 </body>
 </html>
