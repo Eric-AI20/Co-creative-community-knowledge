@@ -7,20 +7,14 @@ import javax.persistence.*;
 public class CaseStudy extends AuditModel {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column
     private Long id;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
     @Column(nullable = false, unique = true, length = 45)
     private String title;
 
     @Column(length = 1000)
-    private String introduction;
+    private String caseIntroduction;
 
     @Column(length = 1000)
     private String caseEvaluation;
@@ -34,7 +28,17 @@ public class CaseStudy extends AuditModel {
     @Column(length = 1000)
     private String conclusion;
 
+    @Column(length = 1000)
+    private String username;
 
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getTitle() {
         return title;
@@ -44,12 +48,12 @@ public class CaseStudy extends AuditModel {
         this.title = title;
     }
 
-    public String getIntroduction() {
-        return introduction;
+    public String getCaseIntroduction() {
+        return caseIntroduction;
     }
 
-    public void setIntroduction(String title) {
-        this.introduction = introduction;
+    public void setCaseIntroduction(String caseIntroduction) {
+        this.caseIntroduction = caseIntroduction;
     }
 
     public String getCaseEvaluation() {
@@ -84,4 +88,25 @@ public class CaseStudy extends AuditModel {
         this.conclusion = conclusion;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    @Override
+    public String toString() {
+        return "CaseStudy{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", introduction='" + caseIntroduction + '\'' +
+                ", caseEvaluation='" + caseEvaluation + '\'' +
+                ", caseSolutions='" + caseSolutions + '\'' +
+                ", implementations='" + implementations + '\'' +
+                ", conclusion='" + conclusion + '\'' +
+                ", username='" + username + '\'' +
+                '}';
+    }
 }
