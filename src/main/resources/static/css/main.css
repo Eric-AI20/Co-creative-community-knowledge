@@ -71,6 +71,7 @@ h1, h2, h3, h4, h5, h6 {
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
     width: 100%;
+    z-index: 9999
 }
 
 
@@ -267,82 +268,21 @@ h1, h2, h3, h4, h5, h6 {
 
 /**** Post BoX *****/
 
-.post-tweet-box {
-    width: 36.8em;
-    height: 3.8em;
-    position: relative;
-    background-color: #E8F5FD;
-    overflow: hidden;
-    padding-top: 0.6em;
-}
-
-
-.outer {
-    width: 31.8em;
-    border-radius: 0.5em;
-    border: 0.08em solid #C6E7FB;
-    background-color: white;
-    display: inline-block;
-    position: relative;
-}
-
-
-.tweetbox-content {
-    width: 88.5%;
-    float: right;
-}
-
-.new-tweet-input {
-    border-radius: 0.5em;
-    border: 0;
-    width: 34em;
-    height: 2.8em;
-    font-size: 0.85em;
-    font-weight: 300;
-    padding-left: 0.5em;
-}
-
-.upload-btn-wrapper {
-    position: relative;
-    float: right;
-    margin: auto;
-}
-
-.upload-btn-wrapper input[type=file] {
-    opacity: 0;
-    overflow: hidden;
-    width: 2.4em;
-    height: 2.4em;
-    position: absolute;
-    left: 0;
-    top: 0;
-}
-
-.upload-image-icon {
-    width: 1em;
-    padding-bottom: 0.2em;
-    cursor: pointer;
-}
-
-.newtweet-box-image-box {
-    width: 11.5%;
-    float: left;
-    clear: both;
-}
-
-.newtweet-profile-pic {
-    width: 2em;
-    height: 2em;
-    border-radius: 50%;
-    margin-left: 1.8em;
-    margin-right: auto;
-    display: block;
-    margin-top: 0.2em;
-}
 
 .postbody {
     display: none;
 }
+
+.commentSection {
+    display: none;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
 
 
 

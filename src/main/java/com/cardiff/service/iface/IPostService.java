@@ -12,4 +12,6 @@ public interface IPostService {
     Optional<Post> findById(Long id);
 
     Post save(Post post);
+
+    Post createPost(Post post, String userName);
 }

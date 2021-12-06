@@ -22,6 +22,19 @@ $(document).ready(function () {
         console.log("Focus")
         $(".postbody").show(); //show when user moves focus in the textarea
     });
+
+    $('#commentbutton').on('click', function () {
+        $('.commentSection').show()
+    });
+});
+var num = 1;
+
+$(window).bind('scroll', function () {
+    if ($(window).scrollTop() > num) {
+        $('.navbar').addClass('sticky');
+    } else {
+        $('.navbar').removeClass('sticky');
+    }
 });
 
 // function showPostBody(x) {
