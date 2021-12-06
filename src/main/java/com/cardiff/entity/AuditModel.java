@@ -1,32 +1,63 @@
 package com.cardiff.entity;
 
+import org.springframework.data.annotation.CreatedBy;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedBy;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
 import javax.persistence.Column;
+import javax.persistence.EntityListeners;
 import javax.persistence.MappedSuperclass;
 import java.time.LocalDateTime;
 
 @MappedSuperclass
+@EntityListeners(AuditingEntityListener.class)
 public abstract class AuditModel {
 
-    @Column(name = "created_timestamp", columnDefinition = "TIMESTAMP")
-    private LocalDateTime createTimestamp;
 
-    @Column(name = "updated_timestamp", columnDefinition = "TIMESTAMP")
-    private LocalDateTime updatedTimestamp;
+    @CreatedBy
+    private String createdBy;
 
-    public LocalDateTime getCreateTimestamp() {
-        return createTimestamp;
+    @CreatedDate
+    private LocalDateTime creationDate;
+
+    @LastModifiedBy
+    private String lastModifiedBy;
+
+    @LastModifiedDate
+    private LocalDateTime lastModifiedDate;
+
+    public String getCreatedBy() {
+        return createdBy;
     }
 
-    public void setCreateTimestamp(LocalDateTime createTimestamp) {
-        this.createTimestamp = createTimestamp;
+    public void setCreatedBy(String createdBy) {
+        this.createdBy = createdBy;
     }
 
-    public LocalDateTime getUpdatedTimestamp() {
-        return updatedTimestamp;
+    public LocalDateTime getCreationDate() {
+        return creationDate;
     }
 
-    public void setUpdatedTimestamp(LocalDateTime updatedTimestamp) {
-        this.updatedTimestamp = updatedTimestamp;
+    public void setCreationDate(LocalDateTime creationDate) {
+        this.creationDate = creationDate;
+    }
+
+    public String getLastModifiedBy() {
+        return lastModifiedBy;
+    }
+
+    public void setLastModifiedBy(String lastModifiedBy) {
+        this.lastModifiedBy = lastModifiedBy;
+    }
+
+    public LocalDateTime getLastModifiedDate() {
+        return lastModifiedDate;
+    }
+
+    public void setLastModifiedDate(LocalDateTime lastModifiedDate) {
+        this.lastModifiedDate = lastModifiedDate;
     }
 }
 
