@@ -9,7 +9,7 @@
 
 
 <div class="flex bg-blue-lightest flex flex-col font-sans min-h-screen">
-    <form class="mt-12" th:action="@{/forum/createPost  }" th:object="${post}"
+    <form class="mt-12" th:action="@{/forum/createPost}" th:object="${post}"
           method="post">
         <div class="container mx-auto">
             <div class="flex w-960 mx-auto">
@@ -22,11 +22,11 @@
                             <div class="w-11/12 pt-3">
                                 <div class="mb-4">
                                     <input type="text" id="createPost" th:field="*{title}" class="form-control" required
-                                           placeholder="Create Post"/>
+                                           placeholder="Create Post" maxlength="255"/>
                                 </div>
                                 <div class="mb-4 postbody">
                                     <textarea class="form-control" th:field="*{body}"
-                                              placeholder="Content .. "> </textarea>
+                                              placeholder="Content .. " required maxlength="5000" rows="4"> </textarea>
                                     <br>
                                     <br>
                                     <div class="position-relative">
@@ -48,7 +48,7 @@
         </div>
     </form>
     <div class="mt-12">
-        <div class="container mx-auto">
+        <div class="container mx-auto" th:each="post: ${posts}">
             <div class="flex w-960 mx-auto">
                 <div class="w-2/3">
                     <div class="py-2">
@@ -62,67 +62,23 @@
                                        class="font-semibold no-underline hover:underline text-black flex items-center">
                                         <img class="rounded-full border h-5 w-5"
                                              src="https://avatars0.githubusercontent.com/u/30317862?s=200&v=4">
-                                        <span class="ml-2">r/tailwind</span>
+                                        <span class="ml-2">c/
+                                        <span th:text="${post.getCommunity().getName()}"></span>
+                                        </span>
                                     </a>
                                     <span class="text-grey-light mx-1 text-xxs">•</span>
                                     <span class="text-grey">Posted by</span>
-                                    <a href="#" class="text-grey mx-1 no-underline hover:underline">u/TestUser</a>
-                                    <span class="text-grey">2 hours ago</span>
+                                    <a href="#" class="text-grey mx-1 no-underline hover:underline"
+                                       th:text="${post.getUser().getFirstName()}"></a>
+                                    <span class="text-grey" th:text="${post.getPrettyTime()}"></span>
                                 </div>
                                 <div>
-                                    <h2 class="text-lg font-medium mb-1">Lorem ip
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                        Suspendisse
-                                        tempor
-                                        placerat
-                                        turpis eu semper.
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                        Suspendisse
-                                        tempor
-                                        placerat
-                                        turpis eu semper.
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                        Suspendisse
-                                        tempor
-                                        placerat
-                                        turpis eu semper.
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                        Suspendisse
-                                        tempor
-                                        placerat
-                                        turpis eu semper.
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                        Suspendisse
-                                        tempor
-                                        placerat
-                                        turpis eu semper.
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                        Suspendisse
-                                        tempor
-                                        placerat
-                                        turpis eu semper.
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                        Suspendisse
-                                        tempor
-                                        placerat
-                                        turpis eu semper.
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                        Suspendisse
-                                        tempor
-                                        placerat
-                                        turpis eu semper.sum dolor sit amet, consectetur adipiscing
-                                        elit.
-                                        Suspendisse
-                                        tempor
-                                        placerat turpis eu semper.
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                        Suspendisse
-                                        tempor
-                                        placerat
-                                        turpis eu semper.</h2>
+                                    <h2 class="text-font-medium mb-1" th:text="${post.getTitle()}"></h2>
+                                    <br>
+                                    <h3 class=" text-lg font-medium mb-2" th:text="${post.getBody()}"></h3>
                                 </div>
 
-                                <div class="inline-flex items-center my-1" id="commentbutton">
+                                <div class=" inline-flex items-center my-1" id="commentbutton">
                                     <div class="flex hover:bg-grey-lighter p-1">
                                         <svg class="w-4 fill-current text-grey"
                                              xmlns="http://www.w3.org/2000/svg"

@@ -1,5 +1,6 @@
 package com.cardiff.service;
 
+import com.cardiff.entity.Community;
 import com.cardiff.entity.Post;
 import com.cardiff.entity.User;
 import com.cardiff.repository.PostRepository;
@@ -32,7 +33,7 @@ public class PostService implements IPostService {
     @Override
     public List<Post> findAll() {
 
-        return postRepository.findAll(Sort.by("creationDate"));
+        return postRepository.findAll(Sort.by("creationDate").descending());
     }
 
     @Override
@@ -50,6 +51,9 @@ public class PostService implements IPostService {
         User loggedInUser = userRepository.findByEmail(userName);
         if (loggedInUser != null) {
             post.setUser(loggedInUser);
+            Community community = new Community();
+            community.setId(27L);
+            post.setCommunity(community);
         }
         return postRepository.save(post);
     }
