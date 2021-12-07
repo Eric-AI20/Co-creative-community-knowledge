@@ -1,7 +1,7 @@
 package com.cardiff.controller;
 
-import com.cardiff.entity.Post;
-import com.cardiff.entity.User;
+import com.cardiff.entity.*;
+import com.cardiff.service.CommunityService;
 import com.cardiff.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,6 +15,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import java.time.LocalDateTime;
+import java.util.HashSet;
 
 @Controller
 @RequestMapping("/forum")
@@ -29,8 +31,10 @@ public class PostController {
 
 
     @GetMapping("/home")
-    public String list(Model model) {
+    public String showForumHome(Model model) {
+
         model.addAttribute("post", new Post());
+        model.addAttribute("posts", postService.findAll());
         return "forum";
     }
 
@@ -50,6 +54,8 @@ public class PostController {
             mav.addObject("message", "Unable to create Post");
 
         }
+
+        mav.addObject("posts", postService.findAll());
         return mav;
 
     }

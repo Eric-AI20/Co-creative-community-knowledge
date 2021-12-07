@@ -25,6 +25,7 @@ public class Post extends AuditModel {
 
     @NonNull
     @NotEmpty(message = "Please enter body.")
+    @Column(length = 5000)
     private String body;
 
     // Comments. Mapping: One to Many. Post -> Comments
@@ -33,6 +34,9 @@ public class Post extends AuditModel {
 
     @ManyToOne      // Relationship. Many posts can belong to one user.
     private User user;
+
+    @ManyToOne      // Relationship. Many posts can belong to one user.
+    private Community community;
 
     public void addComment(Comment comment) {
         comments.add(comment);
@@ -46,6 +50,7 @@ public class Post extends AuditModel {
     private Date convertToDateViaInstant(LocalDateTime dateToConvert) {
         return Date.from(dateToConvert.atZone(ZoneId.systemDefault()).toInstant());
     }
+
 
     public Long getId() {
         return id;
@@ -87,5 +92,13 @@ public class Post extends AuditModel {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public Community getCommunity() {
+        return community;
+    }
+
+    public void setCommunity(Community community) {
+        this.community = community;
     }
 }
