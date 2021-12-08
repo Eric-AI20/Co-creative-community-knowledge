@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Projects</title>
+    <div th:replace="fragments.html :: header"></div>
+    <link rel="stylesheet" href="css/mystyle.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body>
+<div id="navbar" th:replace="fragments.html :: navbar"></div>
+<br>
+<h1>
+    <mark >PROJECT</mark>
+</h1>
+
+<h2>
+    Recent Projects
+</h2>
+
+
+    <div style="margine:60px 50px;">
+        <main class="container">
+            <div class="row mb-2">
+                <div class="col-md-6">
+                    <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-350 position-relative">
+                        <div class="col p-4 d-flex flex-column position-static">
+                            <strong class="d-inline-block mb-2 text-primary">RIBA North East </strong>
+                            <h3 class="mb-0">Sustainability mastermind Project - Working towards a Passivhaus Overlay</h3>
+                            <div class="mb-1 text-muted">Nov 25</div>
+                            <p class="card-text mb-auto">Join our sustainability forum on 8 December for this sustainability mastermind event, led by Mark Siddall from LEAP who will walk you through, and seek feedback on, the Passivhaus Overlay for the RIBA Plan of Work.
+
+                                You will also have the opportunity to watch case study videos about some of his recent projects.</p>
+                            <a href="#" class="stretched-link">Continue reading</a>
+                        </div>
+                    </div>
+                </div>
+            <div class="col-auto d-none d-lg-block">
+                <img alt="riba image" src="https://riba-prd-assets.azureedge.net/-/media/Riba/Images/Block-Images/RIBA-in-your-area/Nations-and-regions/RIBA-North-East-events.jpg?rev=9682616b4b4749bcafca72dbf2383942&h=348&w=538&la=en&hash=3A35265DBE09263A70427B7011C6A1AF" width="270" height="380">
+            </div>
+            </div>
+        </main>
+    </div>
+            <main class="container">
+                <div class="row mb-2">
+            <div class="col-md-6">
+                <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-340 position-relative">
+                    <div class="col p-4 d-flex flex-column position-static">
+                        <strong class="d-inline-block mb-2 text-success">TIR COED</strong>
+                        <h3 class="mb-0">ANTIR PROJECT</h3>
+                        <div class="mb-1 text-muted">Nov 11</div>
+                        <p class="mb-auto">AnTir is an exciting new venture for Tir Coed, that has been made possible through the ‘Time to Shine’ programme funded by the Rank Foundation. AnTir is a play on words and translates from Welsh as ‘land enterprise’.</p>
+                        <a href="#" class="stretched-link">Continue reading</a>
+                    </div>
+
+            </div>
+                </div>
+                </div>
+            </main>
+                <div class="col-auto d-none d-lg-block">
+                <img alt="AnTir image" src="https://tircoed.org.uk/files/gallery/20190522_1443091-Ceredigion-Coordinator-1.jpg" width="270" height="310">
+
+            </div>
+
+    <section class="section-1">
+
+        <div class="row">
+            <div class="left" style="background-color:#bbb;">
+
+                <input type="text" id="mySearch" onkeyup="myFunction()" placeholder="Search Project.." title="Type in a category">
+                <ul id="myMenu">
+                    <li><a href="#">project1</a></li>
+                    <li><a href="#">project2</a></li>
+                    <li><a href="#">project3</a></li>
+                    <li><a href="#">project4</a></li>
+                    <li><a href="#">project5</a></li><br>
+                </ul>
+            </div>
+
+        </div>
+            <br></br>
+            <h4>View Projects</h4>
+            <div class="dropdown">
+                <button class="dropbtn">All Projects
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="#">project1</a>
+                    <a href="#">project2</a>
+                    <a href="#">project3</a>
+                    <a href="#">project4</a>
+                    <a href="#">project5</a>
+                    <a href="#">project6</a>
+                    <a href="#">project7</a>
+                    <a href="#">project8</a>
+                </div>
+            </div>
+
+    </section>
+
+
+
+<div th:replace="fragments.html :: footer"></div>
+
+</body>
+</html>
