@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <div th:replace="fragments.html :: header"></div>
+    <br>
+
+</head>
+<body>
+<div class="container px-5 my-5">
+    <div>
+        <h1>Activity</h1>
+    </div>
+    <form>
+        <!--        <input id="a12" type="input" value="" ><br>-->
+        <div class="mb-3">
+            <label class="form-label">name</label>
+            <input type="name" value="id" name="name" id="a1" class="form-control" required/>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">description</label>
+            <input type="text" name="description" class="form-control"
+                   required/>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">activityDateAndTime</label>
+            <input type="text" class="form-control" name="activityDateAndTime"
+                   required/>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">venue</label>
+            <input type="password" name="venue" class="form-control"
+                   required/>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">community</label>
+            <input type="password" name="communityId" class="form-control"
+                   required/>
+        </div>
+    </form>
+    <div class="d-grid">
+        <button class="btn btn-primary btn-lg" id="submitButton" onclick="submit()">Register</button>
+    </div>
+</div>
+</body>
+<script>
+    function submit() {
+        let data = {};
+        let t = $('form').serializeArray();
+        $.each(t, function() {
+            data[this.name] = this.value;
+        });
+        $.ajax({
+            url: "/activity/add",
+            method: "POST",
+            contentType:"application/json",
+            data: JSON.stringify(data),
+        })
+    }
+</script>
+</html>

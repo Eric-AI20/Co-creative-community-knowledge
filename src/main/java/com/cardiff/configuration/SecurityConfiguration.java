@@ -50,9 +50,22 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
+<<<<<<< HEAD
                 .antMatchers("/forum/createPost").authenticated()
                 .and().formLogin().defaultSuccessUrl("/forum/home")
                 .permitAll();
+=======
+                .antMatchers("/users").authenticated()
+//                .antMatchers("/activity").authenticated()
+                .anyRequest().permitAll()
+                .and()
+                .formLogin()
+                .usernameParameter("email")
+                .defaultSuccessUrl("/home")
+                .permitAll().and()
+                .logout().logoutSuccessUrl("/").permitAll();
+        http.cors().and().csrf().disable();
+>>>>>>> main
     }
 
 }
