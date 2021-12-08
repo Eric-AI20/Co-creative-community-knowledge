@@ -10,10 +10,10 @@
     <div class="container px-5 my-5">
 
         <form th:action="@{/createCaseStudy}" th:object="${casestudy}" method="post">
-            <div class="mb-3">
+           <!-- <div class="mb-3">
                 <label class="form-label">Your Username: </label>
                 <input type="email" class="form-control" th:field="*{username}"/>
-            </div>
+            </div>-->
             <div class="mb-3">
                 <label class="form-label">Your proposed case study title: </label>
                 <input type="text" class="form-control" maxlength="2000" th:field="*{title}"/>
@@ -44,13 +44,20 @@
             </div>
 
             <div class="d-grid">
-                <button class="btn btn-primary btn-lg" id="submitButton" type="submit">Create</button>
+
+                <button class="btn btn-primary btn-lg" id="submitButton" type="submit" >Create</button>
             </div>
 
         </form>
-  </div>
+    </div>
   <div th:replace="fragments.html :: footer"></div>
   </body>
   
-
+<!--<script>
+    let buttonElement = document.getElementById("submitButton");
+    buttonElement.onclick = function (){
+        alert("Success");
+        window.location.href("/viewCaseStudy/");
+    }
+</script>-->
 </html>

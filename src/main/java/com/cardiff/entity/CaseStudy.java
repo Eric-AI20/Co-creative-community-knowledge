@@ -28,8 +28,8 @@ public class CaseStudy extends AuditModel {
     @Column(length = 1000)
     private String conclusion;
 
-    @Column(length = 1000)
-    private String username;
+   /* @Column(length = 1000)
+    private String username;*/
 
 
     public Long getId() {
@@ -88,14 +88,14 @@ public class CaseStudy extends AuditModel {
         this.conclusion = conclusion;
     }
 
-    public String getUsername() {
+    /*public String getUsername() {
         return username;
     }
 
     public void setUsername(String username) {
         this.username = username;
     }
-
+*/
     @Override
     public String toString() {
         return "CaseStudy{" +
@@ -106,7 +106,7 @@ public class CaseStudy extends AuditModel {
                 ", caseSolutions='" + caseSolutions + '\'' +
                 ", implementations='" + implementations + '\'' +
                 ", conclusion='" + conclusion + '\'' +
-                ", username='" + username + '\'' +
+//                ", username='" + username + '\'' +
                 '}';
     }
 }
