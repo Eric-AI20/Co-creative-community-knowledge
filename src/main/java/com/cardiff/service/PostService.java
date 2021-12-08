@@ -1,8 +1,10 @@
 package com.cardiff.service;
 
+import com.cardiff.entity.Comment;
 import com.cardiff.entity.Community;
 import com.cardiff.entity.Post;
 import com.cardiff.entity.User;
+import com.cardiff.repository.CommentRepository;
 import com.cardiff.repository.PostRepository;
 import com.cardiff.repository.UserRepository;
 import com.cardiff.service.iface.IPostService;
@@ -20,15 +22,7 @@ public class PostService implements IPostService {
 
     private UserRepository userRepository;
 
-    @Autowired
-    public void setUserRepository(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
-
-    @Autowired
-    public void setPostRepository(PostRepository postRepository) {
-        this.postRepository = postRepository;
-    }
+    private CommentRepository commentRepository;
 
     @Override
     public List<Post> findAll() {
@@ -56,5 +50,32 @@ public class PostService implements IPostService {
             post.setCommunity(community);
         }
         return postRepository.save(post);
+    }
+
+    public Comment createComment(Comment comment, String userName, Long postId) {
+        User loggedInUser = userRepository.findByEmail(userName);
+        if (loggedInUser != null) {
+            comment.setUser(loggedInUser);
+
+        }
+        Post post = new Post();
+        post.setId(postId);
+        comment.setPost(post);
+        return commentRepository.save(comment);
+    }
+
+    @Autowired
+    public void setUserRepository(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+
+    @Autowired
+    public void setPostRepository(PostRepository postRepository) {
+        this.postRepository = postRepository;
+    }
+
+    @Autowired
+    public void setCommentRepository(CommentRepository commentRepository) {
+        this.commentRepository = commentRepository;
     }
 }

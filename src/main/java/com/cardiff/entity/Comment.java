@@ -22,11 +22,12 @@ public class Comment extends AuditModel {
     @NonNull
     private String body;
 
-    // Post. Mapping: Many to One. Comments -> Post.
-    @ManyToOne
+    @ManyToOne      // Relationship. Many posts can belong to one user.
+    private User user;
+
+    @ManyToOne // Post. Mapping: Many to One. Comments -> Post.
     @NonNull
     private Post post;
-
 
     public String getPrettyTime() {
         PrettyTime pt = BeanUtil.getBean(PrettyTime.class);
@@ -37,4 +38,37 @@ public class Comment extends AuditModel {
         return Date.from(dateToConvert.atZone(ZoneId.systemDefault()).toInstant());
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    @NonNull
+    public String getBody() {
+        return body;
+    }
+
+    public void setBody(@NonNull String body) {
+        this.body = body;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    @NonNull
+    public Post getPost() {
+        return post;
+    }
+
+    public void setPost(@NonNull Post post) {
+        this.post = post;
+    }
 }

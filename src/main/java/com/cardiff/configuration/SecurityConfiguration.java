@@ -50,7 +50,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/forum/createPost").authenticated()
+                .antMatchers("/forum/createPost", "/forum/addComment/**").authenticated()
                 .and().formLogin().defaultSuccessUrl("/forum/home")
                 .permitAll();
     }
