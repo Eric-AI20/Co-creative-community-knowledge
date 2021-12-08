@@ -1,5 +1,7 @@
 package com.cardiff.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
@@ -17,15 +19,27 @@ public class Activity extends AuditModel {
     @Column(length = 1000)
     private String description;
 
-    @Column(name = "activity_timestamp", columnDefinition = "TIMESTAMP")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
+    @Column(name = "activity_timestamp")
     private LocalDateTime activityDateAndTime;
 
     @Column(name = "venue", nullable = false)
     private String venue;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "community_id", nullable = false)
+    @JoinColumn(name = "community", nullable = false)
     private Community community;
+
+    @JoinColumn(name = "community_id", nullable = false)
+    private int communityId;
+
+    public int getCommunityId() {
+        return communityId;
+    }
+
+    public void setCommunityId(int communityId) {
+        this.communityId = communityId;
+    }
 
     public Community getCommunity() {
         return community;

@@ -51,6 +51,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 .antMatchers("/users").authenticated()
+//                .antMatchers("/activity").authenticated()
                 .anyRequest().permitAll()
                 .and()
                 .formLogin()
@@ -58,6 +59,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .defaultSuccessUrl("/home")
                 .permitAll().and()
                 .logout().logoutSuccessUrl("/").permitAll();
+        http.cors().and().csrf().disable();
     }
 
 }
