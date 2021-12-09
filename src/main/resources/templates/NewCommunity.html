@@ -8,68 +8,80 @@
 <br>
 
 <!--Write under this-->
+<form id="createCommunityForm" style="margin: 60px" th:action="@{/home/NewCommunity}" th:object="${community}"
+method="post">
+<!--<div class="container-lg">-->
+    <div id="firstRow" class="row">
+        <div id="col1NC" class="col-lg-4">
+            <p>
+                <label for="prof-picture">Select some images </label>
+                <input  type="file" id="prof-picture" accept="image/*" multiple>
+            </p>    
+        </div>
+        <div id="NCbackroundimg" class="col-lg-8">
+           <p>
+              <label for="back-picture">Add a backround image </label>
+              <input type="file" id="back-picture" accept="image/*" >
+           </p>
 
-<div class="container-lg">
-    <div id="firstRow" class="row" style="width: 50%">
-    </div>
-    <div id="secondRow" class="row" style="width: 50%">
+        </div>
+
+
+
+     <div id="secondRow" class="row">
         <div class="col-lg-6">
-            <form>
+
                 <div class="form-group">
                     <label for="nameInput">Community Name</label>
-                    <input type="email" class="form-control" id="nameInput" placeholder="John">
+                    <input th:field="*{name}" type="text" class="form-control" id="nameInput" placeholder="e.g Healthcare Community...">
                 </div>
-            </form>
+            <div id="thirdRow" class="row">
+                <div class="form-group">
+                    <label for="nameInput">Type main Location</label>
+                    <input th:field="*{address}" type="text" class="form-control" id="locationInput" placeholder="Type your address...">
+                </div>
+            </div>
+
+
+            <div id="eighthRow" class="row">
+                <div class="form-group">
+                    <label for="aboutUs">Write a summary of what you do in the Community</label>
+                    <input type="text" th:field="*{aboutUs}" class="form-control" id="aboutUs" rows="3" placeholder="e.g We are a community that helps people...">
+                </div>
+            </div>
+
+
         </div>
         <div class="col-lg-6">
+            <div class="row">
+                <div class="form-group">
+                    <label for="communityDescription">Community Description</label>
+                    <input th:field="*{description}" type="textarea"  class="form-control" id="communityDescription" rows="5">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group">
+                    <label for="goal">Your Goal</label>
+                    <input type="textarea" th:field="*{goal}" class="form-control" id="goal" rows="3">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group">
+                    <label for="history">History</label>
+                    <input type="textarea" th:field="*{history}" class="form-control" id="history" rows="3">
+                </div>
+            </div>
 
         </div>
     </div>
 
 </div>
-
-
-
-
-<!--<form>-->
-<!--    <div class="form-group">-->
-<!--        <label for="nameInput">Email address</label>-->
-<!--        <input type="email" class="form-control" id="nameInput" placeholder="John">-->
-<!--    </div>-->
-<!--    <div class="form-group">-->
-<!--        <label for="exampleFormControlSelect1">Example select</label>-->
-<!--        <select class="form-control" id="exampleFormControlSelect1">-->
-<!--            <option>1</option>-->
-<!--            <option>2</option>-->
-<!--            <option>3</option>-->
-<!--            <option>4</option>-->
-<!--            <option>5</option>-->
-<!--        </select>-->
-<!--    </div>-->
-<!--    <div class="form-group">-->
-<!--        <label for="exampleFormControlSelect2">Example multiple select</label>-->
-<!--        <select multiple class="form-control" id="exampleFormControlSelect2">-->
-<!--            <option>1</option>-->
-<!--            <option>2</option>-->
-<!--            <option>3</option>-->
-<!--            <option>4</option>-->
-<!--            <option>5</option>-->
-<!--        </select>-->
-<!--    </div>-->
-<!--    <div class="form-group">-->
-<!--        <label for="exampleFormControlTextarea1">Example textarea</label>-->
-<!--        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>-->
-<!--    </div>-->
-<!--</form>-->
-
-
-
-
-
-
-
-
-
+    <div class="d-grid">
+        <button class="btn btn-primary btn-lg" id="submitButton" type="submit">Submit</button>
+    </div>
+</form>
 
 
 

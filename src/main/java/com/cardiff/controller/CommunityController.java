@@ -1,8 +1,7 @@
 package com.cardiff.controller;
 
-import com.cardiff.domain.UserDto;
+
 import com.cardiff.entity.Community;
-import com.cardiff.entity.User;
 import com.cardiff.exception.UserAlreadyExistException;
 import com.cardiff.service.CommunityService;
 import com.cardiff.service.FragmentService;
@@ -36,32 +35,31 @@ public class CommunityController {
         this.communityService = communityService;
     }
 
-//    @PostMapping("/home/registration")
-//    public ModelAndView registerUserAccount(@ModelAttribute("community") @Valid UserDto userDto, HttpServletRequest request, Errors errors) {
-//        ModelAndView mav = new ModelAndView("registration");
-//        User registered = null;
-//        try {
-//            registered = community.registerNewUserAccount(userDto);
-//            mav.addObject("message",
-//                    "User registered successfully");
-//
-//        } catch (UserAlreadyExistException uaeEx) {
-//            mav.addObject("message", "An account for that username/email already exists.");
-//            return mav;
-//        }
-//        return new ModelAndView("successRegister", "user", userDto);
-//
-//    }
-//}
-
     @GetMapping("/home/NewCommunity")
     public String ShowRegistrationForm(WebRequest request, Model model) {
         model.addAttribute("community", new Community());
         return "NewCommunity";
     }
 
+
+    @PostMapping("/home/NewCommunity")
+    public ModelAndView registerUserAccount(@ModelAttribute("community") @Valid Community community, HttpServletRequest request, Errors errors) {
+        ModelAndView mav = new ModelAndView("community");
+        Community registered = null;
+        try {
+            registered = communityService.createCommunity(community);
+            mav.addObject("message",
+                    "Community registered successfully");
+
+        } catch (UserAlreadyExistException uaeEx) {
+            mav.addObject("message", "A community with that name already exists.");
+            return mav;
+        }
+        return new ModelAndView("redirect:/community/" + registered.getId());
+    }
+
     @GetMapping("/home")
-    public String showRegistrationForm(WebRequest request, Model model) {
+    public String viewCommunityList(WebRequest request, Model model) {
         //model.addAttribute("user", new UserDto());
         model.addAttribute("communityList", fragmentService.getAllCommunitiesForNavigation());
         return "home";

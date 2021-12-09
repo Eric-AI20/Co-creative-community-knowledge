@@ -53,7 +53,6 @@ public class Community extends AuditModel {
 
     public Community() {
     }
-
     public void setId(Long id) {
         this.id = id;
     }

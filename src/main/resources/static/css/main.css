@@ -271,14 +271,27 @@ h1, h2, h3, h4, h5, h6 {
 
 
 
+/*new community*/
 
 
 
-
-
-
-
-
+#NCbackroundimg{
+    border: 2px solid black;
+    border-radius: 4px;
+    align-content: center;
+    height: 150px;
+}
+#back-picture{
+    align-content: center;
+    size: auto;
+}
+#prof-picture{
+    align-content: center;
+    size: auto;
+}
+#col1NC{
+    height: 150px;
+}
 
 
 
