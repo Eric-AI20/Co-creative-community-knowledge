@@ -2,12 +2,13 @@
 <html lang="en" dir="ltr">
   <head>
       <div th:replace="fragments.html :: header"></div>
+
   </head>
   <body>
   <div id="navbar" th:replace="fragments.html :: navbar"></div>
   <br>
-    <h1>Create a case study</h1>
-    <div class="container px-5 my-5">
+  <h1 align="center">Create a case study</h1>
+    <div class="container px-10 my-10">
 
         <form th:action="@{/createCaseStudy}" th:object="${casestudy}" method="post">
            <!-- <div class="mb-3">
@@ -21,26 +22,41 @@
 
             <div class="mb-3">
                 <label class="form-label">Your case study's introduction:</label>
-                <input type="text" class="form-control" maxlength="2000" th:field="*{caseIntroduction}"/>
+                <div class="col-md-8">
+                    <textarea class="form-control" th:field="*{caseIntroduction}"></textarea>
+                </div>
+<!--                <input type="textarea" class="form-control" maxlength="2000" th:field="*{caseIntroduction}"/>-->
             </div>
 
             <div class="mb-3">
                 <label class="form-label">Your case study's solution </label>
-                <input type="text"  class="form-control"  maxlength="2000" th:field="*{caseSolutions}"/>
+                <div class="col-md-8">
+                    <textarea class="form-control" th:field="*{caseSolutions}"></textarea>
+                </div>
+<!--                <input type="text"  class="form-control"  maxlength="2000" th:field="*{caseSolutions}"/>-->
             </div>
             <div class="mb-3">
                 <label class="form-label">Your case study's evaluation </label>
-                <input type="text"  class="form-control"  maxlength="2000" th:field="*{caseEvaluation}"/>
+                <div class="col-md-8">
+                    <textarea class="form-control" th:field="*{caseEvaluation}"></textarea>
+                </div>
+<!--                <input type="text"  class="form-control"  maxlength="2000" th:field="*{caseEvaluation}"/>-->
             </div>
 
             <div class="mb-3">
                 <label class="form-label">Your case study's implementations </label>
-                <input type="text"  class="form-control" maxlength="2000" th:field="*{implementations}"/>
+                <div class="col-md-8">
+                    <textarea class="form-control" th:field="*{implementations}"></textarea>
+                </div>
+<!--                <input type="text"  class="form-control" maxlength="2000" th:field="*{implementations}"/>-->
             </div>
 
             <div class="mb-3">
                 <label class="form-label">Your case study's conclusion </label>
-                <input type="text"  class="form-control" maxlength="2000" th:field="*{conclusion}"/>
+                <div class="col-md-8">
+                    <textarea class="form-control" th:field="*{conclusion}"></textarea>
+                </div>
+<!--                <input type="text"  class="form-control" maxlength="2000" th:field="*{conclusion}"/>-->
             </div>
 
             <div class="d-grid">
@@ -53,11 +69,5 @@
   <div th:replace="fragments.html :: footer"></div>
   </body>
   
-<!--<script>
-    let buttonElement = document.getElementById("submitButton");
-    buttonElement.onclick = function (){
-        alert("Success");
-        window.location.href("/viewCaseStudy/");
-    }
-</script>-->
+
 </html>
