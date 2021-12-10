@@ -10,14 +10,9 @@
 <body>
 <div id="navbar" th:replace="fragments.html :: navbar"></div>
 <br>
-<h1>
-    <mark>PROJECT</mark>
-</h1>
-
 <h2>
     Recent Projects
 </h2>
-<---created a card style for recent projects--->
 
 <div style="margine:60px 50px;">
     <main class="container" th:each="project: ${projects}">
@@ -30,14 +25,8 @@
                         <h3 class="mb-0" th:text="${project.getName()}">Sustainability mastermind Project - Working
                             towards a Passivhaus Overlay</h3>
                         <div class="mb-1 text-muted">Nov 25</div>
-                        <p class="card-text mb-auto" th:text="${project.getDescription()}">Join our sustainability forum
-                            on 8 December for this sustainability mastermind event, led by Mark Siddall from LEAP who
-                            will walk you through, and seek feedback on, the Passivhaus Overlay for the RIBA Plan of
-                            Work.
-
-                            You will also have the opportunity to watch case study videos about some of his recent
-                            projects.</p>
-                        <a th:href="@{/project/{id}(id = ${project.id})}" class="stretched-link">Continue reading</a>
+                        <p class="card-text mb-auto" th:text="${project.getDescription()}">J</p>
+                        <a th:href="@{/project/{id}(id = ${project.id})}" class="stretched-link">View Project</a>
                     </div>
                 </div>
             </div>
@@ -49,66 +38,6 @@
         </div>
     </main>
 </div>
-
-<!--            <main class="container">-->
-<!--                <div class="row mb-2">-->
-<!--            <div class="col-md-6">-->
-<!--                <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-340 position-relative">-->
-<!--                    <div class="col p-4 d-flex flex-column position-static">-->
-<!--                        <strong class="d-inline-block mb-2 text-success">TIR COED</strong>-->
-<!--                        <h3 class="mb-0">ANTIR PROJECT</h3>-->
-<!--                        <div class="mb-1 text-muted">Nov 11</div>-->
-<!--                        <p class="mb-auto">AnTir is an exciting new venture for Tir Coed, that has been made possible through the ‘Time to Shine’ programme funded by the Rank Foundation. AnTir is a play on words and translates from Welsh as ‘land enterprise’.</p>-->
-<!--                        <a href="#" class="stretched-link">Continue reading</a>-->
-<!--                    </div>-->
-
-<!--            </div>-->
-<!--                </div>-->
-<!--                </div>-->
-<!--            </main>-->
-<!--                <div class="col-auto d-none d-lg-block">-->
-<!--                <img alt="AnTir image" src="https://tircoed.org.uk/files/gallery/20190522_1443091-Ceredigion-Coordinator-1.jpg" width="270" height="310">-->
-
-<!--            </div>-->
-
-<!--    <-&#45;&#45; new section: search bar introduced&#45;&#45;&ndash;&gt;-->
-<!--    <section class="section-1">-->
-
-<!--        <div class="row">-->
-<!--            <div class="left" style="background-color:#34495E;">-->
-
-<!--                <input type="text" id="mySearch" onkeyup="myFunction()" placeholder="Search Project.." title="Type in a category">-->
-<!--                <ul id="myMenu">-->
-<!--                    <li><a href="#">project1</a></li>-->
-<!--                    <li><a href="#">project2</a></li>-->
-<!--                    <li><a href="#">project3</a></li>-->
-<!--                    <li><a href="#">project4</a></li>-->
-<!--                    <li><a href="#">project5</a></li><br>-->
-<!--                </ul>-->
-<!--            </div>-->
-
-<!--        </div>-->
-
-<!--        <&#45;&#45;&#45;&#45; same section: list of projects-&ndash;&gt;-->
-
-<!--            <h4>View Projects</h4>-->
-<!--            <div class="dropdown">-->
-<!--                <button class="dropbtn">All Projects-->
-<!--                    <i class="fa fa-caret-down"></i>-->
-<!--                </button>-->
-<!--                <div class="dropdown-content">-->
-<!--                    <a href="#">project1</a>-->
-<!--                    <a href="#">project2</a>-->
-<!--                    <a href="#">project3</a>-->
-<!--                    <a href="#">project4</a>-->
-<!--                    <a href="#">project5</a>-->
-<!--                    <a href="#">project6</a>-->
-<!--                    <a href="#">project7</a>-->
-<!--                    <a href="#">project8</a>-->
-<!--                </div>-->
-<!--            </div>-->
-
-<!--    </section>-->
 
 
 <div th:replace="fragments.html :: footer"></div>
