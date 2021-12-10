@@ -58,7 +58,7 @@ public class ActivityController {
             Community community = new Community();
             community.setId(activity.getCommunityId());
             activity.setCommunity(community);
-            saved = activityService.add(activity);
+            saved = activityService.createActivity(activity);
             mav.addObject("message",
                     "Activity saved successfully");
 

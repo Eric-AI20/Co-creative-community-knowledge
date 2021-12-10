@@ -18,7 +18,7 @@ public class ActivityService implements IActivityService {
     }
 
     @Override
-    public Activity add(Activity activity) {
+    public Activity createActivity(Activity activity) {
         return activityRepository.save(activity);
     }
 }
