@@ -85,12 +85,13 @@
                 <div class="p-4">
                     <h4 class="fst-italic">Case Studies</h4>
                     <ol class="list-unstyled">
-                        <li><a href="#">Mental health problems</a>
-                        </li>
-                        <li><a href="#">Unemployed : Woodland service worker</a></li>
-                        <li><a href="#">Redundant :Tir coed activity leader</a></li>
+                        <ol class="list-unstyled mb-0">
+                            <li th:each="casestudy: ${community.getCaseStudies()}">
+                                <a th:href="@{/viewCaseStudy/{id}(id = ${casestudy.id})}" th:text=" ${casestudy.tite}"></a></li>
+                        </ol>
                     </ol>
                 </div>
+
 
                 <div class="p-4">
                     <h4 class="fst-italic">Activities</h4>

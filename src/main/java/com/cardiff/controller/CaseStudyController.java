@@ -1,6 +1,7 @@
 package com.cardiff.controller;
 
 import com.cardiff.entity.CaseStudy;
+import com.cardiff.entity.Community;
 import com.cardiff.exception.UserAlreadyExistException;
 import com.cardiff.service.CaseStudyService;
 import com.cardiff.service.FragmentService;
@@ -40,28 +41,37 @@ public class CaseStudyController {
         return "ViewCaseStudy";//Return to the HTML page
     }
 
-    @GetMapping("/createCaseStudy")//URL
-    public String showCaseStudyForm(WebRequest request, Model model) {
-        model.addAttribute("casestudy", new CaseStudy());
+    @GetMapping("/createCaseStudy/{id}")//URL
+    public String showCaseStudyForm(WebRequest request, Model model, @PathVariable Long id) {
+
+        CaseStudy caseStudy = new CaseStudy();
+        Community community = new Community();
+        community.setId(id);
+        caseStudy.setCommunity(community);
+
+        model.addAttribute("casestudy", caseStudy);
         return "createCaseStudy";//Return to the HTML page
     }
 
     @PostMapping("/createCaseStudy")
     public ModelAndView saveCaseStudyForm(@ModelAttribute("caseStudy") CaseStudy caseStudy, HttpServletRequest request) {
-        ModelAndView mav = new ModelAndView("createCaseStudy");
-        CaseStudy savedCaseStudy = caseStudyService.saveCaseStudy(caseStudy);
+        ModelAndView mav = new ModelAndView("redirect:/viewCaseStudy/");
 
         try {
+            Community community = new Community();
+            community.setId(caseStudy.getCommunityId());
+            caseStudy.setCommunity(community);
+            CaseStudy savedCaseStudy = caseStudyService.saveCaseStudy(caseStudy);
             mav.addObject("message",
                     "CaseStudy create successfully");
             Long caseStudyId = savedCaseStudy.getId();
-
+            mav.setViewName(mav.getViewName() + caseStudyId);
         } catch (ExpressionException e) {
             mav.addObject("message", "error");
             return mav;
         }
 
-        return new ModelAndView("redirect:/viewCaseStudy/" + savedCaseStudy.getId(), "caseStudy", savedCaseStudy);
+        return mav;
 
 
     }

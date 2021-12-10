@@ -35,6 +35,8 @@
                     <textarea class="form-control" onkeypress="auto_grow(this);" onkeyup="auto_grow(this)" th:field="*{caseSolutions}" placeholder="Your case study's solusion" ......></textarea>
                 </div>
 
+                <input type="hidden" th:value="${casestudy.getCommunity().getId()}" name="communityId" />
+
             </div>
             <div class="mb-3">
                 <label class="form-label">Your case study's evaluation </label>

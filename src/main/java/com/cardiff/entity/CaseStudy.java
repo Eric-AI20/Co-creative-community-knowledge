@@ -28,8 +28,15 @@ public class CaseStudy extends AuditModel {
     @Column(length = 1000)
     private String conclusion;
 
+    @Transient
+    private Long communityId;
+
    /* @Column(length = 1000)
     private String username;*/
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "community_id", nullable = false, referencedColumnName = "id")
+    private Community community;
 
 
     public Long getId() {
@@ -88,14 +95,30 @@ public class CaseStudy extends AuditModel {
         this.conclusion = conclusion;
     }
 
-    /*public String getUsername() {
-        return username;
+    public Long getCommunityId() {
+        return communityId;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setCommunityId(Long communityId) {
+        this.communityId = communityId;
     }
-*/
+
+    public Community getCommunity() {
+        return community;
+    }
+
+    public void setCommunity(Community community) {
+        this.community = community;
+    }
+
+    /*public String getUsername() {
+            return username;
+        }
+
+        public void setUsername(String username) {
+            this.username = username;
+        }
+    */
     @Override
     public String toString() {
         return "CaseStudy{" +

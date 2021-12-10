@@ -34,6 +34,18 @@ public class Community extends AuditModel {
             cascade = CascadeType.ALL)
     private Set<Project> projects;
 
+    @OneToMany(mappedBy = "community", fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL)
+    private Set<CaseStudy> caseStudies;
+
+    public Set<CaseStudy> getCaseStudies() {
+        return caseStudies;
+    }
+
+    public void setCaseStudies(Set<CaseStudy> caseStudies) {
+        this.caseStudies = caseStudies;
+    }
+
     public Long getId() {
         return id;
     }
