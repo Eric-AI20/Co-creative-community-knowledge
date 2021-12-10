@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <div th:replace="fragments.html :: header"></div>
+</head>
+<body>
+<div id="navbar" th:replace="fragments.html :: navbar"></div>
+<br>
+<h1>
+    Create Project
+</h1>
+<!--Write under this-->
+<main class="container">
+    <form id="createProjectForm" style="margin: 60px" th:action="@{/newProject}" th:object="${project}"
+          method="post">
+        <!----......coment----->
+        <div id="nameRow" class="row">
+            <div class="form-group" style="align-content: center">
+                <label for="nameInput">Project Name</label>
+                <input th:field="*{name}" type="text" class="form-control" id="nameInput"
+                       placeholder="e.g Clean Cardiff Project...">
+            </div>
+        </div>
+        <div id="descriptionRow" class="row">
+            <div class="form-group">
+                <label for="projectDescription" style="text-align: center">Project Description</label>
+                <textarea th:field="*{description}" class="form-control" id="projectDescription" rows="5"></textarea>
+            </div>
+        </div>
+
+        <div id="descriptionRow" class="row">
+            <div class="form-group">
+                <label for="projectDescription" style="text-align: center">URL</label>
+                <input th:field="*{url}" class="form-control" id="url" rows="5"></input>
+            </div>
+        </div>
+        <br>
+        <div class="d-grid">
+            <button class="btn btn-primary btn-lg" id="submitButton" style="width: 100px" type="submit">Submit</button>
+        </div>
+
+        <!--        <div id="profPicRow" class="row">-->
+        <!--            <p>-->
+        <!--                <label for="prof-picture" style="top: auto">Upload a profile picture</label>-->
+        <!--                <input type="file" id="prof-picture" accept="image/*" multiple>-->
+        <!--            </p>-->
+        <!--        </div>-->
+    </form>
+</main>
+<div th:replace="fragments.html :: footer"></div>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+      <div th:replace="fragments.html :: header"></div>
+  </head>
+  <body>
+  <div id="navbar" th:replace="fragments.html :: navbar"></div>
+  <br>
+    <h1>Create a case study</h1>
+    <div class="container px-5 my-5">
+      <form id="contactForm" data-sb-form-api-token="API_TOKEN">
+          <div class="mb-3">
+              <label class="form-label" for="username">Username</label>
+              <input class="form-control" id="username" type="text" placeholder="Username" data-sb-validations="required" />
+              <div class="invalid-feedback" data-sb-feedback="username:required">Username is required.</div>
+          </div>
+          <div class="mb-3">
+              <label class="form-label" for="title">Title</label>
+              <input class="form-control" id="title" type="text" placeholder="Title" data-sb-validations="required" />
+              <div class="invalid-feedback" data-sb-feedback="title:required">Title is required.</div>
+          </div>
+          <div class="mb-3">
+              <label class="form-label" for="background">Background</label>
+              <textarea class="form-control" id="background" type="text" placeholder="Background" style="height: 10rem;" data-sb-validations="required"></textarea>
+              <div class="invalid-feedback" data-sb-feedback="background:required">Background is required.</div>
+          </div>
+          <div class="mb-3">
+              <label class="form-label" for="caseEvaluation">Case Evaluation</label>
+              <textarea class="form-control" id="caseEvaluation" type="text" placeholder="Case Evaluation" style="height: 10rem;" data-sb-validations="required"></textarea>
+              <div class="invalid-feedback" data-sb-feedback="caseEvaluation:required">Case Evaluation is required.</div>
+          </div>
+          <div class="mb-3">
+              <label class="form-label" for="proposedSolutions">Proposed solutions</label>
+              <textarea class="form-control" id="proposedSolutions" type="text" placeholder="Proposed solutions" style="height: 10rem;" data-sb-validations="required"></textarea>
+              <div class="invalid-feedback" data-sb-feedback="proposedSolutions:required">Proposed solutions is required.</div>
+          </div>
+          <div class="mb-3">
+              <label class="form-label" for="implementation">Implementation</label>
+              <textarea class="form-control" id="implementation" type="text" placeholder="Implementation" style="height: 10rem;" data-sb-validations="required"></textarea>
+              <div class="invalid-feedback" data-sb-feedback="implementation:required">Implementation is required.</div>
+          </div>
+          <div class="mb-3">
+              <label class="form-label" for="conclusion">Conclusion</label>
+              <textarea class="form-control" id="conclusion" type="text" placeholder="Conclusion" style="height: 10rem;" data-sb-validations="required"></textarea>
+              <div class="invalid-feedback" data-sb-feedback="conclusion:required">Conclusion is required.</div>
+          </div>
+          <div class="mb-3">
+              <label class="form-label" for="references">References</label>
+              <textarea class="form-control" id="references" type="text" placeholder="References" style="height: 10rem;" data-sb-validations="required"></textarea>
+              <div class="invalid-feedback" data-sb-feedback="references:required">References is required.</div>
+          </div>
+          <div class="d-none" id="submitSuccessMessage">
+              <div class="text-center mb-3">
+                  <div class="fw-bolder">Form submission successful!</div>
+              </div>
+          </div>
+          <div class="d-none" id="submitErrorMessage">
+              <div class="text-center text-danger mb-3">Error sending message!</div>
+          </div>
+          <div class="d-grid">
+              <button class="btn btn-primary btn-lg disabled" id="submitButton" type="submit">Submit</button>
+          </div>
+      </form>
+  </div>
+  <div th:replace="fragments.html :: footer"></div>
+  </body>
+  
+
+</html>
