@@ -79,7 +79,7 @@
                     <h4 class="fst-italic">Projects</h4>
                     <ol class="list-unstyled mb-0">
                         <li th:each="project: ${community.getProjects()}">
-                            <a href="#" th:text="${project.name}"></a></li>
+                            <a th:href="@{/project/{id}(id = ${project.id})}" th:text=" ${project.name}"></a></li>
                     </ol>
                 </div>
                 <div class="p-4">

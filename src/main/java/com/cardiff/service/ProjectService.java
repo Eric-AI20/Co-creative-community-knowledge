@@ -11,13 +11,11 @@ import java.util.List;
 @Service
 public class ProjectService implements IProjectService {
 
-
     private ProjectRepository projectRepository;
 
     @Autowired
     public void setProjectRepository(ProjectRepository projectRepository) {
         this.projectRepository = projectRepository;
-
     }
 
     @Override

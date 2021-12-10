@@ -13,11 +13,17 @@ public class Project extends AuditModel {
     @Column(nullable = false, unique = true, length = 45)
     private String name;
 
-    @Column(length = 1000)
+    @Column(nullable = false, length = 45)
+    private String author;
+
+    @Column(length = 10000)
     private String description;
 
-    @Column(length = 1000)
-    private String url;
+    @Column(length = 10000)
+    private String objective;
+
+    @Column(length = 10000)
+    private String about;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "location_id", referencedColumnName = "id")
@@ -26,14 +32,6 @@ public class Project extends AuditModel {
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "community_id", nullable = false, referencedColumnName = "id")
     private Community community;
-
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
 
     public void setId(Long id) {
         this.id = id;
@@ -73,5 +71,29 @@ public class Project extends AuditModel {
 
     public void setCommunity(Community community) {
         this.community = community;
+    }
+
+    public String getAbout() {
+        return about;
+    }
+
+    public void setAbout(String about) {
+        this.about = about;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public String getObjective() {
+        return objective;
+    }
+
+    public void setObjective(String objective) {
+        this.objective = objective;
     }
 }

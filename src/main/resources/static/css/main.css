@@ -71,6 +71,7 @@ h1, h2, h3, h4, h5, h6 {
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
     width: 100%;
+    z-index: 9999
 }
 
 
@@ -239,6 +240,7 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 1.25rem;
     color: #727272;
 }
+
 /*
  * Footer
  */
@@ -263,5 +265,24 @@ h1, h2, h3, h4, h5, h6 {
     /* The width is the width of the web page */
 }
 
-/* projectlist styling */
+
+/**** Post BoX *****/
+
+
+.postbody {
+    display: none;
+}
+
+.commentSection {
+    display: none;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+
+
 
