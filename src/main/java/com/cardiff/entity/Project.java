@@ -16,6 +16,9 @@ public class Project extends AuditModel {
     @Column(length = 1000)
     private String description;
 
+    @Column(length = 1000)
+    private String url;
+
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "location_id", referencedColumnName = "id")
     private Location location;
@@ -23,6 +26,14 @@ public class Project extends AuditModel {
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "community_id", nullable = false, referencedColumnName = "id")
     private Community community;
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
 
     public void setId(Long id) {
         this.id = id;
