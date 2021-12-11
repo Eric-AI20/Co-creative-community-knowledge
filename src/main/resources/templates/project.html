@@ -24,7 +24,7 @@
                 <a th:href="@{/locations}"> <img th:src="${project.getLocation().getMapUrl()}"></a>
                 <br>
                 <br>
-                <a th:href="|http://${project.url}|"> Official website</a>
+                <a th:href="|http://${project.url}|" th:target="_blank"> Official website</a>
             </article>
 
         </div>
