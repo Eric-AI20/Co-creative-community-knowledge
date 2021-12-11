@@ -274,24 +274,45 @@ h1, h2, h3, h4, h5, h6 {
 /*new community*/
 
 
+#profPicRow{
+    border: 2px black;
+    width: 270px;
+    height: 80px;
+}
 
-#NCbackroundimg{
-    border: 2px solid black;
-    border-radius: 4px;
-    align-content: center;
-    height: 150px;
+#nameRow{
+    margin-bottom: 20px;
+
 }
-#back-picture{
-    align-content: center;
-    size: auto;
+#descriptionRow{
+    margin-bottom: 20px;
+
+
 }
-#prof-picture{
-    align-content: center;
-    size: auto;
+#yourGoalRow{
+    margin-bottom: 20px;
 }
-#col1NC{
-    height: 150px;
+#historyRow{
+    margin-bottom: 20px;
+
 }
+#aboutUsRow{
+    margin-bottom: 20px;
+
+}
+
+/*community styles*/
+
+#backImg{
+    height: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+
+}
+
+
 
 
 

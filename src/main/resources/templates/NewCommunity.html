@@ -1,7 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.thymeleaf.org ">
 <head>
     <div th:replace="fragments.html :: header"></div>
+
 
 </head>
 <body>
@@ -9,80 +11,59 @@
 <br>
 
 <!--Write under this-->
-<form id="createCommunityForm" style="margin: 60px" th:action="@{/home/NewCommunity}" th:object="${community}"
-method="post">
-<!--<div class="container-lg">-->
-    <div id="firstRow" class="row">
-        <div id="col1NC" class="col-lg-4">
-            <p>
-                <label for="prof-picture">Select some images </label>
-                <input  type="file" id="prof-picture" accept="image/*" multiple>
-            </p>    
-        </div>
-        <div id="NCbackroundimg" class="col-lg-8">
-           <p>
-              <label for="back-picture">Add a backround image </label>
-              <input type="file" id="back-picture" accept="image/*" >
-           </p>
-
-        </div>
+<form id="createCommunityForm" style="margin: 60px" th:action="@{/home/NewCommunity}"
+      th:object="${community}" method="post" enctype="multipart/form-data">
 
 
+     <div id="nameRow" class="row">
 
-     <div id="secondRow" class="row">
-        <div class="col-lg-6">
-
-                <div class="form-group">
+                <div class="form-group" style="align-content: center">
                     <label for="nameInput">Community Name</label>
                     <input th:field="*{name}" type="text" class="form-control" id="nameInput" placeholder="e.g Healthcare Community...">
                 </div>
-            <div id="thirdRow" class="row">
-                <div class="form-group">
-                    <label for="nameInput">Type main Location</label>
-                    <input  type="text" class="form-control" id="locationInput" placeholder="Type your address...">
-                </div>
-            </div>
+     </div>
 
-
-            <div id="eighthRow" class="row">
-                <div class="form-group">
-                    <label for="aboutUs">Write a summary of what you do in the Community</label>
-                    <input type="text"  class="form-control" id="aboutUs" rows="3" placeholder="e.g We are a community that helps people...">
-                </div>
-            </div>
-
-
-        </div>
-        <div class="col-lg-6">
-            <div class="row">
+            <div id="descriptionRow" class="row">
                 <div class="form-group">
                     <label for="communityDescription">Community Description</label>
-                    <input  type="textarea"  class="form-control" id="communityDescription" rows="5">
+                    <textarea th:field="*{description}" class="form-control" id="communityDescription" rows="5"></textarea>
+
                 </div>
             </div>
 
-            <div class="row">
+            <div id="yourGoalRow" class="row">
                 <div class="form-group">
                     <label for="goal">Your Goal</label>
-                    <input type="textarea"  class="form-control" id="goal" rows="3">
+                    <textarea th:field="*{goal}" type="textarea"  class="form-control" id="goal" rows="3"></textarea>
+
                 </div>
             </div>
 
-            <div class="row">
+            <div id="historyRow" class="row">
                 <div class="form-group">
                     <label for="history">History</label>
-                    <input type="textarea"  class="form-control" id="history" rows="3">
+                    <textarea th:field="*{history}" class="form-control" id="history" rows="3"></textarea>
                 </div>
             </div>
-
+    <div id="aboutUsRow" class="row">
+        <div class="form-group">
+            <label for="history">About Us</label>
+            <textarea th:field="*{aboutUs}" class="form-control" id="aboutUs" rows="3"></textarea>
         </div>
     </div>
 
-</div>
+    <div id="profPicRow" class="row">
+        <div class="form-group" >
+            <label for="prof-picture"> Upload a profile picture </label>
+            <input  type="file" name="image" id="prof-picture" accept="image/png, image/jpeg">
+        </div>
+    </div>
+
     <br>
     <div class="d-grid">
         <button class="btn btn-primary btn-lg" id="submitButton" style="width: 100px" type="submit">Submit</button>
     </div>
+
 </form>
 
 
