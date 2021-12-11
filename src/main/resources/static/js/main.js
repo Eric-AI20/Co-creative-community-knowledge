@@ -23,26 +23,30 @@ $(document).ready(function () {
         $(".postbody").show(); //show when user moves focus in the textarea
     });
 
-    $('#commentbutton').on('click', function () {
-        $('.commentSection').show()
+});
+
+function showCommentSection(id) {
+    var x = document.getElementById("commentSection" + id);
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    window.addEventListener('scroll', function () {
+        if (window.scrollY > 0) {
+            document.getElementById('navbar').classList.add('sticky');
+            // add padding top to show content behind navbar
+            let navbar_height = document.querySelector('.navbar').offsetHeight;
+            document.body.style.paddingTop = navbar_height + 'px';
+        } else {
+            document.getElementById('navbar').classList.remove('sticky');
+            // remove padding top from body
+            document.body.style.paddingTop = '0';
+        }
     });
 });
-var num = 1;
-
-$(window).bind('scroll', function () {
-    if ($(window).scrollTop() > num) {
-        $('.navbar').addClass('sticky');
-    } else {
-        $('.navbar').removeClass('sticky');
-    }
-});
-
-// function showPostBody(x) {
-//     console.log("focus");
-// }
-
-// $("#form_task_comment").on("change, blur", function () {
-//     $(".buttons").hide(); //hide when user moves focus out of the textarea
-// });
-
 

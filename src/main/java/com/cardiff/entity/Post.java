@@ -35,7 +35,7 @@ public class Post extends AuditModel {
     @ManyToOne      // Relationship. Many posts can belong to one user.
     private User user;
 
-    @ManyToOne      // Relationship. Many posts can belong to one user.
+    @ManyToOne      // Relationship. Many posts can belong to one community.
     private Community community;
 
     public void addComment(Comment comment) {
