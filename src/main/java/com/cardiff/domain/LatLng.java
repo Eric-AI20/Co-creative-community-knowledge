@@ -1,15 +1,14 @@
-
 package com.cardiff.domain;
 
 import java.util.HashMap;
 import java.util.Map;
-import javax.annotation.Generated;
 
 public class LatLng {
 
+    private final Map<String, Object> additionalProperties = new HashMap<String, Object>();
     private Double lng;
     private Double lat;
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+    private String mapUrl;
 
     public Double getLng() {
         return lng;
@@ -25,6 +24,14 @@ public class LatLng {
 
     public void setLat(Double lat) {
         this.lat = lat;
+    }
+
+    public String getMapUrl() {
+        return mapUrl;
+    }
+
+    public void setMapUrl(String mapUrl) {
+        this.mapUrl = mapUrl;
     }
 
     public Map<String, Object> getAdditionalProperties() {
