@@ -1,6 +1,5 @@
 package com.cardiff.configuration;
 
-import com.cardiff.entity.User;
 import org.springframework.data.domain.AuditorAware;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
