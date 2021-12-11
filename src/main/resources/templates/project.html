@@ -21,7 +21,10 @@
                 <p th:text="${project.getObjective()}"></p>
 
                 <h3>Location</h3>
-                <img th:src="${project.getLocation().getMapUrl()}">
+                <a th:href="@{/locations}"> <img th:src="${project.getLocation().getMapUrl()}"></a>
+                <br>
+                <br>
+                <a th:href="|http://${project.url}|"> Official website</a>
             </article>
 
         </div>
