@@ -28,5 +28,10 @@ public class ProjectService implements IProjectService {
         return projectRepository.findAll();
     }
 
+    @Override
+    public Project createProject(Project project) {
+        return projectRepository.save(project);
+    }
+
 
 }
