@@ -5,6 +5,7 @@
 </head>
 <body>
 <div id="navbar" th:replace="fragments.html :: navbar"></div>
+<div  th:replace="fragments.html :: alert"></div>
 <br>
 <h1>
     Create Project
@@ -21,19 +22,54 @@
                        placeholder="e.g Clean Cardiff Project...">
             </div>
         </div>
-        <div id="descriptionRow" class="row">
-            <div class="form-group">
-                <label for="projectDescription" style="text-align: center">Project Description</label>
-                <textarea th:field="*{description}" class="form-control" id="projectDescription" rows="5"></textarea>
-            </div>
-        </div>
+
 
         <div id="descriptionRow" class="row">
             <div class="form-group">
-                <label for="projectDescription" style="text-align: center">URL</label>
-                <input th:field="*{url}" class="form-control" id="url" rows="5"></input>
+                <label for="projectDescription" style="text-align: center">Project Description</label>
+                <textarea th:field="*{description}" class="form-control" id="projectDescription" rows="3"
+                          placeholder="Describe the project"></textarea>
             </div>
         </div>
+
+        <div id="objective" class="row">
+            <div class="form-group">
+                <label for="projectDescription" style="text-align: center">Project Objective</label>
+                <textarea th:field="*{objective}" class="form-control" rows="3"
+                          placeholder="Let us know the objective of the project"></textarea>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group">
+                <label for="projectDescription" style="text-align: center">Author</label>
+                <input th:field="*{author}" class="form-control"></input>
+            </div>
+        </div>
+        <div id="aboutTheAuthor" class="row">
+            <div class="form-group">
+                <label for="projectDescription" style="text-align: center">About the Author</label>
+                <textarea th:field="*{about}" class="form-control" id="about the Author" rows="3"
+                          placeholder="Tell us about the Author"></textarea>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="form-group">
+                <label for="projectDescription" style="text-align: center">URL</label>
+                <input th:field="*{url}" class="form-control" id="url"></input>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group">
+                <label for="projectDescription" style="text-align: center">Address</label>
+                <input th:field="*{address}" class="form-control" placeholder="e.g. CF10 3AT"></input>
+            </div>
+        </div>
+        <input type="hidden" th:value="${project.getCommunity().getId()}" name="communityId"/>
+
         <br>
         <div class="d-grid">
             <button class="btn btn-primary btn-lg" id="submitButton" style="width: 100px" type="submit">Submit</button>
