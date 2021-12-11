@@ -2,6 +2,7 @@ package com.cardiff.service;
 
 import com.cardiff.entity.Community;
 import com.cardiff.repository.CommunityRepository;
+import com.cardiff.repository.ProjectRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
