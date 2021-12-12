@@ -261,70 +261,17 @@ h1, h2, h3, h4, h5, h6 {
 
     width: 100%;
     height: 100%;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    -webkit-animation: myfirst 1s;
-    animation: myfirst 2s;
-}
-
-@-webkit-keyframes myfirst {
-    from {opacity: 0.8;}
-    to {opacity: 1;}
-}
-
-@keyframes myfirst {
-    from {opacity: 0.8;}
-    to {opacity: 1;}
-}
-.x-colophon.bottom {
-    background-color: chartreuse;
-}
-
-#card-body:hover{
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    opacity: 80%;
-    border-radius: 4px;
-    position: relative;
-    border: 5px black;
-    background:  url("https://thumbs.dreamstime.com/z/human-hand-print-color-background-art-handprint-concept-illustration-kid-education-school-learning-diverse-community-help-119809754.jpg") no-repeat fixed center center;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    transition: .3s;
 }
 
 
-#card-img{
-    border-radius: 5px;
-    shape-rendering: geometricPrecision;
+/*.card:hover{*/
+/*    border-radius: 4px;*/
+/*    background: #fff;*/
+/*    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);*/
+/*    transition: .3s;*/
 
 
-}
-#row-heart{
-    height: 33%;
-    align-content: center;
-}
-#row-web{
-    height: 33%;
-    align-content: center;
-}
-#row-join{
-    height: 33%;
-    align-content: center;
-}
-
-
-.card:hover{
-    border-radius: 4px;
-    background: #fff;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    transition: .3s;
-
-
-}
+/*}*/
 
 
 /* Set the size of the div element that contains the map */
@@ -334,6 +281,72 @@ h1, h2, h3, h4, h5, h6 {
     width: 100%;
     /* The width is the width of the web page */
 }
-#card-img1{
-    object-fit: fill;
+
+#homeBody{
+
+    background-attachment: fixed;
+    opacity: 100%;
 }
+#jumbo1{
+    background-image: url("https://st2.depositphotos.com/3591429/5245/i/600/depositphotos_52451657-stock-photo-business-people-holding-placards-form.jpg");
+    /*background-repeat: no-repeat;*/
+    object-fit: fill;
+    background-color: #e5e5e5;
+    min-height: 240px;
+    position: center ;
+    padding-right: 12px;
+    padding-left: 12px;
+    border-radius: 5px;
+
+}
+
+#main-con{
+
+    /*padding-left: 50px;*/
+    /*padding-right: 50px;*/
+    /*margin: 0px;*/
+    position: center;
+
+}
+#jumbo2{
+    background-image: url("https://st2.depositphotos.com/3591429/5245/i/600/depositphotos_52451657-stock-photo-business-people-holding-placards-form.jpg");
+    /*background-repeat: no-repeat;*/
+    object-fit: fill;
+    background-color: #e5e5e5;
+    min-height: 240px;
+    position: center ;
+    padding-right: 12px;
+    padding-left: 12px;
+    border-radius: 5px;
+}
+#jumbo3{
+    background-image: url("https://st2.depositphotos.com/3591429/5245/i/600/depositphotos_52451657-stock-photo-business-people-holding-placards-form.jpg");
+    /*background-repeat: no-repeat;*/
+    object-fit: fill;
+    background-color: #e5e5e5;
+    min-height: 240px;
+    position: center ;
+    padding-right: 12px;
+    padding-left: 12px;
+    border-radius: 5px;
+}
+#jumbo4{
+    background-image: url("https://st2.depositphotos.com/3591429/5245/i/600/depositphotos_52451657-stock-photo-business-people-holding-placards-form.jpg");
+    /*background-repeat: no-repeat;*/
+    object-fit: fill;
+    background-color: #e5e5e5;
+    min-height: 240px;
+    position: center;
+    padding-right: 12px;
+    padding-left: 12px;
+    border-radius: 5px;
+
+}
+
+#jamb1p{
+    color: black;
+}
+#jamb2p{color: black;}
+#jamb3p{color: black;}
+#jamb4p{color: black;}
+
