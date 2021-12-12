@@ -43,7 +43,7 @@ public class Community extends AuditModel {
 
     @OneToMany(mappedBy = "community", fetch = FetchType.LAZY,
             cascade = CascadeType.ALL)
-    private Set<Resources> resources;
+    private Set<Resource> resources;
 
 
     public Community(Long id, String name) {
@@ -140,11 +140,11 @@ public class Community extends AuditModel {
         this.caseStudies = caseStudies;
     }
 
-    public Set<Resources> getResources() {
+    public Set<Resource> getResources() {
         return resources;
     }
 
-    public void setResources(Set<Resources> resources) {
+    public void setResources(Set<Resource> resources) {
         this.resources = resources;
     }
 }
