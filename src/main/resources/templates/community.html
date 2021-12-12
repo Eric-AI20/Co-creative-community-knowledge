@@ -82,8 +82,13 @@
                     <h4 class="fst-italic">Projects</h4>
                     <ol class="list-unstyled mb-0">
                         <li th:each="project: ${community.getProjects()}">
-                            <a th:href="@{/project/{id}(id = ${project.id})}" th:text=" ${project.name}"></a></li>
+                            <a th:href="@{/project/{id}(id = ${project.id})}" th:text=" ${project.name}"></a></li>'
                     </ol>
+                    <div class="d-grid">
+                        <a  th:href="@{/createProject/{id}(id = ${community.id})}">
+                            <button type="button" class="btn btn-primary btn-lg" id="submitButton">Create Project</button>
+                        </a>
+                    </div>
                 </div>
                 <div class="p-4">
                     <h4 class="fst-italic">Case Studies</h4>
@@ -115,7 +120,7 @@
                         </li>
                     </ol>
                     <div class="d-grid">
-                        <a href="activity/{id}">
+                        <a  th:href="@{/community/activity/{id}(id = ${community.id})}">
                             <button type="button" class="btn btn-primary btn-lg" id="submitButton">Create Activity</button>
                         </a>
                     </div>
