@@ -34,6 +34,18 @@ public class Community extends AuditModel {
             cascade = CascadeType.ALL)
     private Set<Project> projects;
 
+    @OneToMany(mappedBy = "community", fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL)
+    private Set<CaseStudy> caseStudies;
+
+    public Set<CaseStudy> getCaseStudies() {
+        return caseStudies;
+    }
+
+    public void setCaseStudies(Set<CaseStudy> caseStudies) {
+        this.caseStudies = caseStudies;
+    }
+
     public Long getId() {
         return id;
     }
@@ -42,9 +54,6 @@ public class Community extends AuditModel {
         return name;
     }
 
-    public String getDescription() {
-        return description;
-    }
 
     public Community(Long id, String name) {
         this.id = id;
@@ -54,12 +63,24 @@ public class Community extends AuditModel {
     public Community() {
     }
 
+    public Long getId() {
+        return id;
+    }
+
     public void setId(Long id) {
         this.id = id;
     }
 
+    public String getName() {
+        return name;
+    }
+
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
     }
 
     public void setDescription(String description) {
@@ -104,5 +125,13 @@ public class Community extends AuditModel {
 
     public void setHistory(String history) {
         this.history = history;
+    }
+
+    public Set<Resources> getResources() {
+        return resources;
+    }
+
+    public void setResources(Set<Resources> resources) {
+        this.resources = resources;
     }
 }

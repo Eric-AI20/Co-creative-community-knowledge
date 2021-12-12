@@ -7,20 +7,14 @@ import javax.persistence.*;
 public class CaseStudy extends AuditModel {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column
     private Long id;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
     @Column(nullable = false, unique = true, length = 45)
     private String title;
 
     @Column(length = 1000)
-    private String introduction;
+    private String caseIntroduction;
 
     @Column(length = 1000)
     private String caseEvaluation;
@@ -34,7 +28,23 @@ public class CaseStudy extends AuditModel {
     @Column(length = 1000)
     private String conclusion;
 
+    @Transient
+    private Long communityId;
 
+
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "community_id", nullable = false, referencedColumnName = "id")
+    private Community community;
+
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getTitle() {
         return title;
@@ -44,12 +54,12 @@ public class CaseStudy extends AuditModel {
         this.title = title;
     }
 
-    public String getIntroduction() {
-        return introduction;
+    public String getCaseIntroduction() {
+        return caseIntroduction;
     }
 
-    public void setIntroduction(String title) {
-        this.introduction = introduction;
+    public void setCaseIntroduction(String caseIntroduction) {
+        this.caseIntroduction = caseIntroduction;
     }
 
     public String getCaseEvaluation() {
@@ -83,5 +93,23 @@ public class CaseStudy extends AuditModel {
     public void setConclusion(String conclusion) {
         this.conclusion = conclusion;
     }
+
+    public Long getCommunityId() {
+        return communityId;
+    }
+
+    public void setCommunityId(Long communityId) {
+        this.communityId = communityId;
+    }
+
+    public Community getCommunity() {
+        return community;
+    }
+
+    public void setCommunity(Community community) {
+        this.community = community;
+    }
+
+
 
 }

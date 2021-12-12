@@ -19,12 +19,23 @@ public class Location extends AuditModel {
     @Column(precision = 9, scale = 3)
     private BigDecimal longitude;
 
-    public void setId(Long id) {
-        this.id = id;
+    @Column
+    private String mapUrl;
+
+    public Location(BigDecimal latitude, BigDecimal longitude) {
+        this.latitude = latitude;
+        this.longitude = longitude;
+    }
+
+    public Location() {
     }
 
     public Long getId() {
         return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public BigDecimal getLatitude() {
@@ -43,21 +54,20 @@ public class Location extends AuditModel {
         this.longitude = longitude;
     }
 
-
-    public Location(BigDecimal latitude, BigDecimal longitude) {
-        this.latitude = latitude;
-        this.longitude = longitude;
-    }
-
-    public Location() {
-    }
-
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getMapUrl() {
+        return mapUrl;
+    }
+
+    public void setMapUrl(String mapUrl) {
+        this.mapUrl = mapUrl;
     }
 }
 
