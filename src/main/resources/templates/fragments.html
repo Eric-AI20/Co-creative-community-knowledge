@@ -9,13 +9,14 @@
         <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
         <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}"/>
         <script type="text/javascript" th:src="@{/js/main.js}"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
     </div>
 
 </head>
 <body>
 
 
-<nav th:fragment="navbar" class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav th:fragment="navbar" id="navbar" class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
         <a class="navbar-brand" th:href="@{/home}">Co-create</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -43,6 +44,10 @@
                 <li class="nav-item">
                     <a class="nav-link active" th:href="@{/locations}">Locations</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link active" th:href="@{/forum/home}">Forum</a>
+                </li>
+
                 <!--                <li class="nav-item">-->
                 <!--                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>-->
                 <!--                </li>-->
@@ -59,6 +64,11 @@
         </div>
     </div>
 </nav>
+
+<div th:fragment="alert">
+    <div class="alert alert-primary" role="alert" th:text="${success}" th:if="${success}"></div>
+    <div class="alert alert-danger" role="alert" th:text="${error}" th:if="${error}"></div>
+</div>
 
 <footer th:fragment="footer" class="blog-footer">
     <p>Copyrights @Co-create

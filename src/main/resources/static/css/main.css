@@ -71,6 +71,7 @@ h1, h2, h3, h4, h5, h6 {
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
     width: 100%;
+    z-index: 9999
 }
 
 
@@ -239,6 +240,7 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 1.25rem;
     color: #727272;
 }
+
 /*
  * Footer
  */
@@ -264,90 +266,22 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
+/**** Post BoX *****/
 
 
-
-
-
-
-
-/*new community*/
-
-
-#profPicRow{
-    border: 2px black;
-    width: 270px;
-    height: 80px;
+.postbody {
+    display: none;
 }
 
-#nameRow{
-    margin-bottom: 20px;
-
-}
-#descriptionRow{
-    margin-bottom: 20px;
-
-
-}
-#yourGoalRow{
-    margin-bottom: 20px;
-}
-#historyRow{
-    margin-bottom: 20px;
-
-}
-#aboutUsRow{
-    margin-bottom: 20px;
-
+.comment-section {
+    display: none;
 }
 
-/*community styles*/
-
-#backImg{
-    height: 50%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
