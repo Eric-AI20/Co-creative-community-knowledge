@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.thymeleaf.org ">
 <head>
     <div th:replace="fragments.html :: header"></div>
 </head>
@@ -10,12 +11,14 @@
 <br>
 
 <main class="container">
-    <div class="p-4 p-md-5 mb-4 text-white rounded bg-dark">
+    <div class="container" th:style=" 'background:url(' + @{${community.getPhotosImagePath()}} +'); object-fit: fill; background-repeat: no-repeat; background-size: 100% 100%;'">
+    <div class="p-4 p-md-5 mb-4 text-dark rounded " >
         <div class="col-md-6 px-0">
             <h1 class="display-4 fst-italic" th:text="${community.name}"></h1>
             <p class="lead my-3" th:text="${community.description}">
             </p>
         </div>
+    </div>
     </div>
     <div class="row g-5">
         <div class="col-md-8">
@@ -131,4 +134,11 @@
 
 <div th:replace="fragments.html :: footer"></div>
 </body>
+<script>
+    function add_img() {
+        let img = document.createElement('img');
+        img.src = @{${community.getPhotosImagePath()}};
+        document.getElementById('body').appendChild(img);
+    }
+</script>
 </html>
