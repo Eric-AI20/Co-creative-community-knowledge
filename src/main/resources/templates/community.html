@@ -11,14 +11,15 @@
 <br>
 
 <main class="container">
-    <div class="container" th:style=" 'background:url(' + @{${community.getPhotosImagePath()}} +'); object-fit: fill; background-repeat: no-repeat; background-size: 100% 100%;'">
-    <div class="p-4 p-md-5 mb-4 text-dark rounded " >
-        <div class="col-md-6 px-0">
-            <h1 class="display-4 fst-italic" th:text="${community.name}"></h1>
-            <p class="lead my-3" th:text="${community.description}">
-            </p>
+    <div class="container"
+         th:style=" 'background:url(' + @{${community.getPhotosImagePath()}} +'); object-fit: fill; background-repeat: no-repeat; background-size: 100% 100%;'">
+        <div class="p-4 p-md-5 mb-4 text-dark rounded ">
+            <div class="col-md-6 px-0">
+                <h1 class="display-4 fst-italic" th:text="${community.name}"></h1>
+                <p class="lead my-3" th:text="${community.description}">
+                </p>
+            </div>
         </div>
-    </div>
     </div>
     <div class="row g-5">
         <div class="col-md-8">
@@ -82,11 +83,12 @@
                     <h4 class="fst-italic">Projects</h4>
                     <ol class="list-unstyled mb-0">
                         <li th:each="project: ${community.getProjects()}">
-                            <a th:href="@{/project/{id}(id = ${project.id})}" th:text=" ${project.name}"></a></li>'
+                            <a th:href="@{/project/{id}(id = ${project.id})}" th:text=" ${project.name}"></a></li>
                     </ol>
-                    <div class="d-grid">
-                        <a  th:href="@{/createProject/{id}(id = ${community.id})}">
-                            <button type="button" class="btn btn-primary btn-lg" id="submitButton">Create Project</button>
+                    <div class="d-grid" sec:authorize="isAuthenticated()">
+                        <a th:href="@{/createProject/{id}(id = ${community.id})}">
+                            <button type="button" class="btn btn-primary  btn-sm" id="submitButton">Create Project
+                            </button>
                         </a>
                     </div>
                 </div>
@@ -95,12 +97,14 @@
                     <ol class="list-unstyled">
                         <ol class="list-unstyled mb-0">
                             <li th:each="casestudy: ${community.getCaseStudies()}">
-                                <a th:href="@{/viewCaseStudy/{id}(id = ${casestudy.id})}" th:text=" ${casestudy.title}"></a></li>
+                                <a th:href="@{/viewCaseStudy/{id}(id = ${casestudy.id})}"
+                                   th:text=" ${casestudy.title}"></a></li>
                         </ol>
                     </ol>
-                    <div class="d-grid">
+                    <div class="d-grid" sec:authorize="isAuthenticated()">
                         <a th:href="@{/createCaseStudy/{id}(id = ${community.id})}">
-                            <button type="button" class="btn btn-primary btn-lg" id="submitButton">Create Your Case Study</button>
+                            <button type="button" class="btn btn-primary btn-sm" id="submitButton">Create Case Study
+                            </button>
                         </a>
                     </div>
                 </div>
@@ -119,9 +123,10 @@
                             </p>
                         </li>
                     </ol>
-                    <div class="d-grid">
-                        <a  th:href="@{/community/activity/{id}(id = ${community.id})}">
-                            <button type="button" class="btn btn-primary btn-lg" id="submitButton">Create Activity</button>
+                    <div class="d-grid" sec:authorize="isAuthenticated()">
+                        <a th:href="@{/community/activity/{id}(id = ${community.id})}">
+                            <button type="button" class="btn btn-primary  btn-sm" id="submitButton">Create Activity
+                            </button>
                         </a>
                     </div>
                 </div>

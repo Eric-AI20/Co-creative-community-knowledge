@@ -4,6 +4,7 @@ import com.cardiff.entity.Community;
 import com.cardiff.repository.CommunityRepository;
 import com.cardiff.service.CommunityService;
 import com.cardiff.service.FragmentService;
+import com.cardiff.util.FileUploadUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,15 +21,12 @@ import java.io.IOException;
 import java.util.Objects;
 
 
-
 @Controller
 public class CommunityController {
 
+    private final CommunityRepository communityRepository;
     private CommunityService communityService;
     private FragmentService fragmentService;
-
-
-    private final CommunityRepository communityRepository;
 
 
     public CommunityController(CommunityRepository communityRepository) {
@@ -59,7 +57,7 @@ public class CommunityController {
         String fileName = StringUtils.cleanPath(Objects.requireNonNull(multipartFile.getOriginalFilename()));
         community.setPhoto(fileName);
         Community savedCommunity = communityRepository.save(community);
-        String uploadDir = "co-creative-community-knowledge-group-1/src/main/resources/static/images/" + savedCommunity.getId();
+        String uploadDir = "/src/main/resources/static/images/" + savedCommunity.getId();
 
         try {
             FileUploadUtil.saveFile(uploadDir, fileName, multipartFile);
@@ -81,7 +79,6 @@ public class CommunityController {
         }
         return new ModelAndView("redirect:/community/" + registered.getId());
     }
-
 
 
     @GetMapping("/home")

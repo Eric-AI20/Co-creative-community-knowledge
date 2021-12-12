@@ -5,7 +5,7 @@
 </head>
 <body>
 <div id="navbar" th:replace="fragments.html :: navbar"></div>
-<div  th:replace="fragments.html :: alert"></div>
+<div th:replace="fragments.html :: alert"></div>
 <br>
 <h1>
     Create Project
@@ -15,56 +15,57 @@
     <form id="createProjectForm" style="margin: 60px" th:action="@{/newProject}" th:object="${project}"
           method="post">
         <!----......coment----->
-        <div id="nameRow" class="row">
-            <div class="form-group" style="align-content: center">
-                <label for="nameInput">Project Name</label>
+
+        <div class="mb-3">
+            <label class="form-label">Project name </label>
+            <div class="col-md-12">
                 <input th:field="*{name}" type="text" class="form-control" id="nameInput"
                        placeholder="e.g Clean Cardiff Project...">
             </div>
         </div>
 
 
-        <div id="descriptionRow" class="row">
-            <div class="form-group">
-                <label for="projectDescription" style="text-align: center">Project Description</label>
+        <div class="mb-3">
+            <label class="form-label">Description </label>
+            <div class="col-md-12">
                 <textarea th:field="*{description}" class="form-control" id="projectDescription" rows="3"
                           placeholder="Describe the project"></textarea>
             </div>
         </div>
 
-        <div id="objective" class="row">
-            <div class="form-group">
-                <label for="projectDescription" style="text-align: center">Project Objective</label>
+        <div class="mb-3">
+            <label class="form-label">Objective </label>
+            <div class="col-md-12">
                 <textarea th:field="*{objective}" class="form-control" rows="3"
                           placeholder="Let us know the objective of the project"></textarea>
             </div>
         </div>
 
-        <div class="row">
-            <div class="form-group">
-                <label for="projectDescription" style="text-align: center">Author</label>
+        <div class="mb-3">
+            <label class="form-label">Author </label>
+            <div class="col-md-12">
                 <input th:field="*{author}" class="form-control"></input>
             </div>
         </div>
-        <div id="aboutTheAuthor" class="row">
-            <div class="form-group">
-                <label for="projectDescription" style="text-align: center">About the Author</label>
+        <div class="mb-3">
+            <label class="form-label">About the Author </label>
+            <div class="col-md-12">
                 <textarea th:field="*{about}" class="form-control" id="about the Author" rows="3"
                           placeholder="Tell us about the Author"></textarea>
             </div>
         </div>
 
 
-        <div class="row">
-            <div class="form-group">
-                <label for="projectDescription" style="text-align: center">URL</label>
+        <div class="mb-3">
+            <label class="form-label">Project URL </label>
+            <div class="col-md-12">
                 <input th:field="*{url}" class="form-control" id="url"></input>
             </div>
         </div>
 
-        <div class="row">
-            <div class="form-group">
-                <label for="projectDescription" style="text-align: center">Address</label>
+        <div class="mb-3">
+            <label class="form-label">Address</label>
+            <div class="col-md-12">
                 <input th:field="*{address}" class="form-control" placeholder="e.g. CF10 3AT"></input>
             </div>
         </div>

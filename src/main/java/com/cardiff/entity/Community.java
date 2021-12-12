@@ -81,8 +81,7 @@ public class Community extends AuditModel {
     @Transient
     public String getPhotosImagePath() {
         if (photo == null || id == null) return null;
-
-        return "/co-creative-community-knowledge-group-1/src/main/resources/static/images/" + id + "/" + this.photo;
+        return "/src/main/resources/static/images/" + id + "/" + this.photo;
     }
 
     public String getAboutUs() {

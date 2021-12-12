@@ -1,4 +1,4 @@
-package com.cardiff.controller;
+package com.cardiff.util;
 
 import org.springframework.web.multipart.MultipartFile;
 

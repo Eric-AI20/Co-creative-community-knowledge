@@ -15,7 +15,8 @@ public class MvcConfiguration implements WebMvcConfigurer {
 
     @Override
     public void addResourceHandlers(@NotNull ResourceHandlerRegistry registry) {
-        exposeDirectory("co-creative-community-knowledge-group-1/src/main/resources/static/images", registry);
+
+        exposeDirectory("/src/main/resources/static/images", registry);
     }
 
     private void exposeDirectory(String dirName, ResourceHandlerRegistry registry) {
@@ -24,7 +25,7 @@ public class MvcConfiguration implements WebMvcConfigurer {
 
         if (dirName.startsWith("../")) dirName = dirName.replace("../", "");
 
-        registry.addResourceHandler("/" + dirName + "/**").addResourceLocations("file:/"+ uploadPath + "/");
+        registry.addResourceHandler("/" + dirName + "/**").addResourceLocations("file:/" + uploadPath + "/");
     }
 }
 
