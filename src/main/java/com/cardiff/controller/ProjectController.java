@@ -36,7 +36,7 @@ public class ProjectController {
     }
 
     @GetMapping("/project/{id}")
-    public String getCommunityById(WebRequest request, Model model, @PathVariable String id) {
+    public String showProjectDetails(WebRequest request, Model model, @PathVariable String id) {
         //model.addAttribute("user", new UserDto());
         Project projectById = projectService.getProjectById(Long.parseLong(id));
 
@@ -57,7 +57,7 @@ public class ProjectController {
     }
 
     @GetMapping("/createProject/{id}")
-    public String createProject(WebRequest request, Model model, @PathVariable Long id) {
+    public String showCreateProjectPage(WebRequest request, Model model, @PathVariable Long id) {
 
         Project project = new Project();
         Community community = new Community();
@@ -69,7 +69,7 @@ public class ProjectController {
     }
 
     @PostMapping("/newProject")
-    public ModelAndView registerUserAccount(@ModelAttribute("project") @Valid Project project, RedirectAttributes redirAttrs) {
+    public ModelAndView createNewProject(@ModelAttribute("project") @Valid Project project, RedirectAttributes redirAttrs) {
         ModelAndView mav = new ModelAndView("redirect:/project/");
         Project savedProject = null;
         try {

@@ -23,13 +23,12 @@ import javax.validation.Valid;
 public class ActivityController {
 
     private ActivityService activityService;
+    private CommunityService communityService;
 
     @Autowired
     public void setActivityService(ActivityService activityService) {
         this.activityService = activityService;
     }
-
-    private CommunityService communityService;
 
     @Autowired
     public void setCommunityService(CommunityService communityService) {
@@ -38,7 +37,7 @@ public class ActivityController {
 
 
     @GetMapping("/community/activity/{id}")
-    public String activity(WebRequest request, Model model, @PathVariable Long id) {
+    public String showCreateActivityPage(WebRequest request, Model model, @PathVariable Long id) {
 
         Activity activity = new Activity();
         Community community = new Community();
@@ -50,7 +49,7 @@ public class ActivityController {
 
 
     @PostMapping("/activity/create")
-    public ModelAndView registerUserAccount(@ModelAttribute("Activity") @Valid Activity activity, HttpServletRequest request, Errors errors) {
+    public ModelAndView createActivity(@ModelAttribute("Activity") @Valid Activity activity, HttpServletRequest request, Errors errors) {
         ModelAndView mav = new ModelAndView("redirect:/community/" + activity.getCommunityId());
         Activity saved = null;
         try {
