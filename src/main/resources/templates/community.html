@@ -114,9 +114,9 @@
                 </div>
                 <div class="p-4">
                     <h4 class="fst-italic">Education and Training</h4>
-                    <ol class="list-unstyled mb-0">
-                        <li><a href="#">Progression weeKs</a></li>
-                        <li><a href="#">Accredited training courses</a></li>
+                    <ol class="list-unstyled mb-0" th:each="resource : ${community.getResources()}">
+                        <li><a th:href="|http://${resource.getUrl()}|" th:target="_blank"
+                               th:text="${resource.getName()}"></a></li>
                     </ol>
                 </div>
                 <div class="p-4 mb-3 bg-light rounded">

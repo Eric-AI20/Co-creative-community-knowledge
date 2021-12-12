@@ -9,7 +9,7 @@
         <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
         <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}"/>
         <script type="text/javascript" th:src="@{/js/main.js}"></script>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
     </div>
 
 </head>
@@ -64,6 +64,11 @@
         </div>
     </div>
 </nav>
+
+<div th:fragment="alert">
+    <div class="alert alert-primary" role="alert" th:text="${success}" th:if="${success}"></div>
+    <div class="alert alert-danger" role="alert" th:text="${error}" th:if="${error}"></div>
+</div>
 
 <footer th:fragment="footer" class="blog-footer">
     <p>Copyrights @Co-create
