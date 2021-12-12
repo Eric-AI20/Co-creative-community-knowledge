@@ -26,6 +26,9 @@ public class Community extends AuditModel {
     @Column(nullable = false, length = 10000)
     private String history;
 
+    @Column(nullable = true, length = 1000)
+    private String photo;
+
     @OneToMany(mappedBy = "community", fetch = FetchType.LAZY,
             cascade = CascadeType.ALL)
     private Set<Activity> activities;
@@ -38,21 +41,9 @@ public class Community extends AuditModel {
             cascade = CascadeType.ALL)
     private Set<CaseStudy> caseStudies;
 
-    public Set<CaseStudy> getCaseStudies() {
-        return caseStudies;
-    }
-
-    public void setCaseStudies(Set<CaseStudy> caseStudies) {
-        this.caseStudies = caseStudies;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
+    @OneToMany(mappedBy = "community", fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL)
+    private Set<Resources> resources;
 
 
     public Community(Long id, String name) {
@@ -85,6 +76,13 @@ public class Community extends AuditModel {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    @Transient
+    public String getPhotosImagePath() {
+        if (photo == null || id == null) return null;
+
+        return "/co-creative-community-knowledge-group-1/src/main/resources/static/images/" + id + "/" + this.photo;
     }
 
     public String getAboutUs() {
@@ -125,6 +123,22 @@ public class Community extends AuditModel {
 
     public void setHistory(String history) {
         this.history = history;
+    }
+
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
+    }
+
+    public Set<CaseStudy> getCaseStudies() {
+        return caseStudies;
+    }
+
+    public void setCaseStudies(Set<CaseStudy> caseStudies) {
+        this.caseStudies = caseStudies;
     }
 
     public Set<Resources> getResources() {
