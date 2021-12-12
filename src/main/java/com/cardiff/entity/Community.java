@@ -26,6 +26,9 @@ public class Community extends AuditModel {
     @Column(nullable = false, length = 10000)
     private String history;
 
+    @Column(nullable = true, length = 1000)
+    private String photo;
+
     @OneToMany(mappedBy = "community", fetch = FetchType.LAZY,
             cascade = CascadeType.ALL)
     private Set<Activity> activities;
@@ -34,18 +37,6 @@ public class Community extends AuditModel {
             cascade = CascadeType.ALL)
     private Set<Project> projects;
 
-    @OneToMany(mappedBy = "community", fetch = FetchType.LAZY,
-            cascade = CascadeType.ALL)
-    private Set<CaseStudy> caseStudies;
-
-    public Set<CaseStudy> getCaseStudies() {
-        return caseStudies;
-    }
-
-    public void setCaseStudies(Set<CaseStudy> caseStudies) {
-        this.caseStudies = caseStudies;
-    }
-
     public Long getId() {
         return id;
     }
@@ -54,6 +45,9 @@ public class Community extends AuditModel {
         return name;
     }
 
+    public String getDescription() {
+        return description;
+    }
 
     public Community(Long id, String name) {
         this.id = id;
@@ -62,25 +56,18 @@ public class Community extends AuditModel {
 
     public Community() {
     }
+    @Transient
+    public String getPhotosImagePath() {
+        if (photo == null || id == null) return null;
 
-    public Long getId() {
-        return id;
+        return "/co-creative-community-knowledge-group-1/src/main/resources/static/images/" + id + "/" + this.photo;
     }
-
     public void setId(Long id) {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
-    }
-
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
     }
 
     public void setDescription(String description) {
@@ -127,11 +114,9 @@ public class Community extends AuditModel {
         this.history = history;
     }
 
-    public Set<Resources> getResources() {
-        return resources;
-    }
+    public String getPhoto(){ return photo; }
 
-    public void setResources(Set<Resources> resources) {
-        this.resources = resources;
+    public void setPhoto(String photo) {
+        this.photo = photo;
     }
 }
