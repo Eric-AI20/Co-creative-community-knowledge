@@ -87,11 +87,11 @@
                     <ol class="list-unstyled">
                         <ol class="list-unstyled mb-0">
                             <li th:each="casestudy: ${community.getCaseStudies()}">
-                                <a th:href="@{/viewCaseStudy/{id}(id = ${casestudy.id})}" th:text=" ${casestudy.tite}"></a></li>
+                                <a th:href="@{/viewCaseStudy/{id}(id = ${casestudy.id})}" th:text=" ${casestudy.title}"></a></li>
                         </ol>
                     </ol>
                     <div class="d-grid">
-                        <a href="createCaseStudy/{id}(id = ${community.id})}">
+                        <a th:href="@{/createCaseStudy/{id}(id = ${community.id})}">
                             <button type="button" class="btn btn-primary btn-lg" id="submitButton">Create Activity</button>
                         </a>
                     </div>

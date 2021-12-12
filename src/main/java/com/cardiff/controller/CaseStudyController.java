@@ -1,9 +1,12 @@
 package com.cardiff.controller;
 
+import com.cardiff.entity.Activity;
 import com.cardiff.entity.CaseStudy;
 import com.cardiff.entity.Community;
+import com.cardiff.entity.Project;
 import com.cardiff.exception.UserAlreadyExistException;
 import com.cardiff.service.CaseStudyService;
+import com.cardiff.service.CommunityService;
 import com.cardiff.service.FragmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.expression.ExpressionException;
@@ -15,12 +18,15 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import java.time.LocalDateTime;
+import java.util.HashSet;
 
 @Controller
 public class CaseStudyController {
 
     private FragmentService fragmentService;
     private CaseStudyService caseStudyService;
+
 
     @Autowired
     public void setFragmentService(FragmentService fragmentService) {
@@ -43,7 +49,6 @@ public class CaseStudyController {
 
     @GetMapping("/createCaseStudy/{id}")//URL
     public String showCaseStudyForm(WebRequest request, Model model, @PathVariable Long id) {
-
         CaseStudy caseStudy = new CaseStudy();
         Community community = new Community();
         community.setId(id);
