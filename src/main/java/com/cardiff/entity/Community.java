@@ -37,17 +37,14 @@ public class Community extends AuditModel {
             cascade = CascadeType.ALL)
     private Set<Project> projects;
 
-    public Long getId() {
-        return id;
-    }
+    @OneToMany(mappedBy = "community", fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL)
+    private Set<CaseStudy> caseStudies;
 
-    public String getName() {
-        return name;
-    }
+    @OneToMany(mappedBy = "community", fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL)
+    private Set<Resources> resources;
 
-    public String getDescription() {
-        return description;
-    }
 
     public Community(Long id, String name) {
         this.id = id;
@@ -56,22 +53,36 @@ public class Community extends AuditModel {
 
     public Community() {
     }
-    @Transient
-    public String getPhotosImagePath() {
-        if (photo == null || id == null) return null;
 
-        return "/co-creative-community-knowledge-group-1/src/main/resources/static/images/" + id + "/" + this.photo;
+    public Long getId() {
+        return id;
     }
+
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public void setName(String name) {
         this.name = name;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    @Transient
+    public String getPhotosImagePath() {
+        if (photo == null || id == null) return null;
+
+        return "/co-creative-community-knowledge-group-1/src/main/resources/static/images/" + id + "/" + this.photo;
     }
 
     public String getAboutUs() {
@@ -114,9 +125,27 @@ public class Community extends AuditModel {
         this.history = history;
     }
 
-    public String getPhoto(){ return photo; }
+    public String getPhoto() {
+        return photo;
+    }
 
     public void setPhoto(String photo) {
         this.photo = photo;
+    }
+
+    public Set<CaseStudy> getCaseStudies() {
+        return caseStudies;
+    }
+
+    public void setCaseStudies(Set<CaseStudy> caseStudies) {
+        this.caseStudies = caseStudies;
+    }
+
+    public Set<Resources> getResources() {
+        return resources;
+    }
+
+    public void setResources(Set<Resources> resources) {
+        this.resources = resources;
     }
 }
