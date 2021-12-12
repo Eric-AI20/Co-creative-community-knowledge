@@ -12,27 +12,26 @@
     <div class="container px-10 my-10" style="background: linear-gradient()">
 
         <form th:action="@{/createCaseStudy}" th:object="${casestudy}" method="post">
-           <!-- <div class="mb-3">
-                <label class="form-label">Your Username: </label>
-                <input type="email" class="form-control" th:field="*{username}"/>
-            </div>-->
-            <div class="mb-3">
-                <label class="form-label">Your proposed case study title: </label>
-                <input type="text" class="form-control" maxlength="2000" th:field="*{title}" placeholder="Your case study's title ......"/>
-            </div>
 
             <div class="mb-3">
-                <label class="form-label">Your case study's introduction:</label>
-                <div class="col-md-8">
-                    <textarea class="form-control" onkeypress="auto_grow(this);" onkeyup="auto_grow(this)" ROWS="2" th:field="*{caseIntroduction}" placeholder="Your case study's introduction ......"></textarea>
+                <label class="form-label">Your proposed case study title: </label>
+                <input type="text" class="form-control" maxlength="2000" th:field="*{title}" placeholder="Your case study's title "/>
+            </div>
+
+
+
+            <div class="mb-3">
+                <label class="form-label" style="text-align: center">Your case study's introduction:</label>
+                <div class="col-md-12">
+                    <textarea class="form-control" onkeypress="auto_grow(this);" onkeyup="auto_grow(this)" rows="10" th:field="*{caseIntroduction}" placeholder="Your case study's introduction "></textarea>
                 </div>
 
             </div>
 
             <div class="mb-3">
                 <label class="form-label">Your case study's solution </label>
-                <div class="col-md-8">
-                    <textarea class="form-control" onkeypress="auto_grow(this);" onkeyup="auto_grow(this)" th:field="*{caseSolutions}" placeholder="Your case study's solusion" ......></textarea>
+                <div class="col-md-12">
+                    <textarea class="form-control" onkeypress="auto_grow(this);" onkeyup="auto_grow(this)" rows="10" th:field="*{caseSolutions}" placeholder="Your case study's solusion"></textarea>
                 </div>
 
                 <input type="hidden" th:value="${casestudy.getCommunity().getId()}" name="communityId" />
@@ -40,24 +39,24 @@
             </div>
             <div class="mb-3">
                 <label class="form-label">Your case study's evaluation </label>
-                <div class="col-md-8">
-                    <textarea class="form-control" onkeypress="auto_grow(this);" onkeyup="auto_grow(this)"  th:field="*{caseEvaluation}" placeholder="Your case study's evaluation" ......></textarea>
+                <div class="col-md-12">
+                    <textarea class="form-control" onkeypress="auto_grow(this);" onkeyup="auto_grow(this)" rows="10"  th:field="*{caseEvaluation}" placeholder="Your case study's evaluation"></textarea>
                 </div>
 
             </div>
 
             <div class="mb-3">
                 <label class="form-label">Your case study's implementations </label>
-                <div class="col-md-8">
-                    <textarea class="form-control" onkeypress="auto_grow(this);" onkeyup="auto_grow(this)"  th:field="*{implementations}" placeholder="Your case study's implementations" ......></textarea>
+                <div class="col-md-12">
+                    <textarea class="form-control" onkeypress="auto_grow(this);" onkeyup="auto_grow(this)" rows="10" th:field="*{implementations}" placeholder="Your case study's implementations" ></textarea>
                 </div>
 
             </div>
 
             <div class="mb-3">
                 <label class="form-label">Your case study's conclusion </label>
-                <div class="col-md-8">
-                    <textarea class="form-control" onkeypress="auto_grow(this);" onkeyup="auto_grow(this)" th:field="*{conclusion}" placeholder="Your case study's conclusion" ......></textarea>
+                <div class="col-md-12">
+                    <textarea class="form-control" onkeypress="auto_grow(this);" onkeyup="auto_grow(this)" rows="10" th:field="*{conclusion}" placeholder="Your case study's conclusion" ></textarea>
                 </div>
 
             </div>
