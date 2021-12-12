@@ -1,12 +1,75 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.thymeleaf.org ">
 <head>
     <div th:replace="fragments.html :: header"></div>
+    <title></title>
 </head>
-<body>
+<body id="homeBody">
 <div id="navbar" th:replace="fragments.html :: navbar"></div>
-<br>
-<div th:replace="fragments.html :: footer"></div>
+<div style="height:10px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- write here-->
+
+<!--th:style="'background-url:'+ @{${community.getPhoto()}} +'"-->
+
+
+
+
+<div id="main-con" class="container" th:each="iter: ${#numbers.sequence(0,communityList.size()-4,4)}">
+    <div style="height:55px" aria-hidden="false" class="wp-block-spacer"></div>
+
+    <div class="jumbotron" id="jumbo1" >
+        <h1 class="display-4" th:text="${communityList.get(iter).name}"></h1>
+        <hr class="my-lg-4">
+        <p th:text="${communityList.get(iter).description}" id="jamb1p" ></p>
+        <p id="btncom" class="lead">
+            <a  class="btn btn-primary btn-lg" th:href="@{/community/{id}(id = ${communityList.get(iter).id})}" role="button">Learn more</a>
+        </p>
+    </div>
+
+<div class="row">
+    <div class="col">
+        <div class="jumbotron" id="jumbo2" >
+        <h1 class="display-4" th:text="${communityList.get(iter + 1).name}"></h1>
+        <hr class="my-lg-4">
+        <p th:text="${communityList.get(iter +1).description}" id="jamb2p"></p>
+        <p class="lead">
+            <a class="btn btn-primary btn-lg" th:href="@{/community/{id}(id = ${communityList.get(iter +1).id})}" role="button">Learn more</a>
+        </p>
+    </div>
+    </div>
+    <div class="col">
+        <div class="jumbotron" id="jumbo3" >
+        <h1 class="display-4" th:text="${communityList.get(iter+2).name}"></h1>
+        <hr class="my-lg-4">
+        <p th:text="${communityList.get(iter+2).description}" id="jamb3p" ></p>
+        <p class="lead">
+            <a class="btn btn-primary btn-lg" th:href="@{/community/{id}(id = ${communityList.get(iter+2).id})}" role="button">Learn more</a>
+        </p>
+    </div>
+    </div>
+    <div class="col">
+        <div class="jumbotron" id="jumbo4" >
+        <h1 class="display-4" th:text="${communityList.get(iter+3).name}"></h1>
+        <hr class="my-lg-4">
+        <p th:text="${communityList.get(iter+3).description}"  id="jamb4p"></p>
+        <p class="lead">
+            <a class="btn btn-primary btn-lg" th:href="@{/community/{id}(id = ${communityList.get(iter+3).id})}" role="button">Learn more</a>
+        </p>
+    </div>
+    </div>
+
+
+</div>
+
+
+</div>
+
+
+<div style="height:135px" aria-hidden="true" class="wp-block-spacer"></div>
+
 
 </body>
+
+
 </html>
