@@ -6,27 +6,24 @@ import com.cardiff.service.iface.ICommunityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
 public class CommunityService implements ICommunityService {
 
-    private CommunityRepository communityRepository;
+    private static CommunityRepository communityRepository;
 
     @Autowired
     public void setCommunityRepository(CommunityRepository communityRepository) {
         this.communityRepository = communityRepository;
     }
 
+    public Community createCommunity(Community community) throws Exception {
+
+        return communityRepository.save(community);
+    }
+
     @Override
     public Community getCommunityById(Long id) {
         return communityRepository.getById(id);
     }
-
-    @Override
-    public Community createCommunity(Community community) {
-        return communityRepository.save(community);
-    }
-
 }
 

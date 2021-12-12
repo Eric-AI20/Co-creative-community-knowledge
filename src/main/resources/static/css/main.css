@@ -288,16 +288,16 @@ h1, h2, h3, h4, h5, h6 {
     opacity: 100%;
 }
 #jumbo1{
-    background-image: url("https://st2.depositphotos.com/3591429/5245/i/600/depositphotos_52451657-stock-photo-business-people-holding-placards-form.jpg");
+
     /*background-repeat: no-repeat;*/
     object-fit: fill;
-    background-color: #e5e5e5;
+    background-color: whitesmoke;
     min-height: 240px;
     position: center ;
     padding-right: 12px;
     padding-left: 12px;
     border-radius: 5px;
-
+border: black 2px;
 }
 
 #main-con{
@@ -309,10 +309,9 @@ h1, h2, h3, h4, h5, h6 {
 
 }
 #jumbo2{
-    background-image: url("https://st2.depositphotos.com/3591429/5245/i/600/depositphotos_52451657-stock-photo-business-people-holding-placards-form.jpg");
+    background-color: whitesmoke;
     /*background-repeat: no-repeat;*/
     object-fit: fill;
-    background-color: #e5e5e5;
     min-height: 240px;
     position: center ;
     padding-right: 12px;
@@ -320,10 +319,8 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 5px;
 }
 #jumbo3{
-    background-image: url("https://st2.depositphotos.com/3591429/5245/i/600/depositphotos_52451657-stock-photo-business-people-holding-placards-form.jpg");
-    /*background-repeat: no-repeat;*/
+    background-color: whitesmoke;    /*background-repeat: no-repeat;*/
     object-fit: fill;
-    background-color: #e5e5e5;
     min-height: 240px;
     position: center ;
     padding-right: 12px;
@@ -331,10 +328,9 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 5px;
 }
 #jumbo4{
-    background-image: url("https://st2.depositphotos.com/3591429/5245/i/600/depositphotos_52451657-stock-photo-business-people-holding-placards-form.jpg");
     /*background-repeat: no-repeat;*/
     object-fit: fill;
-    background-color: #e5e5e5;
+    background-color: whitesmoke;
     min-height: 240px;
     position: center;
     padding-right: 12px;
