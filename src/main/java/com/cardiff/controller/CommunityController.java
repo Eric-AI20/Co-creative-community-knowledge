@@ -44,7 +44,7 @@ public class CommunityController {
     }
 
     @GetMapping("/home/NewCommunity")
-    public String ShowRegistrationForm(WebRequest request, Model model) {
+    public String showCreateCommunityForm(WebRequest request, Model model) {
         model.addAttribute("community", new Community());
         return "NewCommunity";
 

@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Table(name = "resources")
 @Entity
-public class Resources extends AuditModel {
+public class Resource extends AuditModel {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
@@ -13,6 +13,9 @@ public class Resources extends AuditModel {
     private String name;
     @Column
     private String url;
+
+    @Transient
+    private Long communityId;
 
     @ManyToOne
     @JoinColumn(name = "community_id")
@@ -48,5 +51,13 @@ public class Resources extends AuditModel {
 
     public void setCommunity(Community community) {
         this.community = community;
+    }
+
+    public Long getCommunityId() {
+        return communityId;
+    }
+
+    public void setCommunityId(Long communityId) {
+        this.communityId = communityId;
     }
 }
