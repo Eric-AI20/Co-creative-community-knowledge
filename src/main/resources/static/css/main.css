@@ -334,3 +334,6 @@ h1, h2, h3, h4, h5, h6 {
     width: 100%;
     /* The width is the width of the web page */
 }
+#card-img1{
+    object-fit: fill;
+}
