@@ -34,7 +34,7 @@
                         Communities
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li th:each="community: ${communityList}">
+                        <li class="dropdown-overtop" th:each="community: ${communityList}">
                             <a class="dropdown-item" th:href="@{/community/{id}(id = ${community.id})}"
                                th:text="${community.name}"></a>
                             <!--                            <hr class="dropdown-divider">-->

@@ -71,6 +71,7 @@ h1, h2, h3, h4, h5, h6 {
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
     width: 100%;
+    z-index: 9999
 }
 
 
@@ -350,3 +351,14 @@ border: black 2px;
     display: none;
 }
 
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+
+.dropdown-overtop{
+    z-index: 999;
+
+}
