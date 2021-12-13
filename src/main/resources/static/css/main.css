@@ -346,3 +346,7 @@ border: black 2px;
 #jamb3p{color: black;}
 #jamb4p{color: black;}
 
+.postbody{
+    display: none;
+}
+
