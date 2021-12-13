@@ -46,7 +46,7 @@ public class PostService implements IPostService {
         if (loggedInUser != null) {
             post.setUser(loggedInUser);
             Community community = new Community();
-            community.setId(6L);
+            community.setId(post.getCommunityId());
             post.setCommunity(community);
         }
         return postRepository.save(post);
