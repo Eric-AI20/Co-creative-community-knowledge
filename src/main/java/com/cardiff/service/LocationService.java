@@ -65,4 +65,9 @@ public class LocationService implements ILocationService {
         }
         return latLng;
     }
+
+    @Override
+    public Location save(Location location) {
+        return locationRepository.save(location);
+    }
 }

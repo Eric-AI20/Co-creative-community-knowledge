@@ -24,6 +24,7 @@ public class ProjectController {
 
     private FragmentService fragmentService;
 
+
     @Autowired
     public void setProjectService(ProjectService projectService) {
         this.projectService = projectService;
@@ -74,6 +75,9 @@ public class ProjectController {
         Project savedProject = null;
         try {
             savedProject = projectService.createProject(project);
+
+            projectService.updateProjectIdOnLocation(savedProject);
+
 
             mav.setViewName(mav.getViewName() + savedProject.getId());
             mav.addObject("success", "Project successfully created");

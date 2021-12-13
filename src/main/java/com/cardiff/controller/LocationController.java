@@ -8,6 +8,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.context.request.WebRequest;
 
+import java.util.List;
+
 @Controller
 public class LocationController {
 
@@ -29,7 +31,6 @@ public class LocationController {
     public String showLocationsPage(WebRequest request, Model model) {
 
         model.addAttribute("communityList", fragmentService.getAllCommunitiesForNavigation());
-        //model.addAttribute("user", new UserDto());
         model.addAttribute("locations", locationService.findAllLocationsForMap());
         return "projectmap";
     }

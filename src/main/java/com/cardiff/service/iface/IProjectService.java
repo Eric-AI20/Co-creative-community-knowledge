@@ -11,4 +11,6 @@ public interface IProjectService {
     List<Project> findAllProjects();
 
     Project createProject(Project project);
+
+    void updateProjectIdOnLocation(Project savedProject);
 }

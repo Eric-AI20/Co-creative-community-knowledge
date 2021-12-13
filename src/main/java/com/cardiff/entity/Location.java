@@ -22,6 +22,9 @@ public class Location extends AuditModel {
     @Column
     private String mapUrl;
 
+    @Column
+    private Long projectId;
+
     public Location(BigDecimal latitude, BigDecimal longitude) {
         this.latitude = latitude;
         this.longitude = longitude;
@@ -68,6 +71,14 @@ public class Location extends AuditModel {
 
     public void setMapUrl(String mapUrl) {
         this.mapUrl = mapUrl;
+    }
+
+    public Long getProjectId() {
+        return projectId;
+    }
+
+    public void setProjectId(Long projectId) {
+        this.projectId = projectId;
     }
 }
 

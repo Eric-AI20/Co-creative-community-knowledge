@@ -7,5 +7,8 @@ import java.util.List;
 
 public interface ILocationService {
     List<Location> findAllLocationsForMap();
+
     LatLng getCoordinatesForAddress(String address);
+
+    Location save(Location location);
 }

@@ -35,27 +35,15 @@
             let locations = [[${locations}]]
             var marker, i;
             for (i = 0; i < locations.length; i++) {
-                if (i % 2 == 0) {
-                    marker = new google.maps.Marker({
-                        position: {lat: locations[i].latitude, lng: locations[i].longitude},
-                        map: map,
-                        title: locations[i].name,
-                        url: "http://localhost:8080/project/9",
+
+                marker = new google.maps.Marker({
+                    position: {lat: locations[i].latitude, lng: locations[i].longitude},
+                    map: map,
+                    title: locations[i].name,
+                    url: "http://localhost:8080/project/".concat(locations[i].projectId),
 
 
-                    });
-
-                } else {
-                    marker = new google.maps.Marker({
-                        position: {lat: locations[i].latitude, lng: locations[i].longitude},
-                        map: map,
-                        title: locations[i].name,
-                        url: "http://localhost:8080/project/10",
-
-
-                    });
-                }
-
+                });
 
                 google.maps.event.addListener(marker, 'click', function () {
                     window.location.href = marker.url;

@@ -57,5 +57,14 @@ public class ProjectService implements IProjectService {
         return projectRepository.save(project);
     }
 
+    @Override
+    public void updateProjectIdOnLocation(Project savedProject) {
+
+        Location location = savedProject.getLocation();
+        location.setProjectId(savedProject.getId());
+
+        locationService.save(location);
+    }
+
 
 }
