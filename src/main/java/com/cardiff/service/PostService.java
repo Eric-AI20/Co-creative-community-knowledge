@@ -78,4 +78,9 @@ public class PostService implements IPostService {
     public void setCommentRepository(CommentRepository commentRepository) {
         this.commentRepository = commentRepository;
     }
+
+
+    public List<Post> findByCommunityId(Long id) {
+        return postRepository.findByCommunityId(id);
+    }
 }

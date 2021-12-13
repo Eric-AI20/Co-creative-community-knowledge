@@ -1,6 +1,7 @@
 package com.cardiff.controller;
 
-import com.cardiff.entity.*;
+import com.cardiff.entity.Comment;
+import com.cardiff.entity.Post;
 import com.cardiff.service.FragmentService;
 import com.cardiff.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,6 +41,17 @@ public class PostController {
         model.addAttribute("communityList", fragmentService.getAllCommunitiesForNavigation());
         return "forum";
     }
+
+    @GetMapping("/sortByCommunityId/{id}")
+    public String showForumPostsByCommunityId(Model model, @PathVariable Long id) {
+
+        model.addAttribute("post", new Post());
+        model.addAttribute("posts", postService.findByCommunityId(id));
+        model.addAttribute("comment", new Comment());
+        model.addAttribute("communityList", fragmentService.getAllCommunitiesForNavigation());
+        return "forum";
+    }
+
 
     @PostMapping("/createPost")
     public ModelAndView createPost(@ModelAttribute("post") @Valid Post post, HttpServletRequest request, Errors errors) {
