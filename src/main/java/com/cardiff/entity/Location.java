@@ -25,6 +25,9 @@ public class Location extends AuditModel {
     @Column
     private Long projectId;
 
+    @Transient
+    private String projectDescription;
+
     public Location(BigDecimal latitude, BigDecimal longitude) {
         this.latitude = latitude;
         this.longitude = longitude;
@@ -79,6 +82,16 @@ public class Location extends AuditModel {
 
     public void setProjectId(Long projectId) {
         this.projectId = projectId;
+    }
+
+    @Transient
+    public String getProjectDescription() {
+        return projectDescription;
+    }
+
+    @Transient
+    public void setProjectDescription(String projectDescription) {
+        this.projectDescription = projectDescription;
     }
 }
 
