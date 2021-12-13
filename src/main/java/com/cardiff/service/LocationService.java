@@ -3,6 +3,7 @@ package com.cardiff.service;
 import com.cardiff.domain.LatLng;
 import com.cardiff.domain.LocationResponse;
 import com.cardiff.entity.Location;
+import com.cardiff.entity.Project;
 import com.cardiff.repository.LocationRepository;
 import com.cardiff.service.iface.ILocationService;
 import com.google.gson.Gson;
@@ -22,6 +23,13 @@ import java.util.concurrent.atomic.AtomicReference;
 public class LocationService implements ILocationService {
     private LocationRepository locationRepository;
 
+    private ProjectService projectService;
+
+    @Autowired
+    public void setProjectService(ProjectService projectService) {
+        this.projectService = projectService;
+    }
+
     @Autowired
     public void setLocationRepository(LocationRepository locationRepository) {
         this.locationRepository = locationRepository;
@@ -29,8 +37,10 @@ public class LocationService implements ILocationService {
 
     @Override
     public List<Location> findAllLocationsForMap() {
-        return locationRepository.findAll();
+
+        return populateProjectDescriptionForMap(locationRepository.findAll());
     }
+
 
     @Override
     public LatLng getCoordinatesForAddress(String address) {
@@ -64,6 +74,19 @@ public class LocationService implements ILocationService {
             e.printStackTrace();
         }
         return latLng;
+    }
+
+
+    private List<Location> populateProjectDescriptionForMap(List<Location> locations) {
+
+        locations.stream().forEach(location -> {
+            if (location.getProjectId() != null) {
+                Project projectById = projectService.getProjectById(location.getProjectId());
+                location.setProjectDescription(projectById.getDescription());
+            }
+        });
+        System.out.println(new Gson().toJson(locations));
+        return locations;
     }
 
     @Override
