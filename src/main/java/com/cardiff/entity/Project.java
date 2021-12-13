@@ -25,6 +25,28 @@ public class Project extends AuditModel {
     @Column(length = 10000)
     private String about;
 
+    @Column(length = 10000)
+    private String url;
+
+    @Column(length = 10000)
+    private String events;
+
+    public String getEvents() {
+        return events;
+    }
+
+    public void setEvents(String events) {
+        this.events = events;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "location_id", referencedColumnName = "id")
     private Location location;
