@@ -2,6 +2,7 @@ package com.cardiff.controller;
 
 import com.cardiff.entity.Community;
 import com.cardiff.entity.Resource;
+import com.cardiff.service.FragmentService;
 import com.cardiff.service.ResourceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,6 +23,13 @@ public class ResourceController {
 
     private ResourceService resourceService;
 
+    private FragmentService fragmentService;
+
+    @Autowired
+    public void setFragmentService(FragmentService fragmentService) {
+        this.fragmentService = fragmentService;
+    }
+
     @Autowired
     public void setResourceService(ResourceService resourceService) {
         this.resourceService = resourceService;
@@ -35,6 +43,7 @@ public class ResourceController {
         community.setId(id);
         resource.setCommunity(community);
         model.addAttribute("resource", resource);
+        model.addAttribute("communityList", fragmentService.getAllCommunitiesForNavigation());
         return "createresource";
     }
 

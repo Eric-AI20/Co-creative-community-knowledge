@@ -2,10 +2,9 @@
 <html lang="en">
 <head>
     <div th:replace="fragments.html :: header"></div>
-    <br>
-
 </head>
 <body>
+<div id="navbar" th:replace="fragments.html :: navbar"></div>
 <div class="container px-5 my-5">
     <div>
         <h1>Activity</h1>
@@ -41,5 +40,6 @@
     </form>
 
 </div>
+<div th:replace="fragments.html :: footer"></div>
 </body>
 </html>

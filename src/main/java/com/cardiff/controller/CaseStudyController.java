@@ -51,6 +51,7 @@ public class CaseStudyController {
         caseStudy.setCommunity(community);
 
         model.addAttribute("casestudy", caseStudy);
+        model.addAttribute("communityList", fragmentService.getAllCommunitiesForNavigation());
         return "createCaseStudy";//Return to the HTML page
     }
 

@@ -46,6 +46,8 @@ public class CommunityController {
     @GetMapping("/home/NewCommunity")
     public String showCreateCommunityForm(WebRequest request, Model model) {
         model.addAttribute("community", new Community());
+
+        model.addAttribute("communityList", fragmentService.getAllCommunitiesForNavigation());
         return "NewCommunity";
 
     }

@@ -5,6 +5,7 @@ import com.cardiff.entity.Activity;
 import com.cardiff.entity.Community;
 import com.cardiff.service.ActivityService;
 import com.cardiff.service.CommunityService;
+import com.cardiff.service.FragmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,6 +26,8 @@ public class ActivityController {
     private ActivityService activityService;
     private CommunityService communityService;
 
+    private FragmentService fragmentService;
+
     @Autowired
     public void setActivityService(ActivityService activityService) {
         this.activityService = activityService;
@@ -35,6 +38,10 @@ public class ActivityController {
         this.communityService = communityService;
     }
 
+    @Autowired
+    public void setFragmentService(FragmentService fragmentService) {
+        this.fragmentService = fragmentService;
+    }
 
     @GetMapping("/community/activity/{id}")
     public String showCreateActivityPage(WebRequest request, Model model, @PathVariable Long id) {
@@ -44,6 +51,7 @@ public class ActivityController {
         community.setId(id);
         activity.setCommunity(community);
         model.addAttribute("activity", activity);
+        model.addAttribute("communityList", fragmentService.getAllCommunitiesForNavigation());
         return "activity";
     }
 
