@@ -23,56 +23,15 @@
 
 
         function initMap() {
-            //     // The location of Uluru
-            //     const cardiff = {lat: 51.481583, lng: -3.179090};
-            //     // The map, centered at Uluru
-            //     const map = new google.maps.Map(document.getElementById("map"), {
-            //         zoom: 8,
-            //         center: cardiff,
-            //     });
-            //     // The marker, positioned at Uluru
-            //
-            //     let locations = [[${locations}]]
-            //     var marker, i;
-            //     for (i = 0; i < locations.length; i++) {
-            //
-            //         marker = new google.maps.Marker({
-            //             position: {lat: locations[i].latitude, lng: locations[i].longitude},
-            //             map: map,
-            //             title: locations[i].name,
-            //             url: "http://localhost:8080/project/".concat(locations[i].projectId),
-            //             id: locations[i].id,
-            //             onclick: openPopup(locations[i].id);
-            //
-            //
-            //         });
-            //
-            //
-            //         const infowindow = new google.maps.InfoWindow({
-            //             content: "Popup",
-            //         });
-            //         // google.maps.event.addListener(marker, 'click', function () {
-            //         //     window.location.href = marker.url;
-            //         // });
-            //
-            //         marker.addListener("click", (x) => {
-            //             infowindow.open({
-            //
-            //                 anchor: marker,
-            //                 map,
-            //                 shouldFocus: false,
-            //             });
-            //         });
-            //     }
 
 
-            // The location of Uluru
+            // The location of cardiff
             const cardiff = {lat: 51.481583, lng: -3.179090};
-            // The map, centered at Uluru
+            // The map, centered at cardiff
 
 
             var mapOptions = {
-                zoom: 8,
+                zoom: 7,
                 mapTypeId: google.maps.MapTypeId.ROADMAP,
                 center: cardiff
 
