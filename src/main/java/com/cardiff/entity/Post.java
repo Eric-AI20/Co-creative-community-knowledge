@@ -35,8 +35,11 @@ public class Post extends AuditModel {
     @ManyToOne      // Relationship. Many posts can belong to one user.
     private User user;
 
-    @ManyToOne      // Relationship. Many posts can belong to one user.
+    @ManyToOne      // Relationship. Many posts can belong to one community.
     private Community community;
+
+    @Transient
+    private Long communityId;
 
     public void addComment(Comment comment) {
         comments.add(comment);
@@ -100,5 +103,15 @@ public class Post extends AuditModel {
 
     public void setCommunity(Community community) {
         this.community = community;
+    }
+
+    @Transient
+    public Long getCommunityId() {
+        return communityId;
+    }
+
+    @Transient
+    public void setCommunityId(Long communityId) {
+        this.communityId = communityId;
     }
 }

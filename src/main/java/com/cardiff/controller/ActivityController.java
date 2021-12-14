@@ -5,6 +5,7 @@ import com.cardiff.entity.Activity;
 import com.cardiff.entity.Community;
 import com.cardiff.service.ActivityService;
 import com.cardiff.service.CommunityService;
+import com.cardiff.service.FragmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,34 +24,40 @@ import javax.validation.Valid;
 public class ActivityController {
 
     private ActivityService activityService;
+    private CommunityService communityService;
+
+    private FragmentService fragmentService;
 
     @Autowired
     public void setActivityService(ActivityService activityService) {
         this.activityService = activityService;
     }
 
-    private CommunityService communityService;
-
     @Autowired
     public void setCommunityService(CommunityService communityService) {
         this.communityService = communityService;
     }
 
+    @Autowired
+    public void setFragmentService(FragmentService fragmentService) {
+        this.fragmentService = fragmentService;
+    }
 
     @GetMapping("/community/activity/{id}")
-    public String activity(WebRequest request, Model model, @PathVariable Long id) {
+    public String showCreateActivityPage(WebRequest request, Model model, @PathVariable Long id) {
 
         Activity activity = new Activity();
         Community community = new Community();
         community.setId(id);
         activity.setCommunity(community);
         model.addAttribute("activity", activity);
+        model.addAttribute("communityList", fragmentService.getAllCommunitiesForNavigation());
         return "activity";
     }
 
 
     @PostMapping("/activity/create")
-    public ModelAndView registerUserAccount(@ModelAttribute("Activity") @Valid Activity activity, HttpServletRequest request, Errors errors) {
+    public ModelAndView createActivity(@ModelAttribute("Activity") @Valid Activity activity, HttpServletRequest request, Errors errors) {
         ModelAndView mav = new ModelAndView("redirect:/community/" + activity.getCommunityId());
         Activity saved = null;
         try {

@@ -240,7 +240,6 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 1.25rem;
     color: #727272;
 }
-
 /*
  * Footer
  */
@@ -250,11 +249,30 @@ h1, h2, h3, h4, h5, h6 {
     text-align: center;
     background-color: #f9f9f9;
     border-top: .05rem solid #e5e5e5;
+
 }
+
 
 .blog-footer p:last-child {
     margin-bottom: 0;
 }
+ /*home.html*/
+
+#homeBody {
+
+    width: 100%;
+    height: 100%;
+}
+
+
+/*.card:hover{*/
+/*    border-radius: 4px;*/
+/*    background: #fff;*/
+/*    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);*/
+/*    transition: .3s;*/
+
+
+/*}*/
 
 
 /* Set the size of the div element that contains the map */
@@ -265,15 +283,71 @@ h1, h2, h3, h4, h5, h6 {
     /* The width is the width of the web page */
 }
 
+#homeBody{
 
-/**** Post BoX *****/
+    background-attachment: fixed;
+    opacity: 100%;
+}
+#jumbo1{
 
-
-.postbody {
-    display: none;
+    /*background-repeat: no-repeat;*/
+    object-fit: fill;
+    background-color: whitesmoke;
+    min-height: 240px;
+    position: center ;
+    padding-right: 12px;
+    padding-left: 12px;
+    border-radius: 5px;
+border: black 2px;
 }
 
-.commentSection {
+#main-con{
+
+    /*padding-left: 50px;*/
+    /*padding-right: 50px;*/
+    /*margin: 0px;*/
+    position: center;
+
+}
+#jumbo2{
+    background-color: whitesmoke;
+    /*background-repeat: no-repeat;*/
+    object-fit: fill;
+    min-height: 240px;
+    position: center ;
+    padding-right: 12px;
+    padding-left: 12px;
+    border-radius: 5px;
+}
+#jumbo3{
+    background-color: whitesmoke;    /*background-repeat: no-repeat;*/
+    object-fit: fill;
+    min-height: 240px;
+    position: center ;
+    padding-right: 12px;
+    padding-left: 12px;
+    border-radius: 5px;
+}
+#jumbo4{
+    /*background-repeat: no-repeat;*/
+    object-fit: fill;
+    background-color: whitesmoke;
+    min-height: 240px;
+    position: center;
+    padding-right: 12px;
+    padding-left: 12px;
+    border-radius: 5px;
+
+}
+
+#jamb1p{
+    color: black;
+}
+#jamb2p{color: black;}
+#jamb3p{color: black;}
+#jamb4p{color: black;}
+
+.postbody{
     display: none;
 }
 
@@ -284,5 +358,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
+.dropdown-overtop{
+    z-index: 999;
 
-
+}
