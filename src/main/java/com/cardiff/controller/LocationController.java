@@ -27,10 +27,17 @@ public class LocationController {
         this.locationService = locationService;
     }
 
+    /**
+     * This methods populated locations in the model and navigates to the locations page
+     * @param request
+     * @param model
+     * @return
+     */
     @GetMapping("/locations")
     public String showLocationsPage(WebRequest request, Model model) {
 
         model.addAttribute("communityList", fragmentService.getAllCommunitiesForNavigation());
+        //find all locations from db to be displayed on the map
         model.addAttribute("locations", locationService.findAllLocationsForMap());
         return "projectmap";
     }

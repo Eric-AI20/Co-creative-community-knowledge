@@ -17,8 +17,6 @@
 
 
     <script th:inline="javascript">
-        // write code here
-
 
         function initMap() {
 
@@ -35,6 +33,7 @@
 
             };
 
+            //Locations object from the model is accessed here in local variable
             let locations = [[${locations}]]
 
 
@@ -44,10 +43,7 @@
 
             for (var i = 0; i < locations.length; i++) {
 
-                var contenetName = locations[i].name;
-
-                var contentUrl = "http://localhost:8080/project/".concat(locations[i].projectId);
-
+                //adding marker for each locaiton
                 var marker = new google.maps.Marker({
                     position: {lat: locations[i].latitude, lng: locations[i].longitude},
                     map: map,
@@ -58,6 +54,7 @@
 
                     return function () {
 
+                        //adding form
                         const contentString =
                             '<div id="content">' +
                             '<div id="siteNotice">' +

@@ -17,6 +17,7 @@ import java.math.BigDecimal;
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 
 @DataJpaTest
@@ -40,7 +41,7 @@ class LocationRepositoryTest {
     }
 
     @Test
-    public void testCreateLocation() {
+    public void testCreateLocation_Success() {
         Location location = new Location();
         location.setName("Tir Coed");
         location.setLatitude(BigDecimal.valueOf(31.764));
@@ -49,6 +50,18 @@ class LocationRepositoryTest {
         Location existingLocation = entityManager.find(Location.class, savedLocation.getId());
         assertThat(existingLocation.getName()).isEqualTo(savedLocation.getName());
         repo.delete(existingLocation);
+    }
+
+    @Test
+    public void testCreateLocation_Failure() {
+        Location location = new Location();
+        location.setLatitude(BigDecimal.valueOf(31.764));
+        location.setLatitude(BigDecimal.valueOf(31.764));
+
+        //since the required parameter name is missing the location will not be saved and null will be returned
+        Location savedLocation = repo.save(location);
+        assertNull(savedLocation);
+
     }
 
 }

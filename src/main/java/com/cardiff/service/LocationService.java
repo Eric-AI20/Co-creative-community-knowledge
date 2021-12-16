@@ -1,5 +1,6 @@
 package com.cardiff.service;
 
+import com.cardiff.constants.ProjectConstants;
 import com.cardiff.domain.LatLng;
 import com.cardiff.domain.LocationResponse;
 import com.cardiff.entity.Location;
@@ -37,17 +38,24 @@ public class LocationService implements ILocationService {
 
     @Override
     public List<Location> findAllLocationsForMap() {
-
         return populateProjectDescriptionForMap(locationRepository.findAll());
     }
 
 
+    /**
+     * This methods creates a http request to open-maprequest-api to get the coordinates for the given address
+     *
+     * @param address
+     * @return
+     */
     @Override
     public LatLng getCoordinatesForAddress(String address) {
         LatLng latLng = null;
         try {
-            address.replace(" ", "%20");
-            String url = "https://open.mapquestapi.com/geocoding/v1/address?key=GeVVrZ56KA0LHyOdR7jj9t8YAoeWstCd&location=" + address;
+            if (address != null)
+                address.replace(" ", "%20");
+
+            String url = ProjectConstants.OPEN_MAP_REQUEST_URL.value + "?key=" + ProjectConstants.API_KEY.value + "&location=" + address;
             RestTemplate restTemplate = new RestTemplate();
             HttpHeaders httpHeaders = new HttpHeaders();
             HttpEntity<LocationResponse> request = new HttpEntity<>(httpHeaders);
@@ -57,21 +65,31 @@ public class LocationService implements ILocationService {
             LocationResponse body = response.getBody();
 
             Gson gson = new Gson();
+            //logging response for the http request
             System.out.println(gson.toJson(response));
             AtomicReference<String> mapUri = new AtomicReference<>();
+
+            //from the location we are selecting the first latitude and longitude
             Optional<LatLng> location = body.getResults().stream().map(result -> {
                 mapUri.set(result.getLocations().get(0).getMapUrl());
                 return result.getLocations().get(0).getLatLng();
             }).findAny();
 
+
+            //The third party doesn't send mapri in the same object as the Latitude and longitude
+            // adding into a dummy field mapuri to propagate this value to save in the entity
             if (location.isPresent()) {
                 location.get().setMapUrl(mapUri.get());
                 latLng = location.get();
             }
 
 
+        } catch (ArrayIndexOutOfBoundsException ex) {
+            System.out.println(ex.getMessage());
+            return null;
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
+            return null;
         }
         return latLng;
     }

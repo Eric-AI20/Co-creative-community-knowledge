@@ -90,9 +90,17 @@ public class CommunityController {
         return "home";
     }
 
+    /**
+     * This method is to populate community details in the model and navigate to community page
+     * @param request
+     * @param model
+     * @param id  Community ID
+     * @return
+     */
     @GetMapping("/community/{id}")
     public String getCommunityById(WebRequest request, Model model, @PathVariable Long id) {
-        //model.addAttribute("user", new UserDto());
+
+        //fetch community by primary key
         Community communityById = communityService.getCommunityById(id);
 
         if (communityById != null) {
