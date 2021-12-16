@@ -39,12 +39,21 @@ public class ProjectService implements IProjectService {
         return projectRepository.findAll();
     }
 
+
+    /**
+     * This method creates project and populates location of the project
+     *
+     * @param project
+     * @return
+     */
     @Override
     public Project createProject(Project project) {
         Community community = new Community();
         community.setId(Long.valueOf(project.getCommunityId()));
         project.setCommunity(community);
 
+
+        //get Coordinates from open map-request api for the given address
         LatLng coordinatesForAddress = locationService.getCoordinatesForAddress(project.getAddress());
         if (coordinatesForAddress != null) {
             Location location = new Location();
@@ -57,12 +66,16 @@ public class ProjectService implements IProjectService {
         return projectRepository.save(project);
     }
 
+
+    /**
+     * This method populates the project id on the location object this will enable user from locations map to navigate to the project page
+     *
+     * @param savedProject
+     */
     @Override
     public void updateProjectIdOnLocation(Project savedProject) {
-
         Location location = savedProject.getLocation();
         location.setProjectId(savedProject.getId());
-
         locationService.save(location);
     }
 

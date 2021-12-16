@@ -25,6 +25,7 @@ public class Location extends AuditModel {
     @Column
     private Long projectId;
 
+    //made it transient because this only to propagate project description to the popup on locations page
     @Transient
     private String projectDescription;
 

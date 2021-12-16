@@ -9,6 +9,9 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
+/**
+ * This class will extend each entity class to populate Auditing details for each entity
+ */
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
 public abstract class AuditModel {
