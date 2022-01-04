@@ -35,18 +35,38 @@ public class ResourceController {
         this.resourceService = resourceService;
     }
 
+
+    /**
+     * This method will populate resource object for form input
+     *
+     * @param request
+     * @param model
+     * @param id
+     * @return
+     */
     @GetMapping("/resource/create/{id}")
     public String showCreateResourcePage(WebRequest request, Model model, @PathVariable Long id) {
+
 
         Resource resource = new Resource();
         Community community = new Community();
         community.setId(id);
+
+        //adding community id to link the resource to the community
         resource.setCommunity(community);
         model.addAttribute("resource", resource);
         model.addAttribute("communityList", fragmentService.getAllCommunitiesForNavigation());
         return "createresource";
     }
 
+    /**
+     * This method will create a resource entity in the database
+     *
+     * @param resource
+     * @param request
+     * @param errors
+     * @return
+     */
     @PostMapping("/resource/create")
     public ModelAndView createResource(@ModelAttribute("resource") @Valid Resource resource, HttpServletRequest request, Errors errors) {
         ModelAndView mav = new ModelAndView("redirect:/community/" + resource.getCommunityId());
@@ -55,6 +75,7 @@ public class ResourceController {
 
             Community community = new Community();
             community.setId(resource.getCommunityId());
+            //set community from the transient field since forms don't support mapping variables
             resource.setCommunity(community);
             saved = resourceService.createResource(resource);
             mav.addObject("message",

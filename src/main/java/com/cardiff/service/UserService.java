@@ -21,6 +21,14 @@ public class UserService implements IUserService {
         this.userRepository = userRepository;
     }
 
+
+    /**
+     * This method save user details in to the database
+     *
+     * @param userDto
+     * @return
+     * @throws UserAlreadyExistException
+     */
     @Override
     public User registerNewUserAccount(UserDto userDto) throws UserAlreadyExistException {
         if (emailExist(userDto.getEmail())) {
@@ -28,13 +36,21 @@ public class UserService implements IUserService {
                     + userDto.getEmail());
         }
 
+        //password encryption
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String encodedPassword = passwordEncoder.encode(userDto.getPassword());
+
         userDto.setPassword(encodedPassword);
         createUserFromDto(userDto);
         return userRepository.save(createUserFromDto(userDto));
     }
 
+    /**
+     * This method will convert dto to entity user object
+     *
+     * @param userDto
+     * @return
+     */
     private User createUserFromDto(UserDto userDto) {
         User user = new User();
         user.setEmail(userDto.getEmail());

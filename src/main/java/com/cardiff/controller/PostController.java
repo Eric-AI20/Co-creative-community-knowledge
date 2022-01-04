@@ -32,6 +32,13 @@ public class PostController {
     }
 
 
+    /**
+     * This method will populate empty POST object for create post form, the list of all posts, empty Comment Object to add comment form
+     * and community list for the navbar
+     *
+     * @param model
+     * @return
+     */
     @GetMapping("/home")
     public String showForumHome(Model model) {
 
@@ -42,6 +49,14 @@ public class PostController {
         return "forum";
     }
 
+
+    /**
+     * This method will populate post related to the community that user has selected using the path variable id
+     *
+     * @param model
+     * @param id
+     * @return
+     */
     @GetMapping("/sortByCommunityId/{id}")
     public String showForumPostsByCommunityId(Model model, @PathVariable Long id) {
 
@@ -53,11 +68,21 @@ public class PostController {
     }
 
 
+    /**
+     * This method will create a post in to a database and return data back to the form home page
+     *
+     * @param post
+     * @param request
+     * @param errors
+     * @return
+     */
     @PostMapping("/createPost")
     public ModelAndView createPost(@ModelAttribute("post") @Valid Post post, HttpServletRequest request, Errors errors) {
 
         ModelAndView mav = new ModelAndView("redirect:/forum/home");
         try {
+
+            //get the logged-in user from Security context
             String userName = request.getUserPrincipal().getName();
 
             postService.createPost(post, userName);
@@ -74,12 +99,25 @@ public class PostController {
 
     }
 
+
+    /**
+     * This is method will add the comment to the related pos using the id parameter
+     *
+     * @param comment
+     * @param id      (post ID)
+     * @param request
+     * @param errors
+     * @return
+     */
     @PostMapping("/addComment/{id}")
     public ModelAndView addComment(@ModelAttribute("comment") @Valid Comment comment, @PathVariable Long id, HttpServletRequest request, Errors errors) {
         ModelAndView mav = new ModelAndView("redirect:/forum/home");
         try {
+
+            //get the logged-in user from Security context
             String userName = request.getUserPrincipal().getName();
 
+            //save the comment object
             Comment comment1 = postService.createComment(comment, userName, id);
             mav.addObject("post", new Post());
 
