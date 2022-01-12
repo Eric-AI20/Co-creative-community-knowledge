@@ -39,6 +39,7 @@ public class Project extends AuditModel {
     @JoinColumn(name = "community_id", nullable = false, referencedColumnName = "id")
     private Community community;
 
+    //made this transient to propagate community ID between the form and controller
     @Transient
     private int communityId;
 

@@ -38,6 +38,8 @@ public class Post extends AuditModel {
     @ManyToOne      // Relationship. Many posts can belong to one community.
     private Community community;
 
+
+    //made this transient to propagate community ID between the form and controller
     @Transient
     private Long communityId;
 
