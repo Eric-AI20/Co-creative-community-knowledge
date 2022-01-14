@@ -1,5 +1,7 @@
 package com.cardiff.controller;
-
+/*
+    controller layer of springMVC
+ */
 import com.cardiff.entity.CaseStudy;
 import com.cardiff.entity.Community;
 import com.cardiff.service.CaseStudyService;
@@ -23,7 +25,7 @@ public class CaseStudyController {
     private FragmentService fragmentService;
     private CaseStudyService caseStudyService;
 
-
+    //setter method
     @Autowired
     public void setFragmentService(FragmentService fragmentService) {
         this.fragmentService = fragmentService;
