@@ -1,14 +1,17 @@
 package com.cardiff.entity;
-
+/*
+    case study entities class
+    create entities inside the database
+ */
 import javax.persistence.*;
 
 @Entity
 @Table(name = "casestudies")
 public class CaseStudy extends AuditModel {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)//auto-generate id, primary key
     @Column
-    private Long id;
+    private Long id;//primary key
 
     @Column(nullable = false, unique = true, length = 45)
     private String title;
@@ -29,15 +32,15 @@ public class CaseStudy extends AuditModel {
     private String conclusion;
 
     @Transient
-    private Long communityId;
+    private Long communityId;//foreign key
 
 
-
+    //many-to-one relationship
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "community_id", nullable = false, referencedColumnName = "id")
     private Community community;
 
-
+    //getter,setter methods
     public Long getId() {
         return id;
     }
