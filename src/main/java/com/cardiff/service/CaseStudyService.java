@@ -5,8 +5,9 @@ import com.cardiff.repository.CaseStudyRepository;
 import org.springframework.stereotype.Service;
 
 /*
-    display the case study in the url
+    service layer of SpringMVC
  */
+
 @Service
 public class CaseStudyService {
     private CaseStudyRepository caseStudyRepository;
@@ -14,11 +15,11 @@ public class CaseStudyService {
     public CaseStudyService(CaseStudyRepository caseStudyRepository) {
         this.caseStudyRepository = caseStudyRepository;
     }
-
+     //find case study id
     public CaseStudy findById(Long id){
         return caseStudyRepository.findById(id).get();
     }
-
+    //save case study
     public CaseStudy saveCaseStudy(CaseStudy casestudy)  {
         return caseStudyRepository.save(casestudy);
     }
