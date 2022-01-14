@@ -14,11 +14,11 @@ public class CaseStudyService {
     public CaseStudyService(CaseStudyRepository caseStudyRepository) {
         this.caseStudyRepository = caseStudyRepository;
     }
-
+    //get the elements by id
     public CaseStudy findById(Long id){
         return caseStudyRepository.findById(id).get();
     }
-
+    //save the elements
     public CaseStudy saveCaseStudy(CaseStudy casestudy)  {
         return caseStudyRepository.save(casestudy);
     }
