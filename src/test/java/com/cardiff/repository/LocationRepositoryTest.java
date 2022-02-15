@@ -3,6 +3,7 @@ package com.cardiff.repository;
 import com.cardiff.configuration.AuditorAwareImpl;
 import com.cardiff.entity.Community;
 import com.cardiff.entity.Location;
+import com.cardiff.entity.User;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
@@ -11,6 +12,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.test.annotation.Rollback;
 
 import java.math.BigDecimal;
@@ -24,8 +28,6 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 @Rollback(true)
 class LocationRepositoryTest {
-    @Mock
-    AuditorAwareImpl auditorAwareMock;
 
     @Autowired
     private TestEntityManager entityManager;
@@ -35,8 +37,16 @@ class LocationRepositoryTest {
 
 
     @BeforeEach
-    void init() {
-        Mockito.lenient().when(auditorAwareMock.getCurrentAuditor()).thenReturn(Optional.of("testUser"));
+    void setUp() {
+
+        // add principal object to SecurityContextHolder
+        User user = new User();
+        user.setEmail("test@test.com");
+        user.setFirstName("tester");
+        user.setId(100L);
+        Authentication auth = new UsernamePasswordAuthenticationToken(user, null);
+        SecurityContextHolder.getContext().setAuthentication(auth);
+
 
     }
 
@@ -52,16 +62,5 @@ class LocationRepositoryTest {
         repo.delete(existingLocation);
     }
 
-    @Test
-    public void testCreateLocation_Failure() {
-        Location location = new Location();
-        location.setLatitude(BigDecimal.valueOf(31.764));
-        location.setLatitude(BigDecimal.valueOf(31.764));
-
-        //since the required parameter name is missing the location will not be saved and null will be returned
-        Location savedLocation = repo.save(location);
-        assertNull(savedLocation);
-
-    }
 
 }

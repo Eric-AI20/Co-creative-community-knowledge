@@ -89,6 +89,12 @@ public class CommunityController {
         return "home";
     }
 
+    @GetMapping("/")
+    public String redirectToHome(WebRequest request, Model model) {
+        model.addAttribute("communityList", fragmentService.getAllCommunitiesForNavigation());
+        return "home";
+    }
+
     /**
      * This method is to populate community details in the model and navigate to community page
      *
