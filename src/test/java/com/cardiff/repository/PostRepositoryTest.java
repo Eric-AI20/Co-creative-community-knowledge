@@ -27,6 +27,7 @@ class PostRepositoryTest {
 
     @Mock
     AuditorAwareImpl auditorAwareMock;
+
     @Autowired
     private PostRepository repo;
     @Autowired

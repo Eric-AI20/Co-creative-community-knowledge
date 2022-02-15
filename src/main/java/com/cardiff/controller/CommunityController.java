@@ -34,19 +34,20 @@ public class CommunityController {
     }
 
     @Autowired
-    public void setCommunityService(FragmentService fragmentService) {
+    public void setFragmentService(FragmentService fragmentService) {
+
         this.fragmentService = fragmentService;
     }
 
     @Autowired
     public void setCommunityService(CommunityService communityService) {
+
         this.communityService = communityService;
     }
 
     @GetMapping("/home/NewCommunity")
     public String showCreateCommunityForm(WebRequest request, Model model) {
         model.addAttribute("community", new Community());
-
         model.addAttribute("communityList", fragmentService.getAllCommunitiesForNavigation());
         return "NewCommunity";
 
@@ -54,13 +55,12 @@ public class CommunityController {
 
 
     @PostMapping("/home/NewCommunity")
-    public ModelAndView registerUserAccount(@ModelAttribute("community") @Valid Community community, HttpServletRequest request, Errors errors,
-                                            @RequestParam("image") MultipartFile multipartFile) {
+    public ModelAndView registerCommunity(@ModelAttribute("community") @Valid Community community, HttpServletRequest request, Errors errors,
+                                          @RequestParam("image") MultipartFile multipartFile) {
         String fileName = StringUtils.cleanPath(Objects.requireNonNull(multipartFile.getOriginalFilename()));
         community.setPhoto(fileName);
         Community savedCommunity = communityRepository.save(community);
         String uploadDir = "/src/main/resources/static/images/" + savedCommunity.getId();
-
         try {
             FileUploadUtil.saveFile(uploadDir, fileName, multipartFile);
         } catch (IOException e) {
@@ -85,16 +85,16 @@ public class CommunityController {
 
     @GetMapping("/home")
     public String viewCommunityList(WebRequest request, Model model) {
-        //model.addAttribute("user", new UserDto());
         model.addAttribute("communityList", fragmentService.getAllCommunitiesForNavigation());
         return "home";
     }
 
     /**
      * This method is to populate community details in the model and navigate to community page
+     *
      * @param request
      * @param model
-     * @param id  Community ID
+     * @param id      Community ID
      * @return
      */
     @GetMapping("/community/{id}")
