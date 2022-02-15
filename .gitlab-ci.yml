@@ -30,7 +30,7 @@ build:
       - build
       - .gradle
 
-run:
-  stage: run
+deploy:
+  stage: deploy
   script:
     - gradle spring-boot:run
