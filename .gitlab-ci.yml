@@ -39,3 +39,6 @@ test:
     paths:
       - build
       - .gradle
+deploy:
+  stage: deploy
+  script: gradle bootrun
