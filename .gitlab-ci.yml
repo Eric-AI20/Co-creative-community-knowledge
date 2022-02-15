@@ -20,12 +20,17 @@ variables:
 before_script:
   - export GRADLE_USER_HOME=`pwd`/.gradle
 
-stages:
-  - deploy
+build:
+  stage: build
+  script: gradle --build-cache assemble
+  cache:
+    key: "$CI_COMMIT_REF_NAME"
+    policy: push
+    paths:
+      - build
+      - .gradle
 
-deploy:
-  stage: deploy
+run:
+  stage: run
   script:
-    - gradle build
-    - gradle test
-    - gradle bootrun
+    - gradle spring-boot:run
