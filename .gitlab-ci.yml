@@ -8,7 +8,6 @@
 # https://gradle.org/
 # https://github.com/gradle/gradle
 
-image: gradle:alpine
 
 # Disable the Gradle daemon for Continuous Integration servers as correctness
 # is usually a priority over speed in CI environments. Using a fresh
@@ -26,16 +25,6 @@ build:
   cache:
     key: "$CI_COMMIT_REF_NAME"
     policy: push
-    paths:
-      - build
-      - .gradle
-
-test:
-  stage: test
-  script: gradle check
-  cache:
-    key: "$CI_COMMIT_REF_NAME"
-    policy: pull
     paths:
       - build
       - .gradle
