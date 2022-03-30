@@ -5,6 +5,8 @@ plugins {
     id 'jacoco'
 }
 
+
+
 group = 'com.cardiff'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
@@ -48,3 +50,8 @@ dependencies {
 test {
     useJUnitPlatform()
 }
+
+bootJar{
+    enabled = true
+}
+
