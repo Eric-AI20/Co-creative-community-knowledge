@@ -66,20 +66,20 @@ sudo ssh-agent bash -c 'ssh-add gitlab_deploy_keypair.key; git clone  git@git.ca
 cd CommunityEngagement/
 mysql -u root < src/BuildDB.sql
 
-curl -O https://download.java.net/java/GA/jdk11/9/GPL/openjdk-11.0.2_linux-x64_bin.tar.gz
-tar zxvf openjdk-11.0.2_linux-x64_bin.tar.gz
-
-sudo mv jdk-11.0.2 /usr/local/
-export JAVA_HOME=/usr/local/jdk-11.0.2
-export PATH=$PATH:$JAVA_HOME/bin
+echo "Installing Java 11..."
+sudo yum install java-11-openjdk-devel -y
+echo java -version
 
 sudo yum install wget -y
+
 echo "Installing gradle..."
 wget https://services.gradle.org/distributions/gradle-7.2-bin.zip
 sudo mkdir /opt/gradle
 sudo unzip -d /opt/gradle gradle-7.2-bin.zip
 export PATH=$PATH:/opt/gradle/gradle-7.2/bin
 echo gradle -v
+
+
 mysql -u root -e "USE mysql; UPDATE user SET password=PASSWORD('comsc') WHERE User='root' AND Host = 'localhost'; FLUSH PRIVILEGES;"
 
 gradle build
