@@ -44,6 +44,7 @@ class CommunityControllerTest {
         this.mockMvc.perform(get("/community/1")).andDo(print()).andExpect(status().isOk())
                 .andExpect(content().string(containsString("Demo Community")));
 
+
     }
 
 
