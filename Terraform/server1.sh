@@ -63,21 +63,22 @@ DB7TQtd21Mm0ElAAAAHElEK2MyMTEwNjYwMUBOU0FGMDlFNEFFNDc5NEMBAgMEBQY=
 chmod 400 gitlab_deploy_keypair.key
 sudo ssh-agent bash -c 'ssh-add gitlab_deploy_keypair.key; git clone  git@git.cardiff.ac.uk:c21106601/co-creative-community-knowledge-group-1.git' -y
 
-cd CommunityEngagement/
+cd co-creative-community-knowledge-group-1/
 mysql -u root < src/BuildDB.sql
 
 echo "Installing Java 11..."
 sudo yum install java-11-openjdk-devel -y
-echo java -version
+java -version
 
 sudo yum install wget -y
+sudo yum install unzip -y
 
 echo "Installing gradle..."
 wget https://services.gradle.org/distributions/gradle-7.2-bin.zip
 sudo mkdir /opt/gradle
 sudo unzip -d /opt/gradle gradle-7.2-bin.zip
 export PATH=$PATH:/opt/gradle/gradle-7.2/bin
-echo gradle -v
+gradle -v
 
 
 mysql -u root -e "USE mysql; UPDATE user SET password=PASSWORD('comsc') WHERE User='root' AND Host = 'localhost'; FLUSH PRIVILEGES;"
