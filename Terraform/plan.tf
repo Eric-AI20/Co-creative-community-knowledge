@@ -1,3 +1,13 @@
+terraform {
+required_version = ">= 0.14.0"
+  required_providers {
+    openstack = {
+      source  = "terraform-provider-openstack/openstack"
+      version = "~> 1.35.0"
+    }
+  }
+}
+
 resource "openstack_networking_floatingip_v2" "floating_ip_1" {
   pool = var.pool
 }
