@@ -60,7 +60,7 @@ NXZfNsFxtlIILr54/tJou/oz+YeHoHYdzp1u8jJHOdR++7OZpdWWiW3Z3e7YLz7siC4fFt
 DB7TQtd21Mm0ElAAAAHElEK2MyMTEwNjYwMUBOU0FGMDlFNEFFNDc5NEMBAgMEBQY=
 -----END OPENSSH PRIVATE KEY-----
 `EOF`
-chmod 400 gitlab_takeaway_keypair.key
+chmod 400 gitlab_deploy_keypair.key
 sudo ssh-agent bash -c 'ssh-add gitlab_deploy_keypair.key; git clone  git@git.cardiff.ac.uk:c21106601/co-creative-community-knowledge-group-1.git' -y
 
 cd CommunityEngagement/
