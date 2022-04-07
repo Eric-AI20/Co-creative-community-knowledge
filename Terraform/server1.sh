@@ -6,11 +6,12 @@ echo in directory $PWD
 
 echo "installing MariaDB..."
 # sudo yum install mysql -y
-sudo yum install mariadb-server -y
+sudo apt install mariadb-server -y
 sudo systemctl start mariadb
 sudo systemctl status mariadb
 sudo systemctl enable mariadb
-sudo yum install git -y
+
+sudo apt install git -y
 
 echo "needs to be in root account"
 cd root
@@ -19,7 +20,7 @@ sudo ssh-keyscan git.cardiff.ac.uk >> .ssh/known_hosts
 sudo chmod 644 .ssh/known_hosts
 
 echo "now needs to be in centos user directory"
-cd /home/centos
+cd /home/debian
 cat << `EOF` >> gitlab_deploy_keypair.key
 -----BEGIN OPENSSH PRIVATE KEY-----
 b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAABlwAAAAdzc2gtcn
@@ -67,14 +68,13 @@ cd co-creative-community-knowledge-group-1/
 mysql -u root < src/BuildDB.sql
 
 echo "Installing Java 11..."
-sudo yum install java-11-openjdk-devel -y
+sudo apt install -y openjdk-11-jdk
 java -version
 
-sudo yum install wget -y
-sudo yum install unzip -y
+sudo apt install -y curl unzip
 
 echo "Installing gradle..."
-wget https://services.gradle.org/distributions/gradle-7.2-bin.zip
+curl -O https://downloads.gradle-dn.com/distributions/gradle-7.2-bin.zip
 sudo mkdir /opt/gradle
 sudo unzip -d /opt/gradle gradle-7.2-bin.zip
 export PATH=$PATH:/opt/gradle/gradle-7.2/bin
