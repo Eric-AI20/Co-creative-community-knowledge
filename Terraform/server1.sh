@@ -13,6 +13,8 @@ sudo systemctl start mariadb
 sudo systemctl status mariadb
 sudo systemctl enable mariadb
 
+sudo mysql -e "USE mysql; UPDATE user SET password=PASSWORD('comsc') WHERE User='root' AND Host = 'localhost'; FLUSH PRIVILEGES;"
+
 sudo apt install git -y
 
 echo "needs to be in root account"
@@ -83,7 +85,7 @@ export PATH=$PATH:/opt/gradle/gradle-7.2/bin
 gradle -v
 
 
-mysql -u root -e "USE mysql; UPDATE user SET password=PASSWORD('comsc') WHERE User='root' AND Host = 'localhost'; FLUSH PRIVILEGES;"
+
 
 gradle build
 gradle bootrun
