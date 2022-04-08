@@ -13,14 +13,8 @@ sudo systemctl start mariadb
 sudo systemctl status mariadb
 sudo systemctl enable mariadb
 
-sudo mysql --user=root <<_EOF_
-UPDATE mysql.user SET Password=PASSWORD('comsc') WHERE User='root';
-DELETE FROM mysql.user WHERE User='';
-DELETE FROM mysql.user WHERE User='root' AND Host NOT IN ('localhost', '127.0.0.1', '::1');
-DROP DATABASE IF EXISTS test;
-DELETE FROM mysql.db WHERE Db='test' OR Db='test\\_%';
-FLUSH PRIVILEGES;
-_EOF_
+sudo mysql -e "USE mysql; UPDATE user SET password=PASSWORD('comsc') WHERE User='root' AND Host = 'localhost'; UPDATE mysql.user SET plugin = 'mysql_native_password' WHERE user = 'root' AND plugin = 'unix_socket'; FLUSH PRIVILEGES;"
+sudo systemctl restart  mariadb
 
 sudo apt install git -y
 
