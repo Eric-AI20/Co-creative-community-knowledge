@@ -15,6 +15,7 @@ sudo systemctl enable mariadb
 
 sudo mysql -e "USE mysql; UPDATE user SET password=PASSWORD('comsc') WHERE User='root' AND Host = 'localhost'; UPDATE mysql.user SET plugin = 'mysql_native_password' WHERE user = 'root' AND plugin = 'unix_socket'; FLUSH PRIVILEGES;"
 sudo systemctl restart  mariadb
+sudo systemctl enable mariadb
 
 sudo apt install git -y
 
