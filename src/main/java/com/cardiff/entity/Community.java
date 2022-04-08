@@ -16,13 +16,13 @@ public class Community extends AuditModel{
     @Column(length = 1000)
     private String description;
 
-    @Column(nullable = false, length = 10000)
+    @Column(nullable = false, length = 1000)
     private String aboutUs;
 
-    @Column(nullable = false, length = 10000)
+    @Column(nullable = false, length = 1000)
     private String goal;
 
-    @Column(nullable = false, length = 10000)
+    @Column(nullable = false, length = 1000)
     private String history;
 
     @Column(nullable = true, length = 1000)

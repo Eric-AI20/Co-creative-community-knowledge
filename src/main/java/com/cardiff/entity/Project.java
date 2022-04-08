@@ -16,13 +16,13 @@ public class Project extends AuditModel {
     @Column(nullable = false, length = 45)
     private String author;
 
-    @Column(length = 10000)
+    @Column(length = 1000)
     private String description;
 
-    @Column(length = 10000)
+    @Column(length = 1000)
     private String objective;
 
-    @Column(length = 10000)
+    @Column(length = 1000)
     private String about;
 
     @Column
