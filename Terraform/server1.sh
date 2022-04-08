@@ -70,7 +70,8 @@ chmod 400 gitlab_deploy_keypair.key
 sudo ssh-agent bash -c 'ssh-add gitlab_deploy_keypair.key; git clone  git@git.cardiff.ac.uk:c21106601/co-creative-community-knowledge-group-1.git' -y
 
 cd co-creative-community-knowledge-group-1/
-mysql -u root < src/BuildDB.sql
+mysql -uroot -pcomsc < src/BuildDB.sql
+
 
 echo "Installing Java 11..."
 sudo apt install -y openjdk-11-jdk
