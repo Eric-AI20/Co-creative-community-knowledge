@@ -88,7 +88,5 @@ export PATH=$PATH:/opt/gradle/gradle-7.2/bin
 gradle -v
 
 
-
-
 gradle build
 gradle bootrun
