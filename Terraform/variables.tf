@@ -8,4 +8,4 @@ variable "network" { default = "yihangNetwork" }   # you need to change this
 variable "pool" { default = "cscloud_private_floating" }
 variable "server1_script" { default = "./install-jenkins-debian.sh" }
 variable "security_description" { default = "Terraform security group" }
-variable "security_name" { default = "tf_securityMat" }
+variable "security_name" { default = "tf_securityMat_1" }
