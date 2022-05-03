@@ -13,8 +13,8 @@
 export OS_AUTH_URL=https://cscloud.cf.ac.uk:5000
 # With the addition of Keystone we have standardized on the term **project**
 # as the entity that owns the resources.
-export OS_PROJECT_ID=f37d985282f94396b35f95224cb84817
-export OS_PROJECT_NAME="c21106601"
+export OS_PROJECT_ID=6da4c80890b745779a86ba69f1530a70
+export OS_PROJECT_NAME="c21083456"
 export OS_USER_DOMAIN_NAME="cardiff.ac.uk"
 if [ -z "$OS_USER_DOMAIN_NAME" ]; then unset OS_USER_DOMAIN_NAME; fi
 export OS_PROJECT_DOMAIN_ID="3693afdd0603423a9e8984fd32df7a0c"
@@ -24,7 +24,7 @@ unset OS_TENANT_ID
 unset OS_TENANT_NAME
 # In addition to the owning entity (tenant), OpenStack stores the entity
 # performing the action as the **user**.
-export OS_USERNAME="c21106601"
+export OS_USERNAME="c21083456"
 # With Keystone you pass the keystone password.
 echo "Please enter your OpenStack Password for project $OS_PROJECT_NAME as user $OS_USERNAME: "
 read -sr OS_PASSWORD_INPUT
