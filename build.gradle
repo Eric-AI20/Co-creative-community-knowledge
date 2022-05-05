@@ -27,6 +27,8 @@ dependencies {
     implementation 'org.webjars:webjars-locator-core:0.48'
     implementation 'org.jetbrains:annotations:20.1.0'
     implementation 'junit:junit:4.13.1'
+    implementation 'org.testng:testng:7.1.0'
+    implementation 'org.testng:testng:7.1.0'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.springframework.security:spring-security-test'
     implementation 'org.springframework.boot:spring-boot-starter-validation'
