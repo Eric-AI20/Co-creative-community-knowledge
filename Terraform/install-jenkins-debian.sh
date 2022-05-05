@@ -86,7 +86,7 @@ sudo mkdir /opt/gradle
 sudo unzip -d /opt/gradle gradle-7.2-bin.zip
 export PATH=$PATH:/opt/gradle/gradle-7.2/bin
 gradle -v
-
+pwd
 
 gradle build
 gradle bootrun

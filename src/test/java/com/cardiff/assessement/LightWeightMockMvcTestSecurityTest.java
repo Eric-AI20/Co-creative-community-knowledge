@@ -1,7 +1,9 @@
 package com.cardiff.assessement;
 
 
+import com.cardiff.controller.CaseStudyController;
 import com.cardiff.controller.PostController;
+import com.cardiff.service.CaseStudyService;
 import com.cardiff.service.FragmentService;
 import com.cardiff.service.PostService;
 import com.sun.security.auth.UserPrincipal;
@@ -25,15 +27,20 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringRunner.class)
-@WebMvcTest(PostController.class)
+@WebMvcTest(CaseStudyController.class)
 @AutoConfigureTestDatabase
 public class LightWeightMockMvcTestSecurityTest {
 
     // @Autowired
     private MockMvc mockMvc;
 
+    /*
     @MockBean
     private PostService postService;
+    */
+
+    @MockBean
+    private CaseStudyService caseStudyService;
 
     @MockBean
     private FragmentService fragmentService;
@@ -53,7 +60,7 @@ public class LightWeightMockMvcTestSecurityTest {
 
     @Test
     public void forumCreatePostLoggedInUser() throws Exception {
-
+        /*
         this.mockMvc.perform(post("/forum/createPost")
                         .principal(new UserPrincipal("test"))
                         .contentType(MediaType.APPLICATION_FORM_URLENCODED)
@@ -63,9 +70,26 @@ public class LightWeightMockMvcTestSecurityTest {
                 .andDo(print())
                 .andExpect(status().is(302))
                 .andExpect(redirectedUrl("/forum/home"));
+        */
+        this.mockMvc.perform(post("/createCaseStudy/communityId")
+                        .principal(new UserPrincipal("test"))
+                        .contentType(MediaType.APPLICATION_FORM_URLENCODED)
+                        .param("communityId", "2")
+                        .param("Id", "2")
+                        .param("title", "abc")
+                        .param("caseIntruduction", "sads")
+                        .param("caseEvaluation", "sads")
+                        .param("caseSolutions", "sads")
+                        .param("implementations", "sads")
+                        .param("conclusion", "sads")
 
+                )
+                .andDo(print())
+                .andExpect(status().is(302))
+                .andExpect(redirectedUrl("/viewCaseStudy/communityId"));
     }
 
+    /*
     @Test
     public void forumCreatePostWhenUserIsLoggedIn() throws Exception {
 
@@ -79,6 +103,7 @@ public class LightWeightMockMvcTestSecurityTest {
                 .andExpect(redirectedUrl("/forum/home?message=Unable+to+create+Post"));
 
     }
+     */
 
 
 }
