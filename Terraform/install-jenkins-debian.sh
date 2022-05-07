@@ -68,7 +68,7 @@ EIdEUmyVgPXybJAAAAHElEK2MyMTA4MzQ1NkBOU0FGNDdCMDkyM0Y5OTcBAgMEBQY=
 -----END OPENSSH PRIVATE KEY-----
 `EOF`
 chmod 400 gitlab_deploy_keypair.key
-sudo ssh-agent bash -c 'ssh-add gitlab_deploy_keypair.key; git@git.cardiff.ac.uk:c21083456/co-creative-community-knowledge-group-1.git' -y
+sudo ssh-agent bash -c 'ssh-add gitlab_deploy_keypair.key; git clone git@git.cardiff.ac.uk:c21083456/co-creative-community-knowledge-group-1.git' -y
 
 cd /
 cd home/
